@@ -202,9 +202,6 @@ public class ViewLogin extends javax.swing.JFrame {
         if(tamanhoUsuario == 0 && tamanhoSenha == 0){
             JOptionPane.showMessageDialog(null, "O usuário e a senha não podem estar vazios");
         }
-        else if(txtLogin.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "O usuário deve ser preenchido");
-        }
         else if(tamanhoUsuario < 6){
             JOptionPane.showMessageDialog(null, "Escolha um usuário com pelo menos 6 caracteres");
         }
