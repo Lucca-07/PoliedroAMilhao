@@ -215,12 +215,12 @@ public class ViewLogin extends javax.swing.JFrame {
         // Login
         var admin = false;
         var cadastrado = false;
-        if(txtLogin.getText().equals("admin") && new String (txtSenha.getPassword()).equals("admin")){
+        if(txtLogin.getText().endsWith("@sistemapoliedro.com.br")) && new String (txtSenha.getPassword()).equals("admin")){
             JOptionPane.showMessageDialog(null, "Logado como professor");
             admin = true;
             
         }
-        else if(txtLogin.getText().equals("Usuário") && new String (txtSenha.getPassword()).equals("123")){
+        else if(txtLogin.getText().endsWith("@p4ed.com") && new String (txtSenha.getPassword()).equals("123")){
             JOptionPane.showMessageDialog(null, "Logado como aluno");
             admin = false;
         }
