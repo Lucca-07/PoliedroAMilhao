@@ -129,35 +129,39 @@ public class ViewLogin extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(labelLogin)
-                    .addComponent(labelSenha)
-                    .addComponent(txtLogin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-                    .addComponent(txtSenha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-                    .addComponent(butLogar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(160, Short.MAX_VALUE)
-                .addComponent(mostrarSenha)
-                .addContainerGap())
+                .addGap(6, 6, 6)
+                .addComponent(labelLogin))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(labelSenha))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(160, 160, 160)
+                .addComponent(mostrarSenha))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(butLogar, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(6, 6, 6)
                 .addComponent(labelLogin)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(6, 6, 6)
                 .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(labelSenha)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(6, 6, 6)
                 .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(mostrarSenha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(butLogar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(12, 12, 12)
+                .addComponent(mostrarSenha)
+                .addGap(6, 6, 6)
+                .addComponent(butLogar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -209,11 +213,20 @@ public class ViewLogin extends javax.swing.JFrame {
     private void butLogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butLogarActionPerformed
         // TODO add your handling code here:
         // Login
-        if(txtLogin.getText().equals("Usuário") && new String (txtSenha.getPassword()).equals("123")){
-            JOptionPane.showMessageDialog(null, "Logado");
+        var admin = false;
+        var cadastrado = false;
+        if(txtLogin.getText().equals("admin") && new String (txtSenha.getPassword()).equals("admin")){
+            JOptionPane.showMessageDialog(null, "Logado como professor");
+            admin = true;
+            
+        }
+        else if(txtLogin.getText().equals("Usuário") && new String (txtSenha.getPassword()).equals("123")){
+            JOptionPane.showMessageDialog(null, "Logado como aluno");
+            admin = false;
         }
         else{
             JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos");
+            admin = false;
         }
     }//GEN-LAST:event_butLogarActionPerformed
 
