@@ -36,7 +36,6 @@ public class ViewLogin extends javax.swing.JFrame {
         labelSenha = new javax.swing.JLabel();
         txtSenha = new javax.swing.JPasswordField();
         logar = new javax.swing.JButton();
-        cadastrar = new javax.swing.JButton();
         labelLogin = new javax.swing.JLabel();
         txtLogin = new javax.swing.JTextField();
         mostrarSenha = new javax.swing.JCheckBox();
@@ -103,19 +102,9 @@ public class ViewLogin extends javax.swing.JFrame {
             }
         });
 
-        cadastrar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        cadastrar.setForeground(new java.awt.Color(66, 141, 255));
-        cadastrar.setText("Cadastrar");
-        cadastrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        cadastrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cadastrarActionPerformed(evt);
-            }
-        });
-
         labelLogin.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         labelLogin.setForeground(new java.awt.Color(66, 141, 255));
-        labelLogin.setText("Login");
+        labelLogin.setText("RA:");
 
         txtLogin.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txtLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -127,8 +116,7 @@ public class ViewLogin extends javax.swing.JFrame {
         mostrarSenha.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         mostrarSenha.setForeground(new java.awt.Color(66, 141, 255));
         mostrarSenha.setText("Mostrar senha");
-        mostrarSenha.setActionCommand("Mostrar senha");
-        mostrarSenha.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mostrarSenha.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         mostrarSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mostrarSenhaActionPerformed(evt);
@@ -141,19 +129,15 @@ public class ViewLogin extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(labelLogin)
                     .addComponent(labelSenha)
-                    .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel3Layout.createSequentialGroup()
-                            .addComponent(cadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(logar, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(txtLogin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                    .addComponent(txtSenha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                    .addComponent(logar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(154, Short.MAX_VALUE)
                 .addComponent(mostrarSenha)
                 .addContainerGap())
         );
@@ -171,9 +155,7 @@ public class ViewLogin extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(mostrarSenha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(logar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(logar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -182,13 +164,11 @@ public class ViewLogin extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(575, Short.MAX_VALUE)
-                .addComponent(imagemLogo)
-                .addContainerGap(575, Short.MAX_VALUE))
+                .addContainerGap(549, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(imagemLogo))
+                .addContainerGap(549, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -237,31 +217,6 @@ public class ViewLogin extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarActionPerformed
-        // TODO add your handling code here:
-        //Cadastro
-        //Checa o tamanho do usuário
-        String usuario = txtLogin.getText();
-        int tamanhoUsuario = usuario.length();
-        
-        //Checa o tamanho da senha
-        char[] senha = txtSenha.getPassword();
-        int tamanhoSenha = senha.length;
-        
-        if(tamanhoUsuario == 0 && tamanhoSenha == 0){
-            JOptionPane.showMessageDialog(null, "O usuário e a senha não podem estar vazios");
-        }
-        else if(tamanhoUsuario < 6){
-            JOptionPane.showMessageDialog(null, "Escolha um usuário com pelo menos 6 caracteres");
-        }
-        else if(tamanhoSenha < 6){
-            JOptionPane.showMessageDialog(null, "Escolha uma senha com pelo menos 6 caracteres");
-        }
-        else{
-            JOptionPane.showMessageDialog(null, "Cadastro realizado");
-        }
-    }//GEN-LAST:event_cadastrarActionPerformed
 
     private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
         // TODO add your handling code here:
@@ -313,7 +268,6 @@ public class ViewLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton cadastrar;
     private javax.swing.JLabel imagemLogo;
     private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel1;

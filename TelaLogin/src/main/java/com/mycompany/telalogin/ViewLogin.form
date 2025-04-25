@@ -78,7 +78,7 @@
           <Color blue="ff" green="ff" red="cc" type="rgb"/>
         </Property>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Default Cursor"/>
+          <Color id="Cursor Padr&#xe3;o"/>
         </Property>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[1920, 1080]"/>
@@ -99,14 +99,12 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace pref="575" max="32767" attributes="0"/>
-                  <Component id="imagemLogo" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="575" max="32767" attributes="0"/>
+                  <EmptySpace pref="549" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jPanel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="imagemLogo" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="549" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -142,23 +140,17 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="labelLogin" min="-2" max="-2" attributes="0"/>
                           <Component id="labelSenha" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtLogin" alignment="0" min="-2" pref="250" max="-2" attributes="0"/>
-                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="txtSenha" min="-2" pref="250" max="-2" attributes="0"/>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="cadastrar" min="-2" pref="115" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="logar" min="-2" pref="115" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
+                          <Component id="txtLogin" alignment="1" pref="250" max="32767" attributes="0"/>
+                          <Component id="txtSenha" alignment="1" pref="250" max="32767" attributes="0"/>
+                          <Component id="logar" alignment="1" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="154" max="32767" attributes="0"/>
                       <Component id="mostrarSenha" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -178,10 +170,7 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="mostrarSenha" max="32767" attributes="0"/>
                       <EmptySpace pref="10" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="cadastrar" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                          <Component id="logar" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="logar" min="-2" pref="32" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -223,23 +212,6 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="logarActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="cadastrar">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="14" style="1"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="8d" red="42" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Cadastrar"/>
-                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Hand Cursor"/>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadastrarActionPerformed"/>
-              </Events>
-            </Component>
             <Component class="javax.swing.JLabel" name="labelLogin">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -248,7 +220,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="8d" red="42" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Login"/>
+                <Property name="text" type="java.lang.String" value="RA:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtLogin">
@@ -270,9 +242,8 @@
                   <Color blue="ff" green="8d" red="42" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Mostrar senha"/>
-                <Property name="actionCommand" type="java.lang.String" value="Mostrar senha"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Hand Cursor"/>
+                  <Color id="Cursor Padr&#xe3;o"/>
                 </Property>
               </Properties>
               <Events>
