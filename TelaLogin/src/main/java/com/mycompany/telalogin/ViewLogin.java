@@ -30,12 +30,13 @@ public class ViewLogin extends javax.swing.JFrame {
 
         jPanel2 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
+        jOptionPane1 = new javax.swing.JOptionPane();
         jPanel1 = new javax.swing.JPanel();
         imagemLogo = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         labelSenha = new javax.swing.JLabel();
         txtSenha = new javax.swing.JPasswordField();
-        logar = new javax.swing.JButton();
+        butLogar = new javax.swing.JButton();
         labelLogin = new javax.swing.JLabel();
         txtLogin = new javax.swing.JTextField();
         mostrarSenha = new javax.swing.JCheckBox();
@@ -78,7 +79,7 @@ public class ViewLogin extends javax.swing.JFrame {
             }
         });
 
-        imagemLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/LogoPoliedro-removebg-preview.png"))); // NOI18N
+        imagemLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/LogoPoliedro_1.png"))); // NOI18N
 
         jPanel3.setBackground(new java.awt.Color(204, 255, 255));
 
@@ -93,12 +94,12 @@ public class ViewLogin extends javax.swing.JFrame {
             }
         });
 
-        logar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        logar.setForeground(new java.awt.Color(66, 141, 255));
-        logar.setText("Logar");
-        logar.addActionListener(new java.awt.event.ActionListener() {
+        butLogar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        butLogar.setForeground(new java.awt.Color(66, 141, 255));
+        butLogar.setText("Logar");
+        butLogar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                logarActionPerformed(evt);
+                butLogarActionPerformed(evt);
             }
         });
 
@@ -134,10 +135,10 @@ public class ViewLogin extends javax.swing.JFrame {
                     .addComponent(labelSenha)
                     .addComponent(txtLogin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
                     .addComponent(txtSenha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-                    .addComponent(logar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(butLogar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(154, Short.MAX_VALUE)
+                .addContainerGap(160, Short.MAX_VALUE)
                 .addComponent(mostrarSenha)
                 .addContainerGap())
         );
@@ -154,8 +155,8 @@ public class ViewLogin extends javax.swing.JFrame {
                 .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(mostrarSenha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
-                .addComponent(logar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(butLogar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -164,22 +165,22 @@ public class ViewLogin extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(549, Short.MAX_VALUE)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(549, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(imagemLogo)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(332, Short.MAX_VALUE)
+                .addComponent(imagemLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 712, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(316, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(123, Short.MAX_VALUE)
-                .addComponent(imagemLogo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addContainerGap(122, Short.MAX_VALUE)
+                .addComponent(imagemLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(154, Short.MAX_VALUE))
+                .addContainerGap(155, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -205,7 +206,7 @@ public class ViewLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSenhaActionPerformed
 
-    private void logarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logarActionPerformed
+    private void butLogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butLogarActionPerformed
         // TODO add your handling code here:
         // Login
         if(txtLogin.getText().equals("Usuário") && new String (txtSenha.getPassword()).equals("123")){
@@ -214,7 +215,7 @@ public class ViewLogin extends javax.swing.JFrame {
         else{
             JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos");
         }
-    }//GEN-LAST:event_logarActionPerformed
+    }//GEN-LAST:event_butLogarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
@@ -270,14 +271,15 @@ public class ViewLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton butLogar;
     private javax.swing.JLabel imagemLogo;
     private javax.swing.JButton jButton2;
+    private javax.swing.JOptionPane jOptionPane1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel labelLogin;
     private javax.swing.JLabel labelSenha;
-    private javax.swing.JButton logar;
     private javax.swing.JCheckBox mostrarSenha;
     private javax.swing.JTextField txtLogin;
     private javax.swing.JPasswordField txtSenha;
