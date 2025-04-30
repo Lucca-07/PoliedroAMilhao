@@ -32,6 +32,7 @@ public class TelaSelecaoAno extends javax.swing.JFrame {
         jcAno = new javax.swing.JComboBox<>();
         jcMaterias = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
+        jcDificuldade = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -66,6 +67,14 @@ public class TelaSelecaoAno extends javax.swing.JFrame {
             }
         });
 
+        jcDificuldade.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        jcDificuldade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione a dificuldade:", "Fácil", "Médio", "Difícil" }));
+        jcDificuldade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcDificuldadeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -75,9 +84,13 @@ public class TelaSelecaoAno extends javax.swing.JFrame {
                 .addComponent(jcAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
                 .addComponent(jcMaterias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addComponent(jcDificuldade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addGap(281, 281, 281))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -86,8 +99,10 @@ public class TelaSelecaoAno extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jcAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jcMaterias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
-                .addGap(192, 192, 192))
+                    .addComponent(jcDificuldade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(61, 61, 61)
+                .addComponent(jButton1)
+                .addGap(108, 108, 108))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -144,7 +159,7 @@ public class TelaSelecaoAno extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         if(!jcAno.getSelectedItem().toString().equals("Selecione o ano:") && !jcMaterias.getSelectedItem().toString().equals("Selecione as matérias: ")){
-            JOptionPane.showMessageDialog(null, "Ano escolhido: "+jcAno.getSelectedItem().toString() + "\nMatéria escolhida: " + jcMaterias.getSelectedItem().toString());
+            JOptionPane.showMessageDialog(null, "Ano escolhido: "+jcAno.getSelectedItem().toString() + "\nMatéria escolhida: " + jcMaterias.getSelectedItem().toString() +"\nDificuldade escolhida: " + jcDificuldade.getSelectedItem().toString());
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -155,7 +170,15 @@ public class TelaSelecaoAno extends javax.swing.JFrame {
 
     private void jcMateriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcMateriasActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_jcMateriasActionPerformed
+
+    private void jcDificuldadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcDificuldadeActionPerformed
+        // TODO add your handling code here:
+     
+
+    
+    }//GEN-LAST:event_jcDificuldadeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -196,6 +219,7 @@ public class TelaSelecaoAno extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JComboBox<String> jcAno;
+    private javax.swing.JComboBox<String> jcDificuldade;
     private javax.swing.JComboBox<String> jcMaterias;
     // End of variables declaration//GEN-END:variables
 }
