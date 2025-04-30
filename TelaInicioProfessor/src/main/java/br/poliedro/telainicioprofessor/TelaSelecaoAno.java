@@ -158,7 +158,7 @@ public class TelaSelecaoAno extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        if(!jcAno.getSelectedItem().toString().equals("Selecione o ano:") && !jcMaterias.getSelectedItem().toString().equals("Selecione as matérias: ")){
+        if(!jcAno.getSelectedItem().toString().equals("Selecione o ano:") && !jcMaterias.getSelectedItem().toString().equals("Selecione as matérias: ") && !jcDificuldade.getSelectedItem().toString().equals("Selecione a dificuldade:")){
             JOptionPane.showMessageDialog(null, "Ano escolhido: "+jcAno.getSelectedItem().toString() + "\nMatéria escolhida: " + jcMaterias.getSelectedItem().toString() +"\nDificuldade escolhida: " + jcDificuldade.getSelectedItem().toString());
         }
     }//GEN-LAST:event_jButton1ActionPerformed
