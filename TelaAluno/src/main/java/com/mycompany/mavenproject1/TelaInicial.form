@@ -59,8 +59,8 @@
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="466" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jButton2" pref="375" max="32767" attributes="0"/>
-                              <Component id="jButton1" max="32767" attributes="0"/>
+                              <Component id="BotãoMat" pref="375" max="32767" attributes="0"/>
+                              <Component id="BotãoGeral" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -76,13 +76,13 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="jLabel3" min="-2" pref="134" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="177" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="179" max="-2" attributes="0"/>
                   <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
-                  <Component id="jButton1" min="-2" pref="75" max="-2" attributes="0"/>
+                  <Component id="BotãoGeral" min="-2" pref="75" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                  <Component id="jButton2" min="-2" pref="82" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="97" max="32767" attributes="0"/>
+                  <Component id="BotãoMat" min="-2" pref="82" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="93" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -95,7 +95,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="Bot&#xe3;oGeral">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="99" green="99" red="0" type="rgb"/>
@@ -107,13 +107,18 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Geral"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                <BevelBorder/>
+              </Border>
+            </Property>
             <Property name="requestFocusEnabled" type="boolean" value="false"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Bot&#xe3;oGeralActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton2">
+        <Component class="javax.swing.JButton" name="Bot&#xe3;oMat">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="99" green="99" red="0" type="rgb"/>
@@ -125,15 +130,28 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Mat&#xe9;rias"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
+                <BevelBorder/>
+              </Border>
+            </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Bot&#xe3;oMatActionPerformed"/>
           </Events>
         </Component>
         <Container class="javax.swing.JPanel" name="jPanel2">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                <BevelBorder/>
+              </Border>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="99" green="99" red="99" type="rgb"/>
             </Property>
           </Properties>
 
@@ -150,7 +168,7 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="22" max="32767" attributes="0"/>
+                      <EmptySpace pref="20" max="32767" attributes="0"/>
                       <Component id="jLabel2" min="-2" pref="33" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   </Group>

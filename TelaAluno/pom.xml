@@ -8,7 +8,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>17</maven.compiler.release>
-        <exec.mainClass>com.mycompany.mavenproject1.Mavenproject1</exec.mainClass>
+        <exec.mainClass>com.mycompany.mavenproject1.TelaInicial</exec.mainClass>
     </properties>
     <name>TelaAluno</name>
 </project>
