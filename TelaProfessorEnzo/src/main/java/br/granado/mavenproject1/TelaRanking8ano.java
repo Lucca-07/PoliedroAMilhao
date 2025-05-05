@@ -4,22 +4,21 @@
  */
 package br.granado.mavenproject1;
 
+/**
+ *
+ * @author ENZO CHAGAS GRANADA
+ */
 import java.util.List;
 import javax.swing.RowSorter;
 import javax.swing.SortOrder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
-
-/**
- *
- * @author ENZO CHAGAS GRANADA
- */
-public class TelaRanking7ano extends javax.swing.JFrame {
+public class TelaRanking8ano extends javax.swing.JFrame {
 
     /**
-     * Creates new form TelaRanking7ano
+     * Creates new form TelaRanking8ano
      */
-    public TelaRanking7ano() {
+    public TelaRanking8ano() {
         initComponents();
         carregarDados();
         
@@ -40,7 +39,6 @@ public class TelaRanking7ano extends javax.swing.JFrame {
         jTable1.setRowSorter(sorter);
         sorter.setSortKeys(List.of(new RowSorter.SortKey(1, SortOrder.DESCENDING)));
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -54,28 +52,33 @@ public class TelaRanking7ano extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        btnVoltarMenuRanking = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1400, 1130));
+        setBackground(new java.awt.Color(204, 255, 255));
+        setMaximumSize(new java.awt.Dimension(2440, 1920));
+        setMinimumSize(new java.awt.Dimension(1240, 720));
+        setPreferredSize(new java.awt.Dimension(1360, 788));
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));
         jPanel1.setForeground(new java.awt.Color(204, 255, 255));
-        jPanel1.setMaximumSize(new java.awt.Dimension(1400, 1130));
-        jPanel1.setPreferredSize(new java.awt.Dimension(1400, 1130));
+        jPanel1.setMaximumSize(new java.awt.Dimension(2440, 1920));
+        jPanel1.setMinimumSize(new java.awt.Dimension(1240, 720));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1360, 788));
 
         jLabel1.setFont(new java.awt.Font("Calibri", 0, 36)); // NOI18N
-        jLabel1.setText("Ranking 7 ano ");
+        jLabel1.setText("Ranking 8 ano");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
                 {null, null},
+                {null, null},
                 {null, null}
             },
             new String [] {
-                "Nome ", "Pontuação"
+                "Aluno ", "Pontuação"
             }
         ) {
             Class[] types = new Class [] {
@@ -88,11 +91,10 @@ public class TelaRanking7ano extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        btnVoltarMenuRanking.setFont(new java.awt.Font("Calibri", 0, 36)); // NOI18N
-        btnVoltarMenuRanking.setText("Voltar");
-        btnVoltarMenuRanking.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setText("Voltar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVoltarMenuRankingActionPerformed(evt);
+                btnVoltarMenuRanking(evt);
             }
         });
 
@@ -101,28 +103,28 @@ public class TelaRanking7ano extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(350, Short.MAX_VALUE)
+                .addContainerGap(413, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(576, 576, 576))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(329, 329, 329))
+                        .addGap(375, 375, 375))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(450, 450, 450))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnVoltarMenuRanking)
-                        .addGap(503, 503, 503))))
+                        .addGap(497, 497, 497))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addGap(34, 34, 34)
                 .addComponent(jLabel1)
-                .addGap(40, 40, 40)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
-                .addComponent(btnVoltarMenuRanking)
-                .addGap(38, 38, 38))
+                .addGap(56, 56, 56)
+                .addComponent(jButton1)
+                .addGap(74, 74, 74))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -130,24 +132,25 @@ public class TelaRanking7ano extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1240, Short.MAX_VALUE)
+                .addGap(26, 26, 26))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 667, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnVoltarMenuRankingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarMenuRankingActionPerformed
-        ViewProfessor tela = new ViewProfessor();
-        tela.setVisible(true);
-        this.dispose();
-    // TODO add your handling code here:
-    }//GEN-LAST:event_btnVoltarMenuRankingActionPerformed
-    
+    private void btnVoltarMenuRanking(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarMenuRanking
+    ViewProfessor tela = new ViewProfessor();
+    tela.setVisible(true); 
+    this.dispose();
+            // TODO add your handling code here:
+    }//GEN-LAST:event_btnVoltarMenuRanking
+
     /**
      * @param args the command line arguments
      */
@@ -165,26 +168,26 @@ public class TelaRanking7ano extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaRanking7ano.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaRanking8ano.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaRanking7ano.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaRanking8ano.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaRanking7ano.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaRanking8ano.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaRanking7ano.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaRanking8ano.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaRanking7ano().setVisible(true);
+                new TelaRanking8ano().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnVoltarMenuRanking;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
