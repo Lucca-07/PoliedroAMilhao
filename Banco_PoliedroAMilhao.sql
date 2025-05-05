@@ -48,6 +48,7 @@ CREATE TABLE perguntas_criadas (Id_Pergunta INT PRIMARY KEY AUTO_INCREMENT,
     Materias_Id_Materia INT,
     Premiacao_Id_Premiacao INT,
     FOREIGN KEY (Materias_Id_Materia) REFERENCES Materias(Id_Materia), 
+<<<<<<< HEAD
     FOREIGN KEY (Premiacao_Id_Premiacao) REFERENCES Premiacoes(Id_Premiacao) ON DELETE CASCADE ON UPDATE CASCADE);
     
      ALTER TABLE Premiacoes RENAME COLUMN Quantidade TO Quantidade_Dinheiro;
@@ -55,3 +56,6 @@ CREATE TABLE perguntas_criadas (Id_Pergunta INT PRIMARY KEY AUTO_INCREMENT,
 	 ALTER TABLE aluno ADD COLUMN Pontuacao INT;
      
    
+=======
+    FOREIGN KEY (Premiacao_Id_Premiacao) REFERENCES Premiacoes(Id_Premiacao) ON DELETE CASCADE ON UPDATE CASCADE);
+>>>>>>> 749714002d304dcfc29b227c3bd8d35e58194576
