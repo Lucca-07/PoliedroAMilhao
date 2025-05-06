@@ -4,8 +4,6 @@
  */
 package br.poliedro.telainicioprofessor;
 
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author caiquef
@@ -31,7 +29,7 @@ public class TelaSelecaoAno extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jcAno = new javax.swing.JComboBox<>();
         jcMaterias = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        btConfirmar = new javax.swing.JButton();
         jcDificuldade = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -59,11 +57,11 @@ public class TelaSelecaoAno extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        jButton1.setText("Confirmar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btConfirmar.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        btConfirmar.setText("Confirmar");
+        btConfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btConfirmarActionPerformed(evt);
             }
         });
 
@@ -82,14 +80,14 @@ public class TelaSelecaoAno extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addComponent(jcAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addComponent(jcMaterias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addGap(39, 39, 39)
                 .addComponent(jcDificuldade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(btConfirmar)
                 .addGap(281, 281, 281))
         );
         jPanel1Layout.setVerticalGroup(
@@ -101,7 +99,7 @@ public class TelaSelecaoAno extends javax.swing.JFrame {
                     .addComponent(jcMaterias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jcDificuldade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(61, 61, 61)
-                .addComponent(jButton1)
+                .addComponent(btConfirmar)
                 .addGap(108, 108, 108))
         );
 
@@ -128,8 +126,8 @@ public class TelaSelecaoAno extends javax.swing.JFrame {
 
     private void jcAnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcAnoActionPerformed
         // TODO add your handling code here:
-        switch(jcAno.getSelectedItem().toString()){
-            case "6º ano","7º ano", "8º ano", "9º ano" -> {
+        switch (jcAno.getSelectedItem().toString()) {
+            case "6º ano", "7º ano", "8º ano", "9º ano" -> {
                 jcMaterias.removeAllItems();
                 jcMaterias.addItem("Português");
                 jcMaterias.addItem("Matemática");
@@ -138,7 +136,7 @@ public class TelaSelecaoAno extends javax.swing.JFrame {
                 jcMaterias.addItem("Ciências");
                 break;
             }
-            case "1º EM","2º EM", "3º EM" -> {
+            case "1º EM", "2º EM", "3º EM" -> {
                 jcMaterias.removeAllItems();
                 jcMaterias.addItem("Português");
                 jcMaterias.addItem("Matemática");
@@ -149,35 +147,38 @@ public class TelaSelecaoAno extends javax.swing.JFrame {
                 jcMaterias.addItem("Física");
                 jcMaterias.addItem("Filosofia");
                 jcMaterias.addItem("Sociologia");
-                jcMaterias.addItem("Literatura");   
-                break;  
-           }
+                jcMaterias.addItem("Literatura");
+                break;
+            }
         }
-        
+
     }//GEN-LAST:event_jcAnoActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConfirmarActionPerformed
         // TODO add your handling code here:
-        if(!jcAno.getSelectedItem().toString().equals("Selecione o ano:") && !jcMaterias.getSelectedItem().toString().equals("Selecione as matérias: ") && !jcDificuldade.getSelectedItem().toString().equals("Selecione a dificuldade:")){
-            JOptionPane.showMessageDialog(null, "Ano escolhido: "+jcAno.getSelectedItem().toString() + "\nMatéria escolhida: " + jcMaterias.getSelectedItem().toString() +"\nDificuldade escolhida: " + jcDificuldade.getSelectedItem().toString());
+        if(!jcAno.getSelectedItem().toString().equals("Selecione o ano:") && !jcMaterias.getSelectedItem().toString().equals("Selecione as matérias:") && !jcDificuldade.getSelectedItem().toString().equals("Selecione a dificuldade:")){
+            TelaPerguntaProfessor telaProf = new TelaPerguntaProfessor();
+            telaProf.setVisible(true);
+            this.dispose();
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+
+       
+    }//GEN-LAST:event_btConfirmarActionPerformed
 
     private void jcAnoMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jcAnoMouseReleased
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_jcAnoMouseReleased
 
     private void jcMateriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcMateriasActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_jcMateriasActionPerformed
 
     private void jcDificuldadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcDificuldadeActionPerformed
         // TODO add your handling code here:
-     
 
-    
+
     }//GEN-LAST:event_jcDificuldadeActionPerformed
 
     /**
@@ -216,7 +217,7 @@ public class TelaSelecaoAno extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btConfirmar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JComboBox<String> jcAno;
     private javax.swing.JComboBox<String> jcDificuldade;
