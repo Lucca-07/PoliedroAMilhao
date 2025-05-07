@@ -61,9 +61,13 @@ public class TelaInicio extends javax.swing.JFrame {
 
         jButton3.setText("Ranking");
         jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButton3.setFocusPainted(false);
+        jButton3.setFocusable(false);
 
         jButton1.setText("Criar pergunta");
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButton1.setFocusPainted(false);
+        jButton1.setFocusable(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -72,9 +76,13 @@ public class TelaInicio extends javax.swing.JFrame {
 
         jButton2.setText("Editar pergunta");
         jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButton2.setFocusPainted(false);
+        jButton2.setFocusable(false);
 
         jButton4.setText("Cadastrar aluno");
         jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButton4.setFocusPainted(false);
+        jButton4.setFocusable(false);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -148,6 +156,10 @@ public class TelaInicio extends javax.swing.JFrame {
         jButton5.setBackground(new java.awt.Color(204, 255, 255));
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Config.png"))); // NOI18N
         jButton5.setBorder(null);
+        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton5.setFocusPainted(false);
+        jButton5.setFocusable(false);
+        jButton5.setMargin(new java.awt.Insets(2, 14, 2, 14));
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -199,10 +211,10 @@ public class TelaInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        
-        Configuracoes config = new Configuracoes();
-        config.setVisible(true);
-        this.setEnabled(false);
+
+            Configuracoes config = new Configuracoes();
+            config.setVisible(true);
+            this.dispose();
         
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -217,7 +229,7 @@ public class TelaInicio extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Synthetica BlackEye".equals(info.getName())) {
+                if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
