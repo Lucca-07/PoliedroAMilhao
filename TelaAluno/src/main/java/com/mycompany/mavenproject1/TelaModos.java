@@ -34,13 +34,10 @@ public class TelaModos extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(2440, 1920));
         setMinimumSize(new java.awt.Dimension(1240, 720));
         setName("frameInicial"); // NOI18N
 
         jPanel1.setBackground(new java.awt.Color(153, 255, 255));
-
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\diego\\Downloads\\PoliedroImg-removebg-preview.png")); // NOI18N
 
         BotãoGeral.setBackground(new java.awt.Color(0, 153, 153));
         BotãoGeral.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -142,6 +139,8 @@ public class TelaModos extends javax.swing.JFrame {
 
     private void BotãoGeralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotãoGeralActionPerformed
         // TODO add your handling code here:
+        TelaGeral telaGeral = new TelaGeral();
+        telaGeral.setVisible(true);
     }//GEN-LAST:event_BotãoGeralActionPerformed
 
     private void BotãoMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotãoMatActionPerformed
