@@ -41,7 +41,9 @@ public class TelaPerguntaProfessor extends javax.swing.JFrame {
         jTextField3 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(2440, 1920));
         setMinimumSize(new java.awt.Dimension(1320, 720));
+        setPreferredSize(new java.awt.Dimension(1404, 780));
 
         tlPergunta.setBackground(new java.awt.Color(255, 255, 255));
         tlPergunta.setMaximumSize(new java.awt.Dimension(2440, 1920));

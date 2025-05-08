@@ -10,4 +10,13 @@
         <maven.compiler.release>21</maven.compiler.release>
         <exec.mainClass>br.poliedro.telainicioprofessor.TelaInicioProfessor</exec.mainClass>
     </properties>
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/com.mysql/mysql-connector-j -->
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <version>9.3.0</version>
+        </dependency>
+    </dependencies>
+     
 </project>

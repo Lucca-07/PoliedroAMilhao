@@ -3,11 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package br.poliedro.telainicioprofessor.telas;
-<<<<<<< HEAD
-
 import br.poliedro.telainicioprofessor.telas.TelaPerguntaProfessor;
-=======
->>>>>>> 73d965301e4ce4393017dfe548461393f15f220d
 
 /**
  *
@@ -167,8 +163,6 @@ public class TelaSelecaoAno extends javax.swing.JFrame {
             this.setExtendedState(TelaPerguntaProfessor.MAXIMIZED_BOTH);
             telaProf.setVisible(true);
             this.dispose();
-
-           
         }
 
        
