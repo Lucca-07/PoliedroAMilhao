@@ -48,7 +48,6 @@ public class TelaPerguntaProfessor extends javax.swing.JFrame {
         tlPergunta.setBackground(new java.awt.Color(255, 255, 255));
         tlPergunta.setMaximumSize(new java.awt.Dimension(2440, 1920));
         tlPergunta.setMinimumSize(new java.awt.Dimension(1320, 720));
-        tlPergunta.setSize(new java.awt.Dimension(1320, 720));
 
         jButton1.setBackground(new java.awt.Color(0, 153, 153));
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
@@ -69,8 +68,6 @@ public class TelaPerguntaProfessor extends javax.swing.JFrame {
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("Salvar");
         jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("/Users/caiquef/Downloads/LogoPoliedro-2-removebg-preview.png")); // NOI18N
 
         jTextArea1.setBackground(new java.awt.Color(204, 204, 204));
         jTextArea1.setColumns(20);
