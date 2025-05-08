@@ -23,6 +23,7 @@
     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[2440, 1920]"/>
     </Property>
+
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[1320, 720]"/>
     </Property>
@@ -47,6 +48,7 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="fundoPanel" alignment="1" max="32767" attributes="0"/>
+
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -247,6 +249,8 @@
             </Container>
           </SubComponents>
         </Container>
+        <Component class="javax.swing.JLabel" name="jLabel1">
+        </Component>
       </SubComponents>
     </Container>
   </SubComponents>
