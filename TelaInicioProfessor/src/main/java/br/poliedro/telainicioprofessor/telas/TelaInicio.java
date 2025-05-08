@@ -13,15 +13,11 @@ public class TelaInicio extends javax.swing.JFrame {
     /**
      * Creates new form TelaInicio
      */
-    Configuracoes config = new Configuracoes();
-    
-    
     public TelaInicio() {
         initComponents();
         setExtendedState(MAXIMIZED_BOTH);
     }
     
-    CadastroAluno ca = new CadastroAluno();
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -41,7 +37,6 @@ public class TelaInicio extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        configuracoesButton = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -68,6 +63,11 @@ public class TelaInicio extends javax.swing.JFrame {
         jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton3.setFocusPainted(false);
         jButton3.setFocusable(false);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Criar pergunta");
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -163,42 +163,21 @@ public class TelaInicio extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        configuracoesButton.setBackground(new java.awt.Color(204, 255, 255));
-        configuracoesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Config.png"))); // NOI18N
-        configuracoesButton.setBorder(null);
-        configuracoesButton.setBorderPainted(false);
-        configuracoesButton.setContentAreaFilled(false);
-        configuracoesButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        configuracoesButton.setFocusPainted(false);
-        configuracoesButton.setFocusable(false);
-        configuracoesButton.setMargin(new java.awt.Insets(2, 14, 2, 14));
-        configuracoesButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                configuracoesButtonActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout fundoPanelLayout = new javax.swing.GroupLayout(fundoPanel);
         fundoPanel.setLayout(fundoPanelLayout);
         fundoPanelLayout.setHorizontalGroup(
             fundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fundoPanelLayout.createSequentialGroup()
-                .addContainerGap(589, Short.MAX_VALUE)
+                .addGap(535, 535, 535)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(587, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fundoPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(configuracoesButton)
-                .addGap(18, 18, 18))
+                .addContainerGap(641, Short.MAX_VALUE))
         );
         fundoPanelLayout.setVerticalGroup(
             fundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fundoPanelLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(configuracoesButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 250, Short.MAX_VALUE)
+            .addGroup(fundoPanelLayout.createSequentialGroup()
+                .addGap(249, 249, 249)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(223, Short.MAX_VALUE))
+                .addContainerGap(304, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -222,21 +201,13 @@ public class TelaInicio extends javax.swing.JFrame {
         tsa.show(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void configuracoesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_configuracoesButtonActionPerformed
-
-        if (config.isVisible() == false) {
-            config.setVisible(true);
-            config.setOpacity(0.9f);
-        }
-
-    }//GEN-LAST:event_configuracoesButtonActionPerformed
-
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        if (ca.isVisible()== false){
-        ca.setVisible(true);
-        }
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -274,7 +245,6 @@ public class TelaInicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton configuracoesButton;
     private javax.swing.JPanel fundoPanel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
