@@ -247,6 +247,8 @@
             </Container>
           </SubComponents>
         </Container>
+        <Component class="javax.swing.JLabel" name="jLabel1">
+        </Component>
       </SubComponents>
     </Container>
   </SubComponents>
