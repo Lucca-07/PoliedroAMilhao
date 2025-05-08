@@ -2,7 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package br.poliedro.telainicioprofessor;
+package br.poliedro.telainicioprofessor.telas;
+
+import br.poliedro.telainicioprofessor.telas.TelaPerguntaProfessor;
 
 /**
  *

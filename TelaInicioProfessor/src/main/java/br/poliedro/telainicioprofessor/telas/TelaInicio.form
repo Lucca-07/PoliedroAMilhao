@@ -20,9 +20,6 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
-    <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[2440, 1920]"/>
-    </Property>
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[1320, 720]"/>
     </Property>
@@ -250,11 +247,6 @@
           </SubComponents>
         </Container>
         <Component class="javax.swing.JLabel" name="jLabel1">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="/Users/caiquef/Downloads/LogoPoliedro-2-removebg-preview.png"/>
-            </Property>
-          </Properties>
         </Component>
       </SubComponents>
     </Container>

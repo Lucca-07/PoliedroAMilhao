@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package br.poliedro.telainicioprofessor;
+package br.poliedro.telainicioprofessor.telas;
 
 /**
  *
@@ -50,7 +50,6 @@ public class TelaInicio extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(2440, 1920));
         setMinimumSize(new java.awt.Dimension(1320, 720));
 
         jPanel2.setBackground(new java.awt.Color(204, 255, 255));
@@ -147,8 +146,6 @@ public class TelaInicio extends javax.swing.JFrame {
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(12, Short.MAX_VALUE))
         );
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("/Users/caiquef/Downloads/LogoPoliedro-2-removebg-preview.png")); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
