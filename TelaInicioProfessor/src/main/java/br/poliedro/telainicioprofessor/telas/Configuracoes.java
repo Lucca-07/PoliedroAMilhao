@@ -4,15 +4,9 @@
  */
 package br.poliedro.telainicioprofessor.telas;
 
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.geom.RoundRectangle2D;
-import javax.swing.border.Border;
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.MatteBorder;
-
+import br.poliedro.telainicioprofessor.telas.TelaInicio;
 /**
  *
  * @author Lorenzo
@@ -24,6 +18,31 @@ public class Configuracoes extends javax.swing.JFrame {
      */
     public Configuracoes() {
         initComponents();
+        jsVolume.setUI(new javax.swing.plaf.basic.BasicSliderUI(jsVolume) {
+
+            @Override
+            public void paintThumb(Graphics g) {
+                Graphics2D g2d = (Graphics2D) g;
+                g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON); // Suaviza bordas
+
+                int diameter = Math.min(thumbRect.width, thumbRect.height) - 4;
+                int x = thumbRect.x + (thumbRect.width - diameter) / 2;
+                int y = thumbRect.y + (thumbRect.height - diameter) / 2;
+
+                g2d.setColor(new Color(0, 0, 0)); // Preto
+                g2d.fillOval(x, y, diameter, diameter);
+
+                g2d.setColor(Color.WHITE);
+                g2d.drawOval(x, y, diameter, diameter);
+            }
+
+            @Override
+            public void paintTrack(Graphics g) {
+                Graphics2D g2d = (Graphics2D) g;
+                g2d.setColor(new Color(180, 180, 180)); // Cinza Claro
+                g2d.fillRect(trackRect.x, trackRect.y + (trackRect.height / 3), trackRect.width, trackRect.height / 3);
+            }
+        });
     }
 
     /**
@@ -49,16 +68,16 @@ public class Configuracoes extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(0, 0));
         setType(java.awt.Window.Type.POPUP);
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
         jPanel1.setDoubleBuffered(false);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("Volume");
 
-        jsVolume.setBackground(new java.awt.Color(204, 255, 255));
+        jsVolume.setBackground(new java.awt.Color(153, 153, 153));
         jsVolume.setValue(100);
-        jsVolume.setCursor(new java.awt.Cursor(java.awt.Cursor.E_RESIZE_CURSOR));
+        jsVolume.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jsVolume.setFocusable(false);
         jsVolume.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -73,9 +92,10 @@ public class Configuracoes extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back-icon.png"))); // NOI18N
         jButton1.setText("Voltar");
+        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -89,7 +109,7 @@ public class Configuracoes extends javax.swing.JFrame {
         jButton2.setBorder(null);
         jButton2.setBorderPainted(false);
         jButton2.setContentAreaFilled(false);
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -101,7 +121,7 @@ public class Configuracoes extends javax.swing.JFrame {
         btSound.setBorder(null);
         btSound.setBorderPainted(false);
         btSound.setContentAreaFilled(false);
-        btSound.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btSound.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btSound.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btSoundActionPerformed(evt);
@@ -122,15 +142,17 @@ public class Configuracoes extends javax.swing.JFrame {
                         .addComponent(btSound, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(lbVolume, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jsVolume, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jsVolume, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(93, 93, 93)
+                                .addComponent(jLabel1)))
                         .addGap(0, 98, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                .addGap(132, 132, 132)
+                .addGap(157, 157, 157)
                 .addComponent(jButton1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -141,11 +163,10 @@ public class Configuracoes extends javax.swing.JFrame {
                 .addGap(5, 5, 5)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btSound, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lbVolume, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jsVolume, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(lbVolume, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jsVolume, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(32, 32, 32)
                 .addComponent(jButton1)
                 .addContainerGap())
@@ -162,8 +183,7 @@ public class Configuracoes extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        pack();
-        setLocationRelativeTo(null);
+        setBounds(485, 170, 408, 183);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jsVolumeStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jsVolumeStateChanged
@@ -181,8 +201,7 @@ public class Configuracoes extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         this.dispose();
-        TelaInicio telai = new TelaInicio();
-        telai.setVisible(true);
+             
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
