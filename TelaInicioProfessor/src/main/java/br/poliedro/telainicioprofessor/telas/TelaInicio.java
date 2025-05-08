@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package br.poliedro.telainicioprofessor;
+package br.poliedro.telainicioprofessor.telas;
 
 /**
  *
@@ -50,7 +50,6 @@ public class TelaInicio extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(2440, 1920));
         setMinimumSize(new java.awt.Dimension(1320, 720));
 
         jPanel2.setBackground(new java.awt.Color(204, 255, 255));
@@ -156,6 +155,8 @@ public class TelaInicio extends javax.swing.JFrame {
         jButton5.setBackground(new java.awt.Color(204, 255, 255));
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Config.png"))); // NOI18N
         jButton5.setBorder(null);
+        jButton5.setBorderPainted(false);
+        jButton5.setContentAreaFilled(false);
         jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton5.setFocusPainted(false);
         jButton5.setFocusable(false);
