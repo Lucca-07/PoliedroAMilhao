@@ -34,6 +34,13 @@ public class TelaMaterias extends javax.swing.JFrame {
         BotãoVol = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        BotãoHist = new javax.swing.JButton();
+        BotãoGeo = new javax.swing.JButton();
+        BotãoFis = new javax.swing.JButton();
+        BotãoBio = new javax.swing.JButton();
+        BotãoQui = new javax.swing.JButton();
+        BotãoFilo = new javax.swing.JButton();
+        BotãoSocio = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -95,9 +102,9 @@ public class TelaMaterias extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(67, 67, 67)
+                .addGap(69, 69, 69)
                 .addComponent(jLabel2)
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -107,6 +114,83 @@ public class TelaMaterias extends javax.swing.JFrame {
                 .addGap(18, 18, 18))
         );
 
+        BotãoHist.setBackground(new java.awt.Color(0, 153, 153));
+        BotãoHist.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        BotãoHist.setForeground(new java.awt.Color(255, 255, 255));
+        BotãoHist.setText("História");
+        BotãoHist.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BotãoHist.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotãoHistActionPerformed(evt);
+            }
+        });
+
+        BotãoGeo.setBackground(new java.awt.Color(0, 153, 153));
+        BotãoGeo.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        BotãoGeo.setForeground(new java.awt.Color(255, 255, 255));
+        BotãoGeo.setText("Geografia");
+        BotãoGeo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BotãoGeo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotãoGeoActionPerformed(evt);
+            }
+        });
+
+        BotãoFis.setBackground(new java.awt.Color(0, 153, 153));
+        BotãoFis.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        BotãoFis.setForeground(new java.awt.Color(255, 255, 255));
+        BotãoFis.setText("Física");
+        BotãoFis.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BotãoFis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotãoFisActionPerformed(evt);
+            }
+        });
+
+        BotãoBio.setBackground(new java.awt.Color(0, 153, 153));
+        BotãoBio.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        BotãoBio.setForeground(new java.awt.Color(255, 255, 255));
+        BotãoBio.setText("Biologia");
+        BotãoBio.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BotãoBio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotãoBioActionPerformed(evt);
+            }
+        });
+
+        BotãoQui.setBackground(new java.awt.Color(0, 153, 153));
+        BotãoQui.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        BotãoQui.setForeground(new java.awt.Color(255, 255, 255));
+        BotãoQui.setText("Química");
+        BotãoQui.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BotãoQui.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotãoQuiActionPerformed(evt);
+            }
+        });
+
+        BotãoFilo.setBackground(new java.awt.Color(0, 153, 153));
+        BotãoFilo.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        BotãoFilo.setForeground(new java.awt.Color(255, 255, 255));
+        BotãoFilo.setText("Filosofia");
+        BotãoFilo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BotãoFilo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotãoFiloActionPerformed(evt);
+            }
+        });
+
+        BotãoSocio.setBackground(new java.awt.Color(0, 153, 153));
+        BotãoSocio.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        BotãoSocio.setForeground(new java.awt.Color(255, 255, 255));
+        BotãoSocio.setText("Sociologia");
+        BotãoSocio.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BotãoSocio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotãoSocioActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -114,38 +198,68 @@ public class TelaMaterias extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel1))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(449, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(BotãoPort, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(BotãoMat, javax.swing.GroupLayout.DEFAULT_SIZE, 429, Short.MAX_VALUE)
-                            .addComponent(BotãoCien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(482, 482, 482))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(595, 595, 595))))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(615, 615, 615)
-                .addComponent(BotãoVol)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(BotãoMat, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(108, 108, 108)
+                            .addComponent(BotãoPort, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(BotãoGeo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(BotãoHist, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(BotãoCien, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 344, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(BotãoBio, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BotãoQui, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BotãoFilo, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BotãoSocio, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BotãoFis, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(138, 138, 138))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(560, 560, 560)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(634, 634, 634)
+                        .addComponent(BotãoVol)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 209, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
-                .addComponent(BotãoPort, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
-                .addComponent(BotãoMat, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addComponent(BotãoCien, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(78, 78, 78)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(81, 81, 81)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(23, 23, 23)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(BotãoFis, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BotãoPort, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(BotãoMat, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BotãoBio, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(BotãoCien, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BotãoQui, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(BotãoHist, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BotãoFilo, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(BotãoGeo, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BotãoSocio, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 149, Short.MAX_VALUE)
                 .addComponent(BotãoVol)
-                .addGap(37, 37, 37))
+                .addGap(45, 45, 45))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -162,6 +276,7 @@ public class TelaMaterias extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotãoVolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotãoVolActionPerformed
@@ -192,6 +307,55 @@ public class TelaMaterias extends javax.swing.JFrame {
         telaJogo.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BotãoMatActionPerformed
+
+    private void BotãoHistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotãoHistActionPerformed
+        // TODO add your handling code here:
+        TelaJogo telaJogo = new TelaJogo();
+        telaJogo.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_BotãoHistActionPerformed
+
+    private void BotãoGeoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotãoGeoActionPerformed
+        // TODO add your handling code here:
+        TelaJogo telaJogo = new TelaJogo();
+        telaJogo.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_BotãoGeoActionPerformed
+
+    private void BotãoFisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotãoFisActionPerformed
+        // TODO add your handling code here:
+        TelaJogo telaJogo = new TelaJogo();
+        telaJogo.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_BotãoFisActionPerformed
+
+    private void BotãoBioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotãoBioActionPerformed
+        // TODO add your handling code here:
+        TelaJogo telaJogo = new TelaJogo();
+        telaJogo.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_BotãoBioActionPerformed
+
+    private void BotãoQuiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotãoQuiActionPerformed
+        // TODO add your handling code here:
+        TelaJogo telaJogo = new TelaJogo();
+        telaJogo.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_BotãoQuiActionPerformed
+
+    private void BotãoFiloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotãoFiloActionPerformed
+        // TODO add your handling code here:
+        TelaJogo telaJogo = new TelaJogo();
+        telaJogo.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_BotãoFiloActionPerformed
+
+    private void BotãoSocioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotãoSocioActionPerformed
+        // TODO add your handling code here:
+        TelaJogo telaJogo = new TelaJogo();
+        telaJogo.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_BotãoSocioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -229,9 +393,16 @@ public class TelaMaterias extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BotãoBio;
     private javax.swing.JButton BotãoCien;
+    private javax.swing.JButton BotãoFilo;
+    private javax.swing.JButton BotãoFis;
+    private javax.swing.JButton BotãoGeo;
+    private javax.swing.JButton BotãoHist;
     private javax.swing.JButton BotãoMat;
     private javax.swing.JButton BotãoPort;
+    private javax.swing.JButton BotãoQui;
+    private javax.swing.JButton BotãoSocio;
     private javax.swing.JButton BotãoVol;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
