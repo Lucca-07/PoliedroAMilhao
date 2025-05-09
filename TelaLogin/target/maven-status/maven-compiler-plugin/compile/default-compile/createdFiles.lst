@@ -1,8 +1,7 @@
-com\mycompany\telalogin\ViewLogin$6.class
-com\mycompany\telalogin\ViewLogin.class
-com\mycompany\telalogin\ViewLogin$3.class
-com\mycompany\telalogin\ViewLogin$7.class
-com\mycompany\telalogin\ViewLogin$2.class
-com\mycompany\telalogin\ViewLogin$5.class
-com\mycompany\telalogin\ViewLogin$4.class
-com\mycompany\telalogin\ViewLogin$1.class
+com\mycompany\telalogin\telas\LoginTela$8.class
+com\mycompany\telalogin\telas\FundoEmbacadoTela$1.class
+com\mycompany\telalogin\telas\SairTela.class
+com\mycompany\telalogin\telas\FundoEmbacadoTela.class
+com\mycompany\telalogin\telas\SairTela$1.class
+com\mycompany\telalogin\telas\SairTela$3.class
+com\mycompany\telalogin\telas\SairTela$2.class

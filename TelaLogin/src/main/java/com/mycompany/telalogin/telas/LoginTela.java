@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.mycompany.telalogin;
+package com.mycompany.telalogin.telas;
 
 import javax.swing.JOptionPane;
 
@@ -10,13 +10,14 @@ import javax.swing.JOptionPane;
  *
  * @author Lucca
  */
-public class ViewLogin extends javax.swing.JFrame {
+public class LoginTela extends javax.swing.JFrame {
 
     /**
      * Creates new form ViewLogin
      */
-    public ViewLogin() {
+    public LoginTela() {
         initComponents();
+        this.setExtendedState(MAXIMIZED_BOTH);
     }
 
     /**
@@ -40,6 +41,7 @@ public class ViewLogin extends javax.swing.JFrame {
         labelLogin = new javax.swing.JLabel();
         txtLogin = new javax.swing.JTextField();
         mostrarSenha = new javax.swing.JCheckBox();
+        sairButton = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -63,7 +65,7 @@ public class ViewLogin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Poliedro A Milhão");
-        setAlwaysOnTop(true);
+        setFocusTraversalPolicyProvider(true);
         setMaximumSize(new java.awt.Dimension(2440, 1920));
         setMinimumSize(new java.awt.Dimension(1240, 720));
         setName("framePrincipal"); // NOI18N
@@ -163,27 +165,48 @@ public class ViewLogin extends javax.swing.JFrame {
                 .addContainerGap(13, Short.MAX_VALUE))
         );
 
+        sairButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        sairButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Sair.png"))); // NOI18N
+        sairButton.setText("SAIR");
+        sairButton.setBorder(null);
+        sairButton.setBorderPainted(false);
+        sairButton.setContentAreaFilled(false);
+        sairButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        sairButton.setFocusPainted(false);
+        sairButton.setFocusable(false);
+        sairButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sairButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(330, Short.MAX_VALUE)
+                .addGap(0, 339, Short.MAX_VALUE)
                 .addComponent(imagemLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 712, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(318, 318, 318))
+                .addContainerGap(309, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(538, 538, 538)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(sairButton)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(128, Short.MAX_VALUE)
+                .addGap(16, 16, 16)
+                .addComponent(sairButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
                 .addComponent(imagemLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(142, Short.MAX_VALUE))
+                .addContainerGap(163, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -246,6 +269,12 @@ public class ViewLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void sairButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairButtonActionPerformed
+        // TODO add your handling code here:
+        SairTela st = new SairTela();
+        st.setVisible(true);
+    }//GEN-LAST:event_sairButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -263,20 +292,21 @@ public class ViewLogin extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ViewLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginTela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ViewLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginTela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ViewLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginTela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ViewLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginTela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ViewLogin().setVisible(true);
+                new LoginTela().setVisible(true);
             }
         });
     }
@@ -292,6 +322,7 @@ public class ViewLogin extends javax.swing.JFrame {
     private javax.swing.JLabel labelLogin;
     private javax.swing.JLabel labelSenha;
     private javax.swing.JCheckBox mostrarSenha;
+    private javax.swing.JButton sairButton;
     private javax.swing.JTextField txtLogin;
     private javax.swing.JPasswordField txtSenha;
     // End of variables declaration//GEN-END:variables
