@@ -7,10 +7,12 @@ br\poliedro\telainicioprofessor\telas\ErroCadastro$1.class
 br\poliedro\telainicioprofessor\telas\Configuracoes$2.class
 br\poliedro\telainicioprofessor\telas\Configuracoes$5.class
 br\poliedro\telainicioprofessor\telas\ErroCadastro.class
+br\poliedro\telainicioprofessor\telas\TelaPerguntaProfessor$4.class
 br\poliedro\telainicioprofessor\telas\Configuracoes$3.class
 br\poliedro\telainicioprofessor\telas\CadastroAluno$6.class
 br\poliedro\telainicioprofessor\persistencia\JogadorDAO.class
 br\poliedro\telainicioprofessor\telas\CadastroAluno$3.class
+br\poliedro\telainicioprofessor\telas\TelaPerguntaProfessor$3.class
 br\poliedro\telainicioprofessor\telas\SucessoCadastro.class
 br\poliedro\telainicioprofessor\telas\Configuracoes$6.class
 br\poliedro\telainicioprofessor\telas\TelaInicio$5.class
@@ -19,6 +21,7 @@ br\poliedro\telainicioprofessor\telas\Configuracoes.class
 br\poliedro\telainicioprofessor\telas\Configuracoes$4.class
 br\poliedro\telainicioprofessor\telas\TelaInicio$4.class
 br\poliedro\telainicioprofessor\telas\CadastroAluno$4.class
+br\poliedro\telainicioprofessor\telas\TelaPerguntaProfessor$5.class
 br\poliedro\telainicioprofessor\telas\CadastroAluno$1.class
 br\poliedro\telainicioprofessor\telas\SucessoCadastro$2.class
 br\poliedro\telainicioprofessor\telas\TelaInicio$3.class

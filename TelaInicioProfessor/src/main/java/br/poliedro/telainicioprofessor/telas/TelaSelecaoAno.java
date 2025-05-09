@@ -156,14 +156,11 @@ public class TelaSelecaoAno extends javax.swing.JFrame {
 
     private void btConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConfirmarActionPerformed
         // TODO add your handling code here:
-        if(!jcAno.getSelectedItem().toString().equals("Selecione o ano:") && !jcMaterias.getSelectedItem().toString().equals("Selecione as matérias:") && !jcDificuldade.getSelectedItem().toString().equals("Selecione a dificuldade:")){
+        if (!jcAno.getSelectedItem().toString().equals("Selecione o ano:") && !jcMaterias.getSelectedItem().toString().equals("Selecione as matérias:") && !jcDificuldade.getSelectedItem().toString().equals("Selecione a dificuldade:")) {
             TelaPerguntaProfessor telaProf = new TelaPerguntaProfessor();
-            this.setExtendedState(TelaPerguntaProfessor.MAXIMIZED_BOTH);
             telaProf.setVisible(true);
             this.dispose();
         }
-
-       
     }//GEN-LAST:event_btConfirmarActionPerformed
 
     private void jcAnoMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jcAnoMouseReleased
