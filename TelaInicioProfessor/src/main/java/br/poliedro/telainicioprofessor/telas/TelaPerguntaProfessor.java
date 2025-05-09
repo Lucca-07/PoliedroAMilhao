@@ -15,6 +15,7 @@ public class TelaPerguntaProfessor extends javax.swing.JFrame {
      */
     public TelaPerguntaProfessor() {
         initComponents();
+        this.setExtendedState(MAXIMIZED_BOTH);
     }
 
     /**
