@@ -34,21 +34,21 @@ public class TelaGeral extends javax.swing.JFrame {
         BotãoContinuarGeral = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(null);
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setText("NO MODO GERAL");
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel2.setText("MISTURAMOS TODAS AS ");
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel3.setText("MATÉRIAS DISPONÍVEIS");
 
         BotãoVoltarGeral.setBackground(new java.awt.Color(0, 153, 153));
         BotãoVoltarGeral.setForeground(new java.awt.Color(255, 255, 255));
+        BotãoVoltarGeral.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/seta-removebg-esquerda.png"))); // NOI18N
         BotãoVoltarGeral.setText("Voltar");
         BotãoVoltarGeral.setToolTipText("");
         BotãoVoltarGeral.addActionListener(new java.awt.event.ActionListener() {
@@ -59,7 +59,9 @@ public class TelaGeral extends javax.swing.JFrame {
 
         BotãoContinuarGeral.setBackground(new java.awt.Color(0, 153, 153));
         BotãoContinuarGeral.setForeground(new java.awt.Color(255, 255, 255));
+        BotãoContinuarGeral.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/seta-removebg-direita.png"))); // NOI18N
         BotãoContinuarGeral.setText("Continuar");
+        BotãoContinuarGeral.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         BotãoContinuarGeral.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotãoContinuarGeralActionPerformed(evt);
@@ -71,33 +73,38 @@ public class TelaGeral extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(BotãoVoltarGeral)
-                        .addGap(123, 123, 123)
-                        .addComponent(BotãoContinuarGeral))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel2)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(BotãoVoltarGeral, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(BotãoContinuarGeral, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(jLabel1))
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2))
-                .addContainerGap(26, Short.MAX_VALUE))
+                        .addGap(57, 57, 57)
+                        .addComponent(jLabel1)))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(14, 14, 14)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
-                .addGap(18, 18, 18)
+                .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BotãoVoltarGeral)
-                    .addComponent(BotãoContinuarGeral))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(BotãoContinuarGeral)
+                    .addComponent(BotãoVoltarGeral))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
