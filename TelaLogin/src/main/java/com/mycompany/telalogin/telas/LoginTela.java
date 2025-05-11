@@ -19,6 +19,7 @@ public class LoginTela extends javax.swing.JFrame {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
     }
+    SairTela st = new SairTela();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -29,10 +30,7 @@ public class LoginTela extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jOptionPane1 = new javax.swing.JOptionPane();
-        jPanel1 = new javax.swing.JPanel();
+        jDesktopPane1 = new javax.swing.JDesktopPane();
         imagemLogo = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         labelSenha = new javax.swing.JLabel();
@@ -43,26 +41,6 @@ public class LoginTela extends javax.swing.JFrame {
         mostrarSenha = new javax.swing.JCheckBox();
         sairButton = new javax.swing.JButton();
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(66, 141, 255));
-        jButton2.setText("Entrar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Poliedro A Milhão");
         setFocusTraversalPolicyProvider(true);
@@ -70,25 +48,14 @@ public class LoginTela extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(1240, 720));
         setName("framePrincipal"); // NOI18N
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
-        jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jPanel1.setMaximumSize(new java.awt.Dimension(1920, 1080));
-        jPanel1.setMinimumSize(new java.awt.Dimension(1280, 720));
-        jPanel1.setName(""); // NOI18N
-        jPanel1.setPreferredSize(new java.awt.Dimension(1360, 768));
-        jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanel1MouseClicked(evt);
-            }
-        });
+        jDesktopPane1.setBackground(new java.awt.Color(204, 255, 255));
 
         imagemLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/LogoPoliedro_1.png"))); // NOI18N
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.setOpaque(false);
+        jPanel3.setBackground(new java.awt.Color(223, 245, 245));
+        jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
 
         labelSenha.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        labelSenha.setForeground(new java.awt.Color(66, 141, 255));
         labelSenha.setText("Senha");
 
         txtSenha.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -98,9 +65,12 @@ public class LoginTela extends javax.swing.JFrame {
             }
         });
 
-        butLogar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        butLogar.setForeground(new java.awt.Color(66, 141, 255));
-        butLogar.setText("Logar");
+        butLogar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        butLogar.setText("Entrar");
+        butLogar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
+        butLogar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        butLogar.setFocusPainted(false);
+        butLogar.setFocusable(false);
         butLogar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 butLogarActionPerformed(evt);
@@ -108,7 +78,6 @@ public class LoginTela extends javax.swing.JFrame {
         });
 
         labelLogin.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        labelLogin.setForeground(new java.awt.Color(66, 141, 255));
         labelLogin.setText("Email");
 
         txtLogin.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -118,11 +87,12 @@ public class LoginTela extends javax.swing.JFrame {
             }
         });
 
-        mostrarSenha.setBackground(new java.awt.Color(204, 255, 255));
+        mostrarSenha.setBackground(new java.awt.Color(223, 245, 245));
         mostrarSenha.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        mostrarSenha.setForeground(new java.awt.Color(66, 141, 255));
         mostrarSenha.setText("Mostrar senha");
-        mostrarSenha.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        mostrarSenha.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mostrarSenha.setFocusPainted(false);
+        mostrarSenha.setFocusable(false);
         mostrarSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mostrarSenhaActionPerformed(evt);
@@ -180,53 +150,53 @@ public class LoginTela extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 339, Short.MAX_VALUE)
+        jDesktopPane1.setLayer(imagemLogo, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jPanel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(sairButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
+        jDesktopPane1.setLayout(jDesktopPane1Layout);
+        jDesktopPane1Layout.setHorizontalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
+                .addGap(0, 322, Short.MAX_VALUE)
                 .addComponent(imagemLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 712, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(309, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(326, Short.MAX_VALUE))
+            .addGroup(jDesktopPane1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
+            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
                 .addComponent(sairButton)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
+        jDesktopPane1Layout.setVerticalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
                 .addComponent(sairButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
                 .addComponent(imagemLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(163, Short.MAX_VALUE))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jDesktopPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jDesktopPane1)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPanel1MouseClicked
 
     private void mostrarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarSenhaActionPerformed
         // TODO add your handling code here:
@@ -265,14 +235,13 @@ public class LoginTela extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSenhaActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
-
     private void sairButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairButtonActionPerformed
         // TODO add your handling code here:
-        SairTela st = new SairTela();
-        st.setVisible(true);
+        SairTela.centralizarInternalFrame(st, jDesktopPane1);
+        if(st.isVisible() == false){
+            jDesktopPane1.add(st);
+            st.setVisible(true);
+        }
     }//GEN-LAST:event_sairButtonActionPerformed
 
     /**
@@ -314,10 +283,7 @@ public class LoginTela extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton butLogar;
     private javax.swing.JLabel imagemLogo;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JOptionPane jOptionPane1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel labelLogin;
     private javax.swing.JLabel labelSenha;
