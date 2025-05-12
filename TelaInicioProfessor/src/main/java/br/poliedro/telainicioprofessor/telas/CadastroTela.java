@@ -4,20 +4,20 @@
  */
 package br.poliedro.telainicioprofessor.telas;
 
-import br.poliedro.telainicioprofessor.modelo.Jogador;
-import br.poliedro.telainicioprofessor.persistencia.JogadorDAO;
+import br.poliedro.telainicioprofessor.modelo.Usuario;
+import br.poliedro.telainicioprofessor.persistencia.UsuarioDAO;
 import java.awt.event.KeyEvent;
 
 /**
  *
  * @author Lorenzo
  */
-public class CadastroAluno extends javax.swing.JFrame {
+public class CadastroTela extends javax.swing.JFrame {
 
     /**
      * Creates new form CadastroAluno
      */
-    public CadastroAluno() {
+    public CadastroTela() {
         initComponents();
     }
     SucessoCadastro sc = new SucessoCadastro();
@@ -41,10 +41,12 @@ public class CadastroAluno extends javax.swing.JFrame {
         emailTextField = new javax.swing.JTextField();
         senhaTextField = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
-        anoComboBox = new javax.swing.JComboBox<>();
-        jLabel4 = new javax.swing.JLabel();
+        serieComboBox = new javax.swing.JComboBox<>();
+        serieLabel = new javax.swing.JLabel();
         cadastrarButton = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        alunoComboBox = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -66,7 +68,7 @@ public class CadastroAluno extends javax.swing.JFrame {
         emailTextField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         senhaTextField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        senhaTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        senhaTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jButton2.setBackground(new java.awt.Color(204, 255, 255));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -75,7 +77,7 @@ public class CadastroAluno extends javax.swing.JFrame {
         jButton2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton2.setBorderPainted(false);
         jButton2.setContentAreaFilled(false);
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton2.setFocusPainted(false);
         jButton2.setFocusable(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -84,24 +86,24 @@ public class CadastroAluno extends javax.swing.JFrame {
             }
         });
 
-        anoComboBox.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        anoComboBox.setMaximumRowCount(8);
-        anoComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione:", "6º ano", "7º ano", "8º ano", "9º ano", "1º EM", "2º EM", "3º EM" }));
-        anoComboBox.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        anoComboBox.setFocusable(false);
-        anoComboBox.addMouseListener(new java.awt.event.MouseAdapter() {
+        serieComboBox.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        serieComboBox.setMaximumRowCount(8);
+        serieComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione:", "6º ano", "7º ano", "8º ano", "9º ano", "1º EM", "2º EM", "3º EM" }));
+        serieComboBox.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        serieComboBox.setFocusable(false);
+        serieComboBox.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                anoComboBoxMouseClicked(evt);
+                serieComboBoxMouseClicked(evt);
             }
         });
-        anoComboBox.addActionListener(new java.awt.event.ActionListener() {
+        serieComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                anoComboBoxActionPerformed(evt);
+                serieComboBoxActionPerformed(evt);
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel4.setText("Série:");
+        serieLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        serieLabel.setText("Série:");
 
         cadastrarButton.setBackground(new java.awt.Color(204, 255, 255));
         cadastrarButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -110,6 +112,7 @@ public class CadastroAluno extends javax.swing.JFrame {
         cadastrarButton.setBorder(null);
         cadastrarButton.setBorderPainted(false);
         cadastrarButton.setContentAreaFilled(false);
+        cadastrarButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cadastrarButton.setFocusPainted(false);
         cadastrarButton.setFocusable(false);
         cadastrarButton.addActionListener(new java.awt.event.ActionListener() {
@@ -124,8 +127,21 @@ public class CadastroAluno extends javax.swing.JFrame {
         });
 
         jLabel5.setFont(new java.awt.Font("MV Boli", 1, 24)); // NOI18N
-        jLabel5.setText("Cadastro de alunos");
+        jLabel5.setText("Cadastro:");
         jLabel5.setFocusable(false);
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel6.setText("É aluno?");
+
+        alunoComboBox.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        alunoComboBox.setMaximumRowCount(2);
+        alunoComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sim", "Não" }));
+        alunoComboBox.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        alunoComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                alunoComboBoxActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -139,28 +155,31 @@ public class CadastroAluno extends javax.swing.JFrame {
                         .addGap(61, 61, 61)
                         .addComponent(jLabel5))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addContainerGap(31, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addComponent(jLabel6)
                                 .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(nomeTextField)
-                                    .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(alunoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(serieLabel)
+                                .addGap(18, 18, 18)
+                                .addComponent(serieComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel3)
-                                    .addComponent(jLabel4))
-                                .addGap(18, 18, 18)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel1))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(senhaTextField)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(anoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))))
-                            .addComponent(cadastrarButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(93, Short.MAX_VALUE))
+                                    .addComponent(nomeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(senhaTextField)
+                                        .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(163, 163, 163)
+                        .addComponent(cadastrarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -169,26 +188,29 @@ public class CadastroAluno extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(jLabel5))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(nomeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))
-                        .addGap(29, 29, 29)
-                        .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel2))
-                .addGap(29, 29, 29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(senhaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addGap(18, 18, 18)
+                    .addComponent(jLabel1)
+                    .addComponent(nomeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(anoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel2)
+                    .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(senhaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(serieComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(serieLabel))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(alunoComboBox)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addComponent(cadastrarButton)
-                .addGap(23, 23, 23))
+                .addGap(21, 21, 21))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -213,34 +235,48 @@ public class CadastroAluno extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void anoComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_anoComboBoxActionPerformed
+    private void serieComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_serieComboBoxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_anoComboBoxActionPerformed
+    }//GEN-LAST:event_serieComboBoxActionPerformed
 
-    private void anoComboBoxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_anoComboBoxMouseClicked
+    private void serieComboBoxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_serieComboBoxMouseClicked
         // TODO add your handling code here:
-        if (anoComboBox.getSelectedItem().toString().equals("Selecione:")) {
-            anoComboBox.removeItemAt(anoComboBox.getSelectedIndex());
-            anoComboBox.setMaximumRowCount(7);
+        if (serieComboBox.getSelectedItem().toString().equals("Selecione:")) {
+            serieComboBox.removeItemAt(serieComboBox.getSelectedIndex());
+            serieComboBox.setMaximumRowCount(7);
         }
-    }//GEN-LAST:event_anoComboBoxMouseClicked
+    }//GEN-LAST:event_serieComboBoxMouseClicked
 
     private void cadastrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarButtonActionPerformed
         // TODO add your handling code here:
-        if (nomeTextField.getText().length() >= 3 && emailTextField.getText().length() > 9 && senhaTextField.getText().length() > 4 && !anoComboBox.getSelectedItem().toString().equals("Selecione:")) {
+        if ((nomeTextField.getText().length() >= 3 && emailTextField.getText().length() > 9 && senhaTextField.getText().length() > 4 && !serieComboBox.getSelectedItem().toString().equals("Selecione:")) || nomeTextField.getText().length() >= 3 && emailTextField.getText().length() > 9 && senhaTextField.getText().length() > 4 && serieComboBox.isVisible()== false) {
             var nome = nomeTextField.getText();
             var nomeCapitalizado = Character.toUpperCase(nome.charAt(0)) + nome.substring(1).toLowerCase(); // coloca a primeira letra do nome em maiúsculo em concatena com o resto
             var email = emailTextField.getText().toLowerCase(); // manda o email em minusculo
             var senha = senhaTextField.getText();
-            var serie = anoComboBox.getSelectedItem().toString();
-
-            var j = new Jogador(nomeCapitalizado, email, senha, serie);
+            var serie = serieComboBox.getSelectedItem().toString();
+            
+            Usuario u;
+            
+            if(alunoComboBox.getSelectedItem().toString().equals("Sim")){
+                u = new Usuario(nomeCapitalizado, email, senha, serie);
+            } else{
+                u = new Usuario(nomeCapitalizado, email, senha);
+            }
 
             try {
-                var dao = new JogadorDAO();
-                dao.cadastrar(j);
+                var dao = new UsuarioDAO();
+                if (alunoComboBox.getSelectedItem().toString().equals("Sim")) {
+                    dao.cadastrar(u, false);
+                } else {
+                    dao.cadastrar(u, true);
+                }    
                 if (sc.isVisible() == false) {
-                    sc.MudarLabel(nomeCapitalizado, serie);
+                    if(alunoComboBox.getSelectedItem().toString().equals("Sim")){
+                        sc.MudarLabelAluno(nomeCapitalizado, serie);
+                    } else{
+                        sc.MudarLabelProfessor(nomeCapitalizado);
+                    }
                     sc.setVisible(true);
                 }    
             } catch (Exception e) {
@@ -256,6 +292,22 @@ public class CadastroAluno extends javax.swing.JFrame {
     private void cadastrarButtonKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cadastrarButtonKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_cadastrarButtonKeyPressed
+
+    private void alunoComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alunoComboBoxActionPerformed
+        // TODO add your handling code here:
+        if(serieComboBox.isVisible() && serieLabel.isVisible()){
+            if(alunoComboBox.getSelectedItem().toString().equals("Não")){
+                serieLabel.setVisible(false);
+                serieComboBox.setVisible(false);
+            }
+        } else{
+            if(alunoComboBox.getSelectedItem().toString().equals("Sim")){
+                serieLabel.setVisible(true);
+                serieComboBox.setVisible(true);
+            }
+        }
+        
+    }//GEN-LAST:event_alunoComboBoxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -274,36 +326,39 @@ public class CadastroAluno extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CadastroAluno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroTela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CadastroAluno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroTela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CadastroAluno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroTela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CadastroAluno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroTela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CadastroAluno().setVisible(true);
+                new CadastroTela().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> anoComboBox;
+    private javax.swing.JComboBox<String> alunoComboBox;
     private javax.swing.JButton cadastrarButton;
     private javax.swing.JTextField emailTextField;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField nomeTextField;
     private javax.swing.JTextField senhaTextField;
+    private javax.swing.JComboBox<String> serieComboBox;
+    private javax.swing.JLabel serieLabel;
     // End of variables declaration//GEN-END:variables
 }

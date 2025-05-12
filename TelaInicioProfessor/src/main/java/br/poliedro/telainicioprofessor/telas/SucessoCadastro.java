@@ -17,9 +17,13 @@ public class SucessoCadastro extends javax.swing.JFrame {
         initComponents();
     }
     
-    public void MudarLabel(String nome, String serie){
+    public void MudarLabelAluno(String nome, String serie){
         cadastroLabel.setText(nome + " foi cadastrado no " + serie);
     }
+    public void MudarLabelProfessor(String nome){
+        cadastroLabel.setText(nome + " foi cadastrado como professor!");
+    }
+    
     
     /**
      * This method is called from within the constructor to initialize the form.

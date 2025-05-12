@@ -19,7 +19,7 @@ public class TelaInicio extends javax.swing.JFrame {
     }
     
     Configuracoes config = new Configuracoes();
-    CadastroAluno ca = new CadastroAluno();
+    CadastroTela ca = new CadastroTela();
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -57,6 +57,7 @@ public class TelaInicio extends javax.swing.JFrame {
         rankingButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         rankingButton.setFocusPainted(false);
         rankingButton.setFocusable(false);
+        rankingButton.setOpaque(true);
 
         editarPerguntaButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         editarPerguntaButton.setText("Editar pergunta");
@@ -64,6 +65,7 @@ public class TelaInicio extends javax.swing.JFrame {
         editarPerguntaButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         editarPerguntaButton.setFocusPainted(false);
         editarPerguntaButton.setFocusable(false);
+        editarPerguntaButton.setOpaque(true);
         editarPerguntaButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editarPerguntaButtonActionPerformed(evt);
@@ -76,6 +78,7 @@ public class TelaInicio extends javax.swing.JFrame {
         cadastrarAlunoButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         cadastrarAlunoButton.setFocusPainted(false);
         cadastrarAlunoButton.setFocusable(false);
+        cadastrarAlunoButton.setOpaque(true);
         cadastrarAlunoButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cadastrarAlunoButtonActionPerformed(evt);
@@ -88,6 +91,7 @@ public class TelaInicio extends javax.swing.JFrame {
         criarPerguntaButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         criarPerguntaButton.setFocusPainted(false);
         criarPerguntaButton.setFocusable(false);
+        criarPerguntaButton.setOpaque(true);
         criarPerguntaButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 criarPerguntaButtonActionPerformed(evt);

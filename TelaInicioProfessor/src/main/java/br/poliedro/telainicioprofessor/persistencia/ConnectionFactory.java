@@ -15,7 +15,7 @@ public class ConnectionFactory {
 
     private String host = "mysql-2819f7ac-pi-maua-20251-poliedro.l.aivencloud.com";
     private String port = "15903";
-    private String db = "cadastro_login";
+    private String db = "defaultdb";
     private String user = "avnadmin";
     SenhaBD senha = new SenhaBD();
     private String password = senha.setSenha();

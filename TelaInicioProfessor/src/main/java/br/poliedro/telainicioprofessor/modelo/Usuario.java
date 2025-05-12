@@ -4,22 +4,26 @@
  */
 package br.poliedro.telainicioprofessor.modelo;
 
-/**
- *
- * @author Lucca
- */
-public class Jogador {
+import lombok.*;
+
+@Getter
+public class Usuario {
     private int idJogador;
     private String nome;
     private String email;
     private String senha;
     private String serie;
     
-    public Jogador(String n, String e, String pass, String s){
+    public Usuario(String n, String e, String pass, String s){
         nome = n;
         email = e;
         senha = pass;
         serie = s;
+    }
+    public Usuario(String n, String e, String pass){
+        nome = n;
+        email = e;
+        senha = pass;
     }
 
     public String getNome() {
