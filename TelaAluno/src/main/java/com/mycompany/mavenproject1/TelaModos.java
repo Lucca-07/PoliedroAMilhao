@@ -1,4 +1,4 @@
-/*
+    /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
@@ -15,7 +15,10 @@ public class TelaModos extends javax.swing.JFrame {
      */
     public TelaModos() {
         initComponents();
+               
     }
+    
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -122,10 +125,10 @@ public class TelaModos extends javax.swing.JFrame {
                 .addComponent(jLabel5))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(BotãoMat, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(461, 461, 461)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(461, 461, 461)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(BotãoMat, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(BotãoGeral, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(550, 550, 550)
@@ -138,7 +141,7 @@ public class TelaModos extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 204, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 203, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(67, 67, 67)
                 .addComponent(BotãoGeral, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -172,6 +175,7 @@ public class TelaModos extends javax.swing.JFrame {
     private void BotãoGeralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotãoGeralActionPerformed
         // TODO add your handling code here:
         TelaGeral telaGeral = new TelaGeral();
+        telaGeral.setTelaModos(this);
         telaGeral.setVisible(true);
     }//GEN-LAST:event_BotãoGeralActionPerformed
 
