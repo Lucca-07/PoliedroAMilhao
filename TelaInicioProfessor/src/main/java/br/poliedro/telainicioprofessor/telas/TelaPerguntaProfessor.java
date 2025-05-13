@@ -4,6 +4,10 @@
  */
 package br.poliedro.telainicioprofessor.telas;
 
+import br.poliedro.telainicioprofessor.modelo.PerguntaResposta;
+import br.poliedro.telainicioprofessor.modelo.Perguntas;
+import br.poliedro.telainicioprofessor.modelo.Respostas;
+
 /**
  *
  * @author caiquef
@@ -39,11 +43,11 @@ public class TelaPerguntaProfessor extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         txtPergunta = new javax.swing.JTextArea();
         jPanel2 = new javax.swing.JPanel();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        txtResposta5 = new javax.swing.JTextField();
+        txtResposta4 = new javax.swing.JTextField();
+        txtResposta2 = new javax.swing.JTextField();
+        txtResposta1 = new javax.swing.JTextField();
+        txtResposta3 = new javax.swing.JTextField();
         rbResposta1 = new javax.swing.JRadioButton();
         rbResposta2 = new javax.swing.JRadioButton();
         rbResposta3 = new javax.swing.JRadioButton();
@@ -100,25 +104,25 @@ public class TelaPerguntaProfessor extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTextField5.setBackground(new java.awt.Color(255, 51, 51));
-        jTextField5.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        jTextField5.setText("Resposta 5");
+        txtResposta5.setBackground(new java.awt.Color(255, 51, 51));
+        txtResposta5.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        txtResposta5.setText("Resposta 5");
 
-        jTextField4.setBackground(new java.awt.Color(255, 153, 0));
-        jTextField4.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        jTextField4.setText("Resposta 4");
+        txtResposta4.setBackground(new java.awt.Color(255, 153, 0));
+        txtResposta4.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        txtResposta4.setText("Resposta 4");
 
-        jTextField2.setBackground(new java.awt.Color(255, 204, 51));
-        jTextField2.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        jTextField2.setText("Resposta 2");
+        txtResposta2.setBackground(new java.awt.Color(255, 204, 51));
+        txtResposta2.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        txtResposta2.setText("Resposta 2");
 
-        jTextField1.setBackground(new java.awt.Color(102, 255, 255));
-        jTextField1.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        jTextField1.setText("Resposta 1");
+        txtResposta1.setBackground(new java.awt.Color(102, 255, 255));
+        txtResposta1.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        txtResposta1.setText("Resposta 1");
 
-        jTextField3.setBackground(new java.awt.Color(51, 255, 51));
-        jTextField3.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        jTextField3.setText("Resposta 3");
+        txtResposta3.setBackground(new java.awt.Color(51, 255, 51));
+        txtResposta3.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        txtResposta3.setText("Resposta 3");
 
         rbResposta1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,48 +140,48 @@ public class TelaPerguntaProfessor extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(rbResposta1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 575, Short.MAX_VALUE))
+                        .addComponent(txtResposta1, javax.swing.GroupLayout.DEFAULT_SIZE, 575, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(rbResposta2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField2))
+                        .addComponent(txtResposta2))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(rbResposta3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField3))
+                        .addComponent(txtResposta3))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(rbResposta4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField4))
+                        .addComponent(txtResposta4))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(rbResposta5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField5))))
+                        .addComponent(txtResposta5))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtResposta1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(8, 8, 8)
                         .addComponent(rbResposta1)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtResposta2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(8, 8, 8)
                         .addComponent(rbResposta2)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtResposta3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(8, 8, 8)
                         .addComponent(rbResposta3)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtResposta4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(rbResposta4)
                         .addGap(8, 8, 8)))
@@ -186,7 +190,7 @@ public class TelaPerguntaProfessor extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(rbResposta5)
                         .addContainerGap())
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(txtResposta5, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -264,7 +268,33 @@ public class TelaPerguntaProfessor extends javax.swing.JFrame {
     }
     
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {
+        var enunciado = txtPergunta.getText();
         
+        var resposta1 = txtResposta1.getText();
+        var resposta2 = txtResposta2.getText();
+        var resposta3 = txtResposta3.getText();
+        var resposta4 = txtResposta4.getText();
+        var resposta5 = txtResposta5.getText();
+        
+        var correta1 = rbResposta1.isSelected();
+        var correta2 = rbResposta2.isSelected();
+        var correta3 = rbResposta3.isSelected();
+        var correta4 = rbResposta4.isSelected();
+        var correta5 = rbResposta5.isSelected();
+        
+        var pergunta = new Perguntas(enunciado);
+        var pr1 = new PerguntaResposta(pergunta,new Respostas(resposta1),correta1);
+        var pr2 = new PerguntaResposta(pergunta,new Respostas(resposta2),correta2);
+        var pr3 = new PerguntaResposta(pergunta,new Respostas(resposta3),correta3);
+        var pr4 = new PerguntaResposta(pergunta,new Respostas(resposta4),correta4);
+        var pr5 = new PerguntaResposta(pergunta,new Respostas(resposta5),correta5);
+        pergunta.getRespostas().add(pr1);
+        pergunta.getRespostas().add(pr2);
+        pergunta.getRespostas().add(pr3);
+        pergunta.getRespostas().add(pr4);
+        pergunta.getRespostas().add(pr5);
+        
+       
     }
     
     private void rbResposta1ActionPerformed(java.awt.event.ActionEvent evt) {
@@ -314,11 +344,6 @@ public class TelaPerguntaProfessor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JRadioButton rbResposta1;
     private javax.swing.JRadioButton rbResposta2;
     private javax.swing.JRadioButton rbResposta3;
@@ -326,5 +351,10 @@ public class TelaPerguntaProfessor extends javax.swing.JFrame {
     private javax.swing.JRadioButton rbResposta5;
     private javax.swing.JPanel tlPergunta;
     private javax.swing.JTextArea txtPergunta;
+    private javax.swing.JTextField txtResposta1;
+    private javax.swing.JTextField txtResposta2;
+    private javax.swing.JTextField txtResposta3;
+    private javax.swing.JTextField txtResposta4;
+    private javax.swing.JTextField txtResposta5;
     // End of variables declaration//GEN-END:variables
 }

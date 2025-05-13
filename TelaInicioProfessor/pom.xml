@@ -24,6 +24,7 @@
             <version>1.18.38</version>
             <scope>provided</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
     </dependencies>
      
 </project>
