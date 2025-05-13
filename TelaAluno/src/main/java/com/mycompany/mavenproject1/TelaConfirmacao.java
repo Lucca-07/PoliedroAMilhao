@@ -11,14 +11,13 @@ package com.mycompany.mavenproject1;
 
 
 public class TelaConfirmacao extends javax.swing.JFrame {
+    public TelaJogo telaJogo;
     
-    private TelaJogo telaJogo;
-    /**
-     * Creates new form TelaConfirmação
-     */
-    public TelaConfirmacao() {
+   
+    public TelaConfirmacao(TelaJogo telaJogo) {
         initComponents();
         this.telaJogo = telaJogo;
+        
 
     }
 
@@ -101,9 +100,9 @@ public class TelaConfirmacao extends javax.swing.JFrame {
 
     private void BotãoSimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotãoSimActionPerformed
         // TODO add your handling code here:
-        this.dispose();
-        telaJogo.setEnabled(true); 
-        telaJogo.toFront(); 
+        telaJogo.reiniciarTela();
+        dispose();
+        
 
         
     }//GEN-LAST:event_BotãoSimActionPerformed
@@ -141,12 +140,7 @@ public class TelaConfirmacao extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaConfirmacao().setVisible(true);
-            }
-        });
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
