@@ -2,13 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package br.granado.mavenproject1;
+package br.granado.mavenproject1.telas;
 
 /**
  *
  * @author ENZO CHAGAS GRANADA
  */
 
+import br.granado.mavenproject1.telas.ViewProfessor;
 import javax.swing.JFrame;
 public class ViewProfessor extends javax.swing.JFrame {
 
@@ -42,7 +43,6 @@ public class ViewProfessor extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(204, 255, 255));
         setFocusable(false);
-        setMaximumSize(new java.awt.Dimension(2440, 1920));
         setMinimumSize(new java.awt.Dimension(1240, 720));
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {

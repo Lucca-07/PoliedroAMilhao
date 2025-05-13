@@ -10,5 +10,15 @@
         <maven.compiler.release>24</maven.compiler.release>
         <exec.mainClass>br.granado.mavenproject1.Mavenproject1</exec.mainClass>
     </properties>
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/com.mysql/mysql-connector-j -->
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <version>9.3.0</version>
+        </dependency>
+        
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->  
+    </dependencies>
     <name>TelaProfessorEnzo</name>
 </project>

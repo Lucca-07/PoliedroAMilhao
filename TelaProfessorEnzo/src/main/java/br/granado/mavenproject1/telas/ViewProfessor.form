@@ -7,9 +7,6 @@
       <Color blue="ff" green="ff" red="cc" type="rgb"/>
     </Property>
     <Property name="focusable" type="boolean" value="false"/>
-    <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[2440, 1920]"/>
-    </Property>
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[1240, 720]"/>
     </Property>
