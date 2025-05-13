@@ -4,6 +4,8 @@
  */
 package com.mycompany.telalogin.telas;
 
+import com.mycompany.telalogin.modelo.Usuario;
+import com.mycompany.telalogin.persistencia.UsuarioDAO;
 import javax.swing.JOptionPane;
 
 /**
@@ -215,20 +217,40 @@ public class LoginTela extends javax.swing.JFrame {
     private void butLogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butLogarActionPerformed
         // TODO add your handling code here:
         // Login
-        var admin = false;
-        var cadastrado = false;
-        if(txtLogin.getText().endsWith("@sistemapoliedro.com.br") && new String (txtSenha.getPassword()).equals("admin")){
-            JOptionPane.showMessageDialog(null, "Logado como professor");
-            admin = true;
+//        var admin = false;
+//        var cadastrado = false;
+//        if(txtLogin.getText().endsWith("@sistemapoliedro.com.br") && new String (txtSenha.getPassword()).equals("admin")){
+//            JOptionPane.showMessageDialog(null, "Logado como professor");
+//            admin = true;
+//        }
+//        else if(txtLogin.getText().endsWith("@p4ed.com") && new String (txtSenha.getPassword()).equals("123")){
+//            JOptionPane.showMessageDialog(null, "Logado como aluno");
+//            admin = false;
+//        }
+//        else{
+//            JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos");
+//            admin = false;
+//        }
+
+        var email = txtLogin.getText();
+        var senha = new String(txtSenha.getPassword());
+        
+        
+        
+        try {
+            var dao = new UsuarioDAO();
+            if(dao.logar(email, senha).check == true && dao.logar(email, senha).admin == true){
+                System.out.println("Logado como professor!");
+            } else if(dao.logar(email, senha).check == true && dao.logar(email, senha).admin == false){
+                System.out.println("Logado como aluno!");
+            }
+            else{
+                System.out.println("Não funcionou!");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        else if(txtLogin.getText().endsWith("@p4ed.com") && new String (txtSenha.getPassword()).equals("123")){
-            JOptionPane.showMessageDialog(null, "Logado como aluno");
-            admin = false;
-        }
-        else{
-            JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos");
-            admin = false;
-        }
+
     }//GEN-LAST:event_butLogarActionPerformed
 
     private void txtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaActionPerformed
