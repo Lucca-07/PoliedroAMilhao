@@ -6,7 +6,6 @@ package com.mycompany.telalogin.telas;
 
 import com.mycompany.telalogin.modelo.Usuario;
 import com.mycompany.telalogin.persistencia.UsuarioDAO;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -232,23 +231,23 @@ public class LoginTela extends javax.swing.JFrame {
 //            admin = false;
 //        }
 
-        var email = txtLogin.getText();
-        var senha = new String(txtSenha.getPassword());
-        
-        
         
         try {
+            var email = txtLogin.getText();
+            var senha = new String(txtSenha.getPassword());
+            
+            var u = new Usuario(email, senha);
             var dao = new UsuarioDAO();
-            if(dao.logar(email, senha).check == true && dao.logar(email, senha).admin == true){
+            if(dao.logar(u).isCheck() && dao.logar(u).isAdmin()){
                 System.out.println("Logado como professor!");
-            } else if(dao.logar(email, senha).check == true && dao.logar(email, senha).admin == false){
+            } else if(dao.logar(u).isCheck() && dao.logar(u).isAdmin() == false){
                 System.out.println("Logado como aluno!");
-            }
-            else{
-                System.out.println("Não funcionou!");
+            } else{
+                System.out.println("Usuário/Senha inválidos");
             }
         } catch (Exception e) {
             e.printStackTrace();
+            System.out.println("Sistema indisponível!");
         }
 
     }//GEN-LAST:event_butLogarActionPerformed

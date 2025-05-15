@@ -10,7 +10,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
-        <exec.mainClass>com.mycompany.telalogin.TelaLogin</exec.mainClass>
+        <exec.mainClass>com.mycompany.telalogin.telas.LoginTela</exec.mainClass>
     </properties>
     
     <build>
@@ -26,11 +26,10 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>3.1.0</version>
                 <configuration>
-                    <mainClass>${exec.mainClass}</mainClass>
+                    <mainClass>com.mycompany.telalogin.telas.LoginTela</mainClass>
                 </configuration>
             </plugin>
-            
-            <!-- Plugin para criar jar executável -->
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
@@ -38,7 +37,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>${exec.mainClass}</mainClass>
+                            <mainClass>com.mycompany.telalogin.telas.LoginTela</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -51,6 +50,13 @@
             <groupId>com.mysql</groupId>
             <artifactId>mysql-connector-j</artifactId>
             <version>9.3.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.38</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 </project>

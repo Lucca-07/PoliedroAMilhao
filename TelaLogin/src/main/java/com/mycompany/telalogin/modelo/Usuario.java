@@ -15,16 +15,20 @@ public class Usuario {
     private String email;
     private String senha;
     private String serie;
-    public boolean check;
-    public boolean admin;
+    private boolean check;
+    private boolean admin;
     
     
-    public Usuario(boolean logado, boolean administrador){
-        check = logado;
-        admin = administrador;
+    public Usuario(String e, String s){
+        email = e;
+        senha = s;
     }
-            
-            
+    
+    public Usuario(boolean c, boolean a){
+        check = c;
+        admin = a;
+    }
+
     public int getId_usuario() {
         return id_usuario;
     }
@@ -43,6 +47,14 @@ public class Usuario {
 
     public String getSerie() {
         return serie;
+    }
+
+    public boolean isCheck() {
+        return check;
+    }
+
+    public boolean isAdmin() {
+        return admin;
     }
     
     
