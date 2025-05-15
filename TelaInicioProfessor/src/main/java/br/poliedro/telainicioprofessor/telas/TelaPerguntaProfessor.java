@@ -7,6 +7,8 @@ package br.poliedro.telainicioprofessor.telas;
 import br.poliedro.telainicioprofessor.modelo.PerguntaResposta;
 import br.poliedro.telainicioprofessor.modelo.Perguntas;
 import br.poliedro.telainicioprofessor.modelo.Respostas;
+import br.poliedro.telainicioprofessor.persistencia.PerguntaDAO;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -89,7 +91,12 @@ public class TelaPerguntaProfessor extends javax.swing.JFrame {
         btSalvar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btSalvarActionPerformed(evt);
+                try {
+                    btSalvarActionPerformed(evt);
+                } catch (Exception e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -267,7 +274,7 @@ public class TelaPerguntaProfessor extends javax.swing.JFrame {
         this.dispose();
     }
     
-    private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {
+    private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) throws Exception {
         var enunciado = txtPergunta.getText();
         
         var resposta1 = txtResposta1.getText();
@@ -294,9 +301,14 @@ public class TelaPerguntaProfessor extends javax.swing.JFrame {
         pergunta.getRespostas().add(pr4);
         pergunta.getRespostas().add(pr5);
         
-       
-    }
-    
+        var dao1 = new PerguntaDAO();
+        var p = new Perguntas(enunciado);
+        dao1.cadastrarPergunta(p); 
+        System.out.println("Cadastrado");
+        
+        
+}
+   
     private void rbResposta1ActionPerformed(java.awt.event.ActionEvent evt) {
     
     }

@@ -3,6 +3,8 @@
 /Users/caiquef/Documents/PoliedroAMilhao/TelaInicioProfessor/src/main/java/br/poliedro/telainicioprofessor/modelo/Respostas.java
 /Users/caiquef/Documents/PoliedroAMilhao/TelaInicioProfessor/src/main/java/br/poliedro/telainicioprofessor/modelo/Usuario.java
 /Users/caiquef/Documents/PoliedroAMilhao/TelaInicioProfessor/src/main/java/br/poliedro/telainicioprofessor/persistencia/ConnectionFactory.java
+/Users/caiquef/Documents/PoliedroAMilhao/TelaInicioProfessor/src/main/java/br/poliedro/telainicioprofessor/persistencia/PerguntaDAO.java
+/Users/caiquef/Documents/PoliedroAMilhao/TelaInicioProfessor/src/main/java/br/poliedro/telainicioprofessor/persistencia/RespostaDAO.java
 /Users/caiquef/Documents/PoliedroAMilhao/TelaInicioProfessor/src/main/java/br/poliedro/telainicioprofessor/persistencia/SenhaBD.java
 /Users/caiquef/Documents/PoliedroAMilhao/TelaInicioProfessor/src/main/java/br/poliedro/telainicioprofessor/persistencia/UsuarioDAO.java
 /Users/caiquef/Documents/PoliedroAMilhao/TelaInicioProfessor/src/main/java/br/poliedro/telainicioprofessor/telas/CadastroTela.java
