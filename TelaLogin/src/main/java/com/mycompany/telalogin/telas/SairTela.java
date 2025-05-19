@@ -28,6 +28,10 @@ public class SairTela extends javax.swing.JInternalFrame {
         int internalWidth = internalFrame.getWidth();
         int internalHeight = internalFrame.getHeight();
 
+        if (width <= 0 || height <= 0 || internalWidth <= 0 || internalHeight <= 0) {
+            return; // ou lançar uma exceção, ou tentar chamar pack() primeiro
+        }
+
         internalFrame.setLocation(
                 (width - internalWidth) / 2,
                 (height - internalHeight) / 2

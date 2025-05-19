@@ -21,6 +21,7 @@ public class LoginTela extends javax.swing.JFrame {
         this.setExtendedState(MAXIMIZED_BOTH);
     }
     SairTela st = new SairTela();
+    ErroLoginTela elt = new ErroLoginTela();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -215,26 +216,10 @@ public class LoginTela extends javax.swing.JFrame {
 
     private void butLogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butLogarActionPerformed
         // TODO add your handling code here:
-        // Login
-//        var admin = false;
-//        var cadastrado = false;
-//        if(txtLogin.getText().endsWith("@sistemapoliedro.com.br") && new String (txtSenha.getPassword()).equals("admin")){
-//            JOptionPane.showMessageDialog(null, "Logado como professor");
-//            admin = true;
-//        }
-//        else if(txtLogin.getText().endsWith("@p4ed.com") && new String (txtSenha.getPassword()).equals("123")){
-//            JOptionPane.showMessageDialog(null, "Logado como aluno");
-//            admin = false;
-//        }
-//        else{
-//            JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos");
-//            admin = false;
-//        }
-
         
         try {
-            var email = txtLogin.getText();
-            var senha = new String(txtSenha.getPassword());
+            var email = txtLogin.getText(); // Texto digitado no campo email
+            var senha = new String(txtSenha.getPassword()); // Texto digitado no campo senha
             
             var u = new Usuario(email, senha);
             var dao = new UsuarioDAO();
@@ -243,7 +228,11 @@ public class LoginTela extends javax.swing.JFrame {
             } else if(dao.logar(u).isCheck() && dao.logar(u).isAdmin() == false){
                 System.out.println("Logado como aluno!");
             } else{
-                System.out.println("Usuário/Senha inválidos");
+                ErroLoginTela.centralizarInternalFrame(elt, jDesktopPane1);
+                if(elt.isVisible() == false){
+                    jDesktopPane1.add(elt);
+                    elt.setVisible(true);
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();

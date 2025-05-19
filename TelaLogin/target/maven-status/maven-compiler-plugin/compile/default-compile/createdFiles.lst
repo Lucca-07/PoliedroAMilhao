@@ -1,12 +1,12 @@
 com\mycompany\telalogin\modelo\Usuario.class
 com\mycompany\telalogin\telas\LoginTela$3.class
-com\mycompany\telalogin\telas\FundoEmbacadoTela$1.class
 com\mycompany\telalogin\telas\SairTela.class
-com\mycompany\telalogin\telas\FundoEmbacadoTela.class
 com\mycompany\telalogin\persistencia\UsuarioDAO.class
+com\mycompany\telalogin\telas\ErroLoginTela.class
 com\mycompany\telalogin\telas\LoginTela$2.class
 com\mycompany\telalogin\persistencia\SenhaBD.class
 com\mycompany\telalogin\persistencia\ConnectionFactory.class
+com\mycompany\telalogin\telas\ErroLoginTela$1.class
 com\mycompany\telalogin\telas\LoginTela$6.class
 com\mycompany\telalogin\telas\SairTela$1.class
 com\mycompany\telalogin\telas\LoginTela$5.class
