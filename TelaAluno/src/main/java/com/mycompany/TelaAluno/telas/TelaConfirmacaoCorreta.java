@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package com.mycompany.TelaAluno.telas;
 
 /**
@@ -9,12 +6,11 @@ package com.mycompany.TelaAluno.telas;
  * @author diego
  */
 
-
-public class TelaConfirmacao extends javax.swing.JFrame {
+public class TelaConfirmacaoCorreta extends javax.swing.JFrame {
     public TelaJogo telaJogo;
     
    
-    public TelaConfirmacao(TelaJogo telaJogo) {
+    public TelaConfirmacaoCorreta(TelaJogo telaJogo) {
         initComponents();
         this.telaJogo = telaJogo;
         
@@ -102,7 +98,8 @@ public class TelaConfirmacao extends javax.swing.JFrame {
 
     private void BotãoSimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotãoSimActionPerformed
         // TODO add your handling code here:
-        telaJogo.reiniciarTela();
+        telaJogo.proximaPergunta();
+        telaJogo.pararTemporizador();
         this.dispose();
         
 
@@ -131,14 +128,20 @@ public class TelaConfirmacao extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaConfirmacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaConfirmacaoCorreta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaConfirmacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaConfirmacaoCorreta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaConfirmacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaConfirmacaoCorreta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaConfirmacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaConfirmacaoCorreta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 

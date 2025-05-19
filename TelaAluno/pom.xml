@@ -8,7 +8,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>17</maven.compiler.release>
-        <exec.mainClass>com.mycompany.mavenproject1.TelaInicial</exec.mainClass>
+        <exec.mainClass>com.mycompany.TelaAluno.telas.TelaInicial</exec.mainClass>
     </properties>
     <name>TelaAluno</name>
     <dependencies>
@@ -24,6 +24,11 @@
             <artifactId>lombok</artifactId>
             <version>1.18.38</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.netbeans.external</groupId>
+            <artifactId>AbsoluteLayout</artifactId>
+            <version>RELEASE250</version>
         </dependency>
     </dependencies>
 </project>
