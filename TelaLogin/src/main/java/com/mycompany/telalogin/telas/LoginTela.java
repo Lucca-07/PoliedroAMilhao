@@ -6,6 +6,8 @@ package com.mycompany.telalogin.telas;
 
 import com.mycompany.telalogin.modelo.Usuario;
 import com.mycompany.telalogin.persistencia.UsuarioDAO;
+import java.awt.Color;
+import javax.swing.BorderFactory;
 
 /**
  *
@@ -20,8 +22,6 @@ public class LoginTela extends javax.swing.JFrame {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
     }
-    SairTela st = new SairTela();
-    ErroLoginTela elt = new ErroLoginTela();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -36,11 +36,11 @@ public class LoginTela extends javax.swing.JFrame {
         imagemLogo = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         labelSenha = new javax.swing.JLabel();
-        txtSenha = new javax.swing.JPasswordField();
-        butLogar = new javax.swing.JButton();
+        senhaPasswordField = new javax.swing.JPasswordField();
+        entrarButton = new javax.swing.JButton();
         labelLogin = new javax.swing.JLabel();
-        txtLogin = new javax.swing.JTextField();
-        mostrarSenha = new javax.swing.JCheckBox();
+        emailTextField = new javax.swing.JTextField();
+        mostrarSenhaCheckBox = new javax.swing.JCheckBox();
         sairButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -49,55 +49,62 @@ public class LoginTela extends javax.swing.JFrame {
         setMaximumSize(new java.awt.Dimension(2440, 1920));
         setMinimumSize(new java.awt.Dimension(1240, 720));
         setName("framePrincipal"); // NOI18N
+        setUndecorated(true);
 
-        jDesktopPane1.setBackground(new java.awt.Color(204, 255, 255));
+        jDesktopPane1.setBackground(new java.awt.Color(191, 241, 255));
 
         imagemLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/LogoPoliedro_1.png"))); // NOI18N
 
-        jPanel3.setBackground(new java.awt.Color(223, 245, 245));
-        jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
+        jPanel3.setBackground(new java.awt.Color(173, 228, 244));
+        jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(159, 209, 224), 3, true));
 
-        labelSenha.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        labelSenha.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         labelSenha.setText("Senha");
 
-        txtSenha.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        txtSenha.addActionListener(new java.awt.event.ActionListener() {
+        senhaPasswordField.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        senhaPasswordField.setEchoChar('*');
+        senhaPasswordField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSenhaActionPerformed(evt);
+                senhaPasswordFieldActionPerformed(evt);
             }
         });
 
-        butLogar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        butLogar.setText("Entrar");
-        butLogar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
-        butLogar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        butLogar.setFocusPainted(false);
-        butLogar.setFocusable(false);
-        butLogar.addActionListener(new java.awt.event.ActionListener() {
+        entrarButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        entrarButton.setText("Entrar");
+        entrarButton.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(159, 209, 224), 2, true));
+        entrarButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        entrarButton.setDefaultCapable(false);
+        entrarButton.setFocusPainted(false);
+        entrarButton.setFocusable(false);
+        entrarButton.setOpaque(true);
+        entrarButton.setRequestFocusEnabled(false);
+        entrarButton.setRolloverEnabled(false);
+        entrarButton.setVerifyInputWhenFocusTarget(false);
+        entrarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butLogarActionPerformed(evt);
+                entrarButtonActionPerformed(evt);
             }
         });
 
-        labelLogin.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        labelLogin.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         labelLogin.setText("Email");
 
-        txtLogin.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        txtLogin.addActionListener(new java.awt.event.ActionListener() {
+        emailTextField.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        emailTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtLoginActionPerformed(evt);
+                emailTextFieldActionPerformed(evt);
             }
         });
 
-        mostrarSenha.setBackground(new java.awt.Color(223, 245, 245));
-        mostrarSenha.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        mostrarSenha.setText("Mostrar senha");
-        mostrarSenha.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        mostrarSenha.setFocusPainted(false);
-        mostrarSenha.setFocusable(false);
-        mostrarSenha.addActionListener(new java.awt.event.ActionListener() {
+        mostrarSenhaCheckBox.setBackground(new java.awt.Color(173, 228, 244));
+        mostrarSenhaCheckBox.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        mostrarSenhaCheckBox.setText("Mostrar senha");
+        mostrarSenhaCheckBox.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mostrarSenhaCheckBox.setFocusPainted(false);
+        mostrarSenhaCheckBox.setFocusable(false);
+        mostrarSenhaCheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mostrarSenhaActionPerformed(evt);
+                mostrarSenhaCheckBoxActionPerformed(evt);
             }
         });
 
@@ -109,14 +116,14 @@ public class LoginTela extends javax.swing.JFrame {
                 .addGap(6, 6, 6)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelLogin)
-                    .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelSenha)
-                    .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(butLogar, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(senhaPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(entrarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(6, 6, 6))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(mostrarSenha)
+                .addComponent(mostrarSenhaCheckBox)
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -125,19 +132,19 @@ public class LoginTela extends javax.swing.JFrame {
                 .addGap(6, 6, 6)
                 .addComponent(labelLogin)
                 .addGap(6, 6, 6)
-                .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(labelSenha)
                 .addGap(6, 6, 6)
-                .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(senhaPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
-                .addComponent(mostrarSenha)
+                .addComponent(mostrarSenhaCheckBox)
                 .addGap(6, 6, 6)
-                .addComponent(butLogar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(entrarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(13, Short.MAX_VALUE))
         );
 
-        sairButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        sairButton.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         sairButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Sair.png"))); // NOI18N
         sairButton.setText("SAIR");
         sairButton.setBorder(null);
@@ -169,18 +176,18 @@ public class LoginTela extends javax.swing.JFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addGap(36, 36, 36)
                 .addComponent(sairButton)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addGap(32, 32, 32)
                 .addComponent(sairButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+                .addGap(67, 67, 67)
                 .addComponent(imagemLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(79, Short.MAX_VALUE))
         );
@@ -200,37 +207,40 @@ public class LoginTela extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void mostrarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarSenhaActionPerformed
+    private void mostrarSenhaCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarSenhaCheckBoxActionPerformed
         // TODO add your handling code here:
-        if(mostrarSenha.isSelected()){
-            txtSenha.setEchoChar((char)0);
+        if (mostrarSenhaCheckBox.isSelected()) {
+            senhaPasswordField.setEchoChar((char) 0);
+        } else {
+            senhaPasswordField.setEchoChar('*');
         }
-        else{
-            txtSenha.setEchoChar('*');
-        }
-    }//GEN-LAST:event_mostrarSenhaActionPerformed
+    }//GEN-LAST:event_mostrarSenhaCheckBoxActionPerformed
 
-    private void txtLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLoginActionPerformed
+    private void emailTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtLoginActionPerformed
+    }//GEN-LAST:event_emailTextFieldActionPerformed
 
-    private void butLogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butLogarActionPerformed
+    private void entrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarButtonActionPerformed
         // TODO add your handling code here:
-        
+        ErroLoginTela elt = new ErroLoginTela();
+        jDesktopPane1.add(elt);
+        elt.setVisible(false);
+        ErroLoginTela.centralizarInternalFrame(elt, jDesktopPane1);
+
         try {
-            var email = txtLogin.getText(); // Texto digitado no campo email
-            var senha = new String(txtSenha.getPassword()); // Texto digitado no campo senha
-            
+            var email = emailTextField.getText(); // Texto digitado no campo email
+            var senha = new String(senhaPasswordField.getPassword()); // Texto digitado no campo senha
+
             var u = new Usuario(email, senha);
             var dao = new UsuarioDAO();
-            if(dao.logar(u).isCheck() && dao.logar(u).isAdmin()){
+            var resultado = dao.logar(u);
+            System.out.println("Resultado: check=" + resultado.isCheck() + ", admin=" + resultado.isAdmin());
+            if (resultado.isCheck() && resultado.isAdmin()) {
                 System.out.println("Logado como professor!");
-            } else if(dao.logar(u).isCheck() && dao.logar(u).isAdmin() == false){
+            } else if (resultado.isCheck()) {
                 System.out.println("Logado como aluno!");
-            } else{
-                ErroLoginTela.centralizarInternalFrame(elt, jDesktopPane1);
-                if(elt.isVisible() == false){
-                    jDesktopPane1.add(elt);
+            } else {
+                if (elt.isVisible() == false) {
                     elt.setVisible(true);
                 }
             }
@@ -239,16 +249,17 @@ public class LoginTela extends javax.swing.JFrame {
             System.out.println("Sistema indisponível!");
         }
 
-    }//GEN-LAST:event_butLogarActionPerformed
+    }//GEN-LAST:event_entrarButtonActionPerformed
 
-    private void txtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaActionPerformed
+    private void senhaPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senhaPasswordFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtSenhaActionPerformed
+    }//GEN-LAST:event_senhaPasswordFieldActionPerformed
 
     private void sairButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairButtonActionPerformed
         // TODO add your handling code here:
+        SairTela st = new SairTela();
         SairTela.centralizarInternalFrame(st, jDesktopPane1);
-        if(st.isVisible() == false){
+        if (st.isVisible() == false) {
             jDesktopPane1.add(st);
             st.setVisible(true);
         }
@@ -291,15 +302,15 @@ public class LoginTela extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton butLogar;
+    private javax.swing.JTextField emailTextField;
+    private javax.swing.JButton entrarButton;
     private javax.swing.JLabel imagemLogo;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel labelLogin;
     private javax.swing.JLabel labelSenha;
-    private javax.swing.JCheckBox mostrarSenha;
+    private javax.swing.JCheckBox mostrarSenhaCheckBox;
     private javax.swing.JButton sairButton;
-    private javax.swing.JTextField txtLogin;
-    private javax.swing.JPasswordField txtSenha;
+    private javax.swing.JPasswordField senhaPasswordField;
     // End of variables declaration//GEN-END:variables
 }

@@ -24,9 +24,9 @@ public class Usuario {
         senha = s;
     }
     
-    public Usuario(boolean c, boolean a){
-        check = c;
-        admin = a;
+    public Usuario(boolean check, boolean admin) {
+        this.check = check;
+        this.admin = admin;
     }
 
     public int getId_usuario() {
