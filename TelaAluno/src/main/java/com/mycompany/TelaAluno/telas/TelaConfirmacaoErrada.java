@@ -98,9 +98,14 @@ public class TelaConfirmacaoErrada extends javax.swing.JFrame {
 
     private void BotãoSimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotãoSimActionPerformed
         // TODO add your handling code here:
-        telaJogo.proximaPergunta();
-        telaJogo.pararTemporizador();
+        TelaFimJogo telaFimJogo = new TelaFimJogo();
+        telaFimJogo.setVisible(true);
+        
+        if (telaJogo != null) {
+            telaJogo.dispose();
+        }
         this.dispose();
+       
         
 
         

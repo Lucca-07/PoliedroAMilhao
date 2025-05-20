@@ -1,18 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.mycompany.TelaAluno.persistencia;
 
-/**
- *
- * @author diego
- */
+
 public class RespostasDAO {
+    
     public String resposta_A() throws Exception {
         String Alternativa_A = null;
                 
-        var sql = "Select Alternativa_A from Respostas WHERE Id_Pergunta = 1";
+        var sql = "Select Alternativa from Respostas WHERE Id_Resposta = 1";
         
         var fabricaDeConexoes = new ConnectionFactory();
         try(
@@ -21,15 +16,16 @@ public class RespostasDAO {
             var rs = ps.executeQuery();
         ){
             while(rs.next()){
-                Alternativa_A = rs.getString("Alternativa_A");
+                Alternativa_A = rs.getString("Alternativa");
             }
         }
         return Alternativa_A;                              
  }   
+    
     public String resposta_B() throws Exception {
         String Alternativa_B = null;
                 
-        var sql = "Select Alternativa_B from Respostas WHERE Id_Pergunta = 1";
+        var sql = "Select Alternativa from Respostas WHERE Id_Resposta = 2";
         
         var fabricaDeConexoes = new ConnectionFactory();
         try(
@@ -38,7 +34,7 @@ public class RespostasDAO {
             var rs = ps.executeQuery();
         ){
             while(rs.next()){
-                Alternativa_B = rs.getString("Alternativa_B");
+                Alternativa_B = rs.getString("Alternativa");
             }
         }
         return Alternativa_B;                              
@@ -97,7 +93,7 @@ public class RespostasDAO {
     public String resposta_correta() throws Exception {
         String Alternativa_correta = null;
                 
-        var sql = "Select Alternativa_correta from Respostas WHERE Id_Pergunta = 1";
+        var sql = "Select Alternativa from Respostas WHERE Id_Resposta = 2";
         
         var fabricaDeConexoes = new ConnectionFactory();
         try(
@@ -106,7 +102,7 @@ public class RespostasDAO {
             var rs = ps.executeQuery();
         ){
             while(rs.next()){
-                Alternativa_correta = rs.getString("Alternativa_correta");
+                Alternativa_correta = rs.getString("Alternativa");
             }
         }
         return Alternativa_correta;                        
