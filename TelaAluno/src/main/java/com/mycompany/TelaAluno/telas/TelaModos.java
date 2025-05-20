@@ -1,17 +1,11 @@
-    /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package com.mycompany.TelaAluno.telas;
 
 import com.mycompany.TelaAluno.persistencia.AlunoDAO;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author diego
- */
+
 public class TelaModos extends javax.swing.JFrame {
 
     /**

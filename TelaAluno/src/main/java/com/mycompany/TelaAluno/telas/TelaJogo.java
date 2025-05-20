@@ -1,13 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package com.mycompany.TelaAluno.telas;
 
-/**
- *
- * @author diego
- */
+
 import com.mycompany.TelaAluno.persistencia.AlunoDAO;
 import com.mycompany.TelaAluno.persistencia.PerguntasFacilDAO;
 import com.mycompany.TelaAluno.persistencia.RespostasDAO;
@@ -49,8 +43,13 @@ public class TelaJogo extends javax.swing.JFrame {
     public void proximaPergunta() {
         contadorReinicios += 1;
         this.dispose();
-        TelaJogo novaTela = new TelaJogo();
-        novaTela.setVisible(true);
+        if (contadorReinicios == 13) {
+            TelaVitoriaJogo telaVitoriaJogo = new TelaVitoriaJogo();
+            telaVitoriaJogo.setVisible(true);
+            } else {
+            TelaJogo novaTela = new TelaJogo();
+            novaTela.setVisible(true);
+        }
     }
 
     /**
@@ -401,7 +400,6 @@ public class TelaJogo extends javax.swing.JFrame {
         getContentPane().add(PanelFUNDO, java.awt.BorderLayout.CENTER);
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void iniciarTemporizador() {
@@ -429,18 +427,18 @@ public class TelaJogo extends javax.swing.JFrame {
 
 
     private void Alternativa_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Alternativa_1ActionPerformed
-        // TODO add your handling code here:
-        TelaConfirmacaoErrada telaConfirmacao = new TelaConfirmacaoErrada(this);
-        telaConfirmacao.setVisible(true);
+        // TODO add your handling code here:      
         var dao = new RespostasDAO();
         try {
             if (dao.resposta_correta().equals("A")) {
-                JOptionPane.showMessageDialog(null, "Resposta está correta");
+                TelaConfirmacaoCorreta telaConfirmacaoCorreta = new TelaConfirmacaoCorreta(this);
+                telaConfirmacaoCorreta.setVisible(true);
             }
             else {
-                JOptionPane.showMessageDialog(null, "Resposta Errada");
+                TelaConfirmacaoErrada telaConfirmacao = new TelaConfirmacaoErrada(this);
+                telaConfirmacao.setVisible(true);
             }
-                
+                    
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -451,15 +449,15 @@ public class TelaJogo extends javax.swing.JFrame {
 
     private void Alternativa_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Alternativa_2ActionPerformed
         // TODO add your handling code here:
-        TelaConfirmacaoErrada telaConfirmacao = new TelaConfirmacaoErrada(this);
-        telaConfirmacao.setVisible(true);
          var dao = new RespostasDAO();
         try {
-            if (dao.resposta_correta().equals("B")) {
-                JOptionPane.showMessageDialog(null, "Resposta está correta");
+            if (dao.resposta_correta().equals("4")) {
+                TelaConfirmacaoCorreta telaConfirmacaoCorreta = new TelaConfirmacaoCorreta(this);
+                telaConfirmacaoCorreta.setVisible(true);
             }
             else {
-                JOptionPane.showMessageDialog(null, "Resposta Errada");
+                TelaConfirmacaoErrada telaConfirmacao = new TelaConfirmacaoErrada(this);
+                telaConfirmacao.setVisible(true);
             }
                 
         } catch (Exception e) {
