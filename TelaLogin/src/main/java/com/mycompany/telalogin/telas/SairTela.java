@@ -57,7 +57,7 @@ public class SairTela extends javax.swing.JInternalFrame {
         setBorder(null);
         setPreferredSize(new java.awt.Dimension(516, 180));
 
-        jPanel1.setBackground(new java.awt.Color(191, 241, 255));
+        jPanel1.setBackground(new java.awt.Color(163, 236, 255));
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
         jPanel1.setPreferredSize(new java.awt.Dimension(516, 206));
 
@@ -69,7 +69,7 @@ public class SairTela extends javax.swing.JInternalFrame {
         confirmarButton.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         confirmarButton.setText("Sim, quero sair!");
         confirmarButton.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        confirmarButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        confirmarButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         confirmarButton.setFocusPainted(false);
         confirmarButton.setFocusable(false);
         confirmarButton.setRolloverEnabled(false);
@@ -87,7 +87,7 @@ public class SairTela extends javax.swing.JInternalFrame {
         voltarButton.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         voltarButton.setText("Não, quero voltar!");
         voltarButton.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        voltarButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        voltarButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         voltarButton.setFocusPainted(false);
         voltarButton.setFocusable(false);
         voltarButton.setRolloverEnabled(false);
@@ -122,7 +122,7 @@ public class SairTela extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(confirmarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(voltarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(59, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -135,7 +135,7 @@ public class SairTela extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
         );
 
         pack();

@@ -54,13 +54,13 @@ public class ErroLoginTela extends javax.swing.JInternalFrame {
         setBackground(null);
         setBorder(null);
 
-        jPanel1.setBackground(new java.awt.Color(191, 241, 255));
+        jPanel1.setBackground(new java.awt.Color(163, 236, 255));
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
 
         jButton1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jButton1.setText("Voltar");
         jButton1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton1.setFocusPainted(false);
         jButton1.setFocusable(false);
         jButton1.setRequestFocusEnabled(false);
