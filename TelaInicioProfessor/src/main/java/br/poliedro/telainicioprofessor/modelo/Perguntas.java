@@ -1,10 +1,7 @@
 
 package br.poliedro.telainicioprofessor.modelo;
-import lombok.*;
 import java.util.*;
 
-@Getter
-@Setter
 public class Perguntas {
 
     private int codigo;
@@ -15,5 +12,31 @@ public class Perguntas {
         this.enunciado = enunciado;
         respostas = new ArrayList<>();      
     }
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
+    public String getEnunciado() {
+        return enunciado;
+    }
+
+    public void setEnunciado(String enunciado) {
+        this.enunciado = enunciado;
+    }
+
+    public List<PerguntaResposta> getRespostas() {
+        return respostas;
+    }
+
+    public void setRespostas(List<PerguntaResposta> respostas) {
+        this.respostas = respostas;
+    }
+    
+    
   
 }
