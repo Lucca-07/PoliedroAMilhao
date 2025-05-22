@@ -1,8 +1,11 @@
 
 package com.mycompany.TelaAluno.telas;
 
-
+import com.mycompany.TelaAluno.modelo.Pergunta;
+import com.mycompany.TelaAluno.modelo.Respostas;    
 import com.mycompany.TelaAluno.persistencia.AlunoDAO;
+import com.mycompany.TelaAluno.persistencia.PerguntasDificilDAO;
+import com.mycompany.TelaAluno.persistencia.PerguntasMediaDAO;
 import com.mycompany.TelaAluno.persistencia.PerguntasFacilDAO;
 import com.mycompany.TelaAluno.persistencia.RespostasDAO;
 import javax.swing.*;
@@ -14,30 +17,75 @@ public class TelaJogo extends javax.swing.JFrame {
 
     private static int contadorReinicios = 1;
     private Timer timer;
-    private int segundos = 30;
-
+    private int segundos = 45;
+    private int idPerguntaAtual;
+    private Respostas respostaSelecionadaA;
+    private Respostas respostaSelecionadaB;
+    private Respostas respostaSelecionadaC;
+    private Respostas respostaSelecionadaD;
+    private Respostas respostaSelecionadaE;
+    
     /**
      * Creates new form TelaJogo
      */
     public TelaJogo() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
+
         try {
+            // Nome do aluno
             var daoAluno = new AlunoDAO();
             nomeLabel.setText(daoAluno.listar());
-            var dao = new PerguntasFacilDAO();
-            perguntaLabel.setText(" " + dao.questao());
-            contadorLabel.setText("Pergunta de número: " + contadorReinicios);
-            var daoresposta = new RespostasDAO();
-            Alternativa_1.setText(daoresposta.resposta_A());
-            Alternativa_2.setText(daoresposta.resposta_B());
-            Alternativa_3.setText(daoresposta.resposta_C());
-            Alternativa_4.setText(daoresposta.resposta_D());
-            Alternativa_5.setText(daoresposta.resposta_E());
+
+            Pergunta perguntaAtual = null;
+
+            // Nível de dificuldade
+            if (contadorReinicios <= 4) {
+                PerguntasFacilDAO daoFacil = new PerguntasFacilDAO();
+                perguntaAtual = daoFacil.buscarPerguntaFacil();
+            } else if (contadorReinicios <= 8) {
+                PerguntasMediaDAO daoMedia = new PerguntasMediaDAO();
+                perguntaAtual = daoMedia.buscarPerguntaMedia();
+            } else if (contadorReinicios <= 12) {
+                PerguntasDificilDAO daoDificil = new PerguntasDificilDAO();
+                perguntaAtual = daoDificil.buscarPerguntaDificil(); 
+            }
+
+            if (perguntaAtual != null) {
+                // Mostra o enunciado
+                perguntaLabel.setText(" " + perguntaAtual.getEnunciado());
+
+                // Exibe o número da pergunta
+                contadorLabel.setText("Pergunta de número: " + contadorReinicios);
+
+                // Buscar alternativas com o ID correto da pergunta
+                int idPergunta = perguntaAtual.getId_pergunta();
+                var daoresposta = new RespostasDAO();
+
+                Respostas altA = daoresposta.AlternativaPorLetra(idPergunta, "A");
+                Respostas altB = daoresposta.AlternativaPorLetra(idPergunta, "B");
+                Respostas altC = daoresposta.AlternativaPorLetra(idPergunta, "C");
+                Respostas altD = daoresposta.AlternativaPorLetra(idPergunta, "D");
+                Respostas altE = daoresposta.AlternativaPorLetra(idPergunta, "E");
+                
+                respostaSelecionadaA = altA;
+                respostaSelecionadaB = altB;
+                respostaSelecionadaC = altC;
+                respostaSelecionadaD = altD;
+                respostaSelecionadaE = altE;
+
+                // Define o texto nos botões 
+                Alternativa_1.setText(altA.getTexto());
+                Alternativa_2.setText(altB.getTexto());
+                Alternativa_3.setText(altC.getTexto());
+                Alternativa_4.setText(altD.getTexto());
+                Alternativa_5.setText(altE.getTexto());
+            }
+
         } catch (Exception ex) {
             ex.printStackTrace();
+          
         }
-
     }
 
     public void proximaPergunta() {
@@ -46,7 +94,7 @@ public class TelaJogo extends javax.swing.JFrame {
         if (contadorReinicios == 13) {
             TelaVitoriaJogo telaVitoriaJogo = new TelaVitoriaJogo();
             telaVitoriaJogo.setVisible(true);
-            } else {
+        } else {
             TelaJogo novaTela = new TelaJogo();
             novaTela.setVisible(true);
         }
@@ -403,7 +451,7 @@ public class TelaJogo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void iniciarTemporizador() {
-        segundos = 30; // reinicia o tempo
+        segundos = 45; // reinicia o tempo
         Contador.setText(String.valueOf(segundos));
         timer = new Timer(1000, new ActionListener() {
             @Override
@@ -427,96 +475,97 @@ public class TelaJogo extends javax.swing.JFrame {
 
 
     private void Alternativa_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Alternativa_1ActionPerformed
-        // TODO add your handling code here:      
-        var dao = new RespostasDAO();
+        RespostasDAO dao = new RespostasDAO();
         try {
-            if (dao.resposta_correta().equals("A")) {
-                TelaConfirmacaoCorreta telaConfirmacaoCorreta = new TelaConfirmacaoCorreta(this);
-                telaConfirmacaoCorreta.setVisible(true);
-            }
-            else {
-                TelaConfirmacaoErrada telaConfirmacao = new TelaConfirmacaoErrada(this);
-                telaConfirmacao.setVisible(true);
-            }
-                    
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+            Respostas correta = dao.AlternativaCorreta(idPerguntaAtual);
 
+            if (respostaSelecionadaA.getCorreta() == true) {
+                new TelaConfirmacaoCorreta(this).setVisible(true);
+            } else {
+                new TelaConfirmacaoErrada(this).setVisible(true);
+            }
+
+        } catch (Exception ex) {
+            Logger.getLogger(TelaJogo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
 
     }//GEN-LAST:event_Alternativa_1ActionPerformed
 
 
     private void Alternativa_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Alternativa_2ActionPerformed
-        // TODO add your handling code here:
-         var dao = new RespostasDAO();
+        RespostasDAO dao = new RespostasDAO();
         try {
-            if (dao.resposta_correta().equals("4")) {
-                TelaConfirmacaoCorreta telaConfirmacaoCorreta = new TelaConfirmacaoCorreta(this);
-                telaConfirmacaoCorreta.setVisible(true);
+            Respostas correta = dao.AlternativaCorreta(idPerguntaAtual);
+
+            if (respostaSelecionadaB.getCorreta() == true) {
+                new TelaConfirmacaoCorreta(this).setVisible(true);
+            } else {
+                new TelaConfirmacaoErrada(this).setVisible(true);
             }
-            else {
-                TelaConfirmacaoErrada telaConfirmacao = new TelaConfirmacaoErrada(this);
-                telaConfirmacao.setVisible(true);
-            }
-                
-        } catch (Exception e) {
-            e.printStackTrace();
+
+        } catch (Exception ex) {
+            Logger.getLogger(TelaJogo.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+
     }//GEN-LAST:event_Alternativa_2ActionPerformed
 
     private void Alternativa_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Alternativa_3ActionPerformed
-        // TODO add your handling code here:
-        TelaConfirmacaoErrada telaConfirmacao = new TelaConfirmacaoErrada(this);
-        telaConfirmacao.setVisible(true);
-         var dao = new RespostasDAO();
+
+        RespostasDAO dao = new RespostasDAO();
         try {
-            if (dao.resposta_correta().equals("C")) {
-                JOptionPane.showMessageDialog(null, "Resposta está correta");
+            Respostas correta = dao.AlternativaCorreta(idPerguntaAtual);
+
+            if (respostaSelecionadaC.getCorreta() == true) {
+                new TelaConfirmacaoCorreta(this).setVisible(true);
+            } else {
+                new TelaConfirmacaoErrada(this).setVisible(true);
             }
-            else {
-                JOptionPane.showMessageDialog(null, "Resposta Errada");
-            }
-                
-        } catch (Exception e) {
-            e.printStackTrace();
+
+        } catch (Exception ex) {
+            Logger.getLogger(TelaJogo.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+
     }//GEN-LAST:event_Alternativa_3ActionPerformed
 
     private void Alternativa_4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Alternativa_4ActionPerformed
         // TODO add your handling code here:
-        TelaConfirmacaoErrada telaConfirmacao = new TelaConfirmacaoErrada(this);
-        telaConfirmacao.setVisible(true);
-         var dao = new RespostasDAO();
+        RespostasDAO dao = new RespostasDAO();
         try {
-            if (dao.resposta_correta().equals("D")) {
-                JOptionPane.showMessageDialog(null, "Resposta está correta");
+            Respostas correta = dao.AlternativaCorreta(idPerguntaAtual);
+
+            if (respostaSelecionadaD.getCorreta() == true) {
+                new TelaConfirmacaoCorreta(this).setVisible(true);
+            } else {
+                new TelaConfirmacaoErrada(this).setVisible(true);
             }
-            else {
-                JOptionPane.showMessageDialog(null, "Resposta Errada");
-            }
-                
-        } catch (Exception e) {
-            e.printStackTrace();
+
+        } catch (Exception ex) {
+            Logger.getLogger(TelaJogo.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+
     }//GEN-LAST:event_Alternativa_4ActionPerformed
 
     private void Alternativa_5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Alternativa_5ActionPerformed
-        // TODO add your handling code here:
-        TelaConfirmacaoErrada telaConfirmacao = new TelaConfirmacaoErrada(this);
-        telaConfirmacao.setVisible(true);
-         var dao = new RespostasDAO();
+        RespostasDAO dao = new RespostasDAO();
         try {
-            if (dao.resposta_correta().equals("E")) {
-                JOptionPane.showMessageDialog(null, "Resposta está correta");
+            Respostas correta = dao.AlternativaCorreta(idPerguntaAtual);
+
+            if (respostaSelecionadaE.getCorreta() == true) {
+                new TelaConfirmacaoCorreta(this).setVisible(true);
+            } else {
+                new TelaConfirmacaoErrada(this).setVisible(true);
             }
-            else {
-                JOptionPane.showMessageDialog(null, "Resposta Errada");
-            }
-                
-        } catch (Exception e) {
-            e.printStackTrace();
+
+        } catch (Exception ex) {
+            Logger.getLogger(TelaJogo.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+
+
     }//GEN-LAST:event_Alternativa_5ActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened

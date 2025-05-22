@@ -6,12 +6,12 @@ package com.mycompany.TelaAluno.persistencia;
 
 import com.mycompany.TelaAluno.modelo.Pergunta;
 
-public class PerguntasFacilDAO {
+public class PerguntasMediaDAO {
 
-    public Pergunta buscarPerguntaFacil() throws Exception {
+    public Pergunta buscarPerguntaMedia() throws Exception {
         Pergunta pergunta = null;
 
-        String sql = "SELECT * FROM Perguntas WHERE Dificuldade LIKE 'Fácil' ORDER BY RAND() LIMIT 1";
+        String sql = "SELECT * FROM Perguntas WHERE Dificuldade LIKE 'Média' ORDER BY RAND() LIMIT 1";
 
         var fabricaDeConexoes = new ConnectionFactory();
         try (

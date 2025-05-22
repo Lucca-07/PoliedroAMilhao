@@ -4,31 +4,30 @@
  */
 package com.mycompany.TelaAluno.persistencia;
 
-/**
- *
- * @author diego
- */
+import com.mycompany.TelaAluno.modelo.Pergunta;
+
 public class PerguntasDificilDAO {
-    public String questao() throws Exception{
-        
-        String enunciado = null;
-                
-        var sql = "Select * from Perguntas WHERE Id_Pergunta = 1 AND Dificuldade = Dificil";
-        
+
+    public Pergunta buscarPerguntaDificil() throws Exception {
+        Pergunta pergunta = null;
+
+        String sql = "SELECT * FROM Perguntas WHERE Dificuldade LIKE 'Difícil' ORDER BY RAND() LIMIT 1";
+
         var fabricaDeConexoes = new ConnectionFactory();
-        try(
-            var conexao = fabricaDeConexoes.obterConexao();
-            var ps = conexao.prepareStatement(sql);
-            var rs = ps.executeQuery();
-        ){
-            while(rs.next()){
-                enunciado = rs.getString("Enunciado");
+        try (
+                var conexao = fabricaDeConexoes.obterConexao(); var ps = conexao.prepareStatement(sql); var rs = ps.executeQuery();) {
+            if (rs.next()) {
+                pergunta = new Pergunta(
+                        rs.getInt("Id_Pergunta"),
+                        rs.getString("Enunciado"),
+                        rs.getInt("Id_Materia"),
+                        rs.getInt("Id_Premiacao"),
+                        rs.getString("Tipo"),
+                        rs.getString("Dificuldade")
+                );
             }
         }
-        return enunciado;
-    }
 
-    public String resposta_A() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return pergunta;
     }
 }

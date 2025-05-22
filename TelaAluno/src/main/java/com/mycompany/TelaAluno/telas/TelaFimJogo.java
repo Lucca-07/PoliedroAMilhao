@@ -10,18 +10,15 @@ public class TelaFimJogo extends javax.swing.JFrame {
     private TelaJogo telaJogo;
     private Timer timer;
 
-    public void setTelaJogo(TelaJogo telaJogo) {
-        this.telaJogo = telaJogo;
-    }
-
-    public void pararTemporizador() {
-        timer.stop();
-    }
 
 
     public TelaFimJogo() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
+
+    }
+    public void setTelaJogo(TelaJogo telaJogo) {
+        this.telaJogo = telaJogo;
     }
 
     /**

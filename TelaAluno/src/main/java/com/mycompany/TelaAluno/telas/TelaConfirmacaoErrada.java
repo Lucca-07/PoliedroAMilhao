@@ -100,13 +100,13 @@ public class TelaConfirmacaoErrada extends javax.swing.JFrame {
         // TODO add your handling code here:
         TelaFimJogo telaFimJogo = new TelaFimJogo();
         telaFimJogo.setVisible(true);
-        
+
         if (telaJogo != null) {
-            telaJogo.dispose();
+            telaJogo.pararTemporizador(); 
+            telaJogo.dispose();           
         }
-        this.dispose();
-       
-        
+
+        this.dispose(); // Fecha a tela de confirmação errada
 
         
     }//GEN-LAST:event_BotãoSimActionPerformed

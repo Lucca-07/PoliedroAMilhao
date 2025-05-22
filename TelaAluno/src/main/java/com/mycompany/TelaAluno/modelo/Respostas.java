@@ -8,17 +8,33 @@ import lombok.*;
 
 @Getter
 @Setter
-@AllArgsConstructor
 
 public class Respostas {
-    private int Id_Resposta;
-    private boolean Correta;
-    private String Alternativa_A;
-    private String Alternativa_B;
-    private String Alternativa_C;
-    private String Alternativa_D;
-    private String Alternativa_E;
-    private String Alternativa_Correta;
-    private int Id_Pergunta;
-    
+    private String texto;
+    private String letra;
+    private int idPergunta;
+    private boolean correta;
+
+    public Respostas(String texto, String letra, int idPergunta, boolean correta) {
+        this.texto = texto;
+        this.letra = letra;
+        this.idPergunta = idPergunta;
+        this.correta = correta;
+    }
+
+    public String getTexto() {
+        return texto;
+    }
+
+    public String getLetra() {
+        return letra;
+    }
+
+    public int getIdPergunta() {
+        return idPergunta;
+    }
+
+    public boolean getCorreta() {
+        return correta;
+    }
 }
