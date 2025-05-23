@@ -97,7 +97,7 @@ public class TelaConfirmacaoCorreta extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotãoSimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotãoSimActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:        
         telaJogo.proximaPergunta();
         telaJogo.pararTemporizador();
         this.dispose();

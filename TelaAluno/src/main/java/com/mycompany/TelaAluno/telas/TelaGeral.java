@@ -1,6 +1,8 @@
 
 package com.mycompany.TelaAluno.telas;
 
+import com.mycompany.TelaAluno.modelo.Materias;
+
 
 public class TelaGeral extends javax.swing.JFrame {
     
@@ -132,6 +134,7 @@ public class TelaGeral extends javax.swing.JFrame {
 
     private void BotãoContinuarGeralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotãoContinuarGeralActionPerformed
         // TODO add your handling code here:
+        Materias.setIdMateriaSelecionada(0);
         TelaJogo telaJogo = new TelaJogo();
         telaJogo.setVisible(true);
 

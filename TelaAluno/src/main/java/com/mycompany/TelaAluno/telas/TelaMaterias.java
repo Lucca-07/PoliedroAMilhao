@@ -1,23 +1,24 @@
 
 package com.mycompany.TelaAluno.telas;
 
+import com.mycompany.TelaAluno.modelo.Materias;
 import com.mycompany.TelaAluno.persistencia.AlunoDAO;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
-public class materiasTela extends javax.swing.JFrame {
+public class TelaMaterias extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaMaterias
      */
-    public materiasTela() {
+    public TelaMaterias() {
         initComponents();
         var daoAluno = new AlunoDAO();
         try {
             nomeLabel.setText(daoAluno.listar());
         } catch (Exception ex) {
-            Logger.getLogger(materiasTela.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TelaMaterias.class.getName()).log(Level.SEVERE, null, ex);
         }
         this.setExtendedState(MAXIMIZED_BOTH);
     }
@@ -252,7 +253,7 @@ public class materiasTela extends javax.swing.JFrame {
         try {
             telaInicial = new TelaModos();
         } catch (Exception ex) {
-            Logger.getLogger(materiasTela.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TelaMaterias.class.getName()).log(Level.SEVERE, null, ex);
         }
         telaInicial.setVisible(true);
         this.dispose();
@@ -260,6 +261,7 @@ public class materiasTela extends javax.swing.JFrame {
 
     private void BotãoPortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotãoPortActionPerformed
         // TODO add your handling code here:
+        Materias.setIdMateriaSelecionada(2);
         TelaJogo telaJogo = new TelaJogo();
         telaJogo.setVisible(true);
         this.dispose();
@@ -268,6 +270,7 @@ public class materiasTela extends javax.swing.JFrame {
 
     private void BotãoCienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotãoCienActionPerformed
             // TODO add your handling code here:
+        Materias.setIdMateriaSelecionada(3);
         TelaJogo telaJogo = new TelaJogo();
         telaJogo.setVisible(true);
         this.dispose();
@@ -275,6 +278,7 @@ public class materiasTela extends javax.swing.JFrame {
 
     private void BotãoMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotãoMatActionPerformed
         // TODO add your handling code here:
+        Materias.setIdMateriaSelecionada(1);
         TelaJogo telaJogo = new TelaJogo();
         telaJogo.setVisible(true);
         this.dispose();
@@ -297,14 +301,22 @@ public class materiasTela extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(materiasTela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaMaterias.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(materiasTela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaMaterias.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(materiasTela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaMaterias.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(materiasTela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaMaterias.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -317,7 +329,7 @@ public class materiasTela extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new materiasTela().setVisible(true);
+                new TelaMaterias().setVisible(true);
             }
         });
     }

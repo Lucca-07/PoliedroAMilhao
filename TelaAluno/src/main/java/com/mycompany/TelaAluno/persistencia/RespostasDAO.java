@@ -47,7 +47,7 @@ public class RespostasDAO {
                     rs.getString("Texto"),
                     rs.getString("Letra"),
                     rs.getInt("Id_Pergunta"),
-                    rs.getBoolean("Correta")
+                    rs.getBoolean("Correta")        
                 );
             }
         }

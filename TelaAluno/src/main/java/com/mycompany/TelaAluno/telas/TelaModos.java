@@ -210,7 +210,7 @@ public class TelaModos extends javax.swing.JFrame {
 
     private void BotãoMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotãoMatActionPerformed
         // TODO add your handling code here:
-        materiasTela telaMaterias = new materiasTela();
+        TelaMaterias telaMaterias = new TelaMaterias();
         telaMaterias.setVisible(true);
         this.dispose();
 
