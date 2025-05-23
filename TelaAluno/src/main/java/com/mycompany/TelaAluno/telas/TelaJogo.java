@@ -1,6 +1,8 @@
 
 package com.mycompany.TelaAluno.telas;
 
+import com.mycompany.TelaAluno.modelo.ControleJogo;
+import com.mycompany.TelaAluno.modelo.Materias;
 import com.mycompany.TelaAluno.modelo.Pergunta;
 import com.mycompany.TelaAluno.modelo.Respostas;    
 import com.mycompany.TelaAluno.persistencia.AlunoDAO;
@@ -8,14 +10,16 @@ import com.mycompany.TelaAluno.persistencia.PerguntasDificilDAO;
 import com.mycompany.TelaAluno.persistencia.PerguntasMediaDAO;
 import com.mycompany.TelaAluno.persistencia.PerguntasFacilDAO;
 import com.mycompany.TelaAluno.persistencia.RespostasDAO;
+import java.util.List;
 import javax.swing.*;
+import java.util.ArrayList;
 import java.awt.event.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class TelaJogo extends javax.swing.JFrame {
 
-    private static int contadorReinicios = 1;
+    private int contadorReinicios = ControleJogo.idsUsadas.size() + 1;
     private Timer timer;
     private int segundos = 45;
     private int idPerguntaAtual;
@@ -24,8 +28,11 @@ public class TelaJogo extends javax.swing.JFrame {
     private Respostas respostaSelecionadaC;
     private Respostas respostaSelecionadaD;
     private Respostas respostaSelecionadaE;
+
+
     
-    /**
+    
+    /**a
      * Creates new form TelaJogo
      */
     public TelaJogo() {
@@ -36,22 +43,37 @@ public class TelaJogo extends javax.swing.JFrame {
             // Nome do aluno
             var daoAluno = new AlunoDAO();
             nomeLabel.setText(daoAluno.listar());
-
+            
+            //Guarda a pergunta atual
             Pergunta perguntaAtual = null;
+            
+            //Pega a materia
+            int idMateria = Materias.getIdMateriaSelecionada();
+            
 
             // Nível de dificuldade
             if (contadorReinicios <= 4) {
                 PerguntasFacilDAO daoFacil = new PerguntasFacilDAO();
-                perguntaAtual = daoFacil.buscarPerguntaFacil();
+                perguntaAtual = daoFacil.buscarPerguntaFacil(idMateria);
+  
             } else if (contadorReinicios <= 8) {
                 PerguntasMediaDAO daoMedia = new PerguntasMediaDAO();
-                perguntaAtual = daoMedia.buscarPerguntaMedia();
+                perguntaAtual = daoMedia.buscarPerguntaMedia(idMateria);
+            
             } else if (contadorReinicios <= 12) {
                 PerguntasDificilDAO daoDificil = new PerguntasDificilDAO();
-                perguntaAtual = daoDificil.buscarPerguntaDificil(); 
+                perguntaAtual = daoDificil.buscarPerguntaDificil(idMateria); 
+               
+
             }
 
             if (perguntaAtual != null) {
+                
+                // Pega a pergunta que caiu
+                idPerguntaAtual = perguntaAtual.getId_pergunta();
+                
+
+
                 // Mostra o enunciado
                 perguntaLabel.setText(" " + perguntaAtual.getEnunciado());
 
@@ -70,7 +92,7 @@ public class TelaJogo extends javax.swing.JFrame {
                 
                 respostaSelecionadaA = altA;
                 respostaSelecionadaB = altB;
-                respostaSelecionadaC = altC;
+                respostaSelecionadaC = altC;    
                 respostaSelecionadaD = altD;
                 respostaSelecionadaE = altE;
 
@@ -89,7 +111,8 @@ public class TelaJogo extends javax.swing.JFrame {
     }
 
     public void proximaPergunta() {
-        contadorReinicios += 1;
+        contadorReinicios++;
+        ControleJogo.idsUsadas.add(idPerguntaAtual);
         this.dispose();
         if (contadorReinicios == 13) {
             TelaVitoriaJogo telaVitoriaJogo = new TelaVitoriaJogo();
@@ -481,6 +504,7 @@ public class TelaJogo extends javax.swing.JFrame {
 
             if (respostaSelecionadaA.getCorreta() == true) {
                 new TelaConfirmacaoCorreta(this).setVisible(true);
+                
             } else {
                 new TelaConfirmacaoErrada(this).setVisible(true);
             }
