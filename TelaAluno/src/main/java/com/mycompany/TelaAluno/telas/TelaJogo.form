@@ -326,17 +326,17 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="TelefoneAjuda" min="-2" pref="100" max="-2" attributes="0"/>
+                              <Component id="telefoneAjudaBotao" min="-2" pref="100" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="32767" attributes="0"/>
-                              <Component id="EstudantesAjuda" min="-2" pref="100" max="-2" attributes="0"/>
+                              <Component id="estudantesAjudaBotao" min="-2" pref="100" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="PularAjuda" min="-2" pref="100" max="-2" attributes="0"/>
+                              <Component id="pularAjudaBotao" min="-2" pref="100" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="CortarAjuda" min="-2" pref="100" max="-2" attributes="0"/>
+                              <Component id="cortarAjudaBotao" min="-2" pref="100" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -347,57 +347,57 @@
                   <Group type="102" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="TelefoneAjuda" min="-2" pref="70" max="-2" attributes="0"/>
-                          <Component id="EstudantesAjuda" min="-2" pref="70" max="-2" attributes="0"/>
+                          <Component id="telefoneAjudaBotao" min="-2" pref="70" max="-2" attributes="0"/>
+                          <Component id="estudantesAjudaBotao" min="-2" pref="70" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="PularAjuda" alignment="0" min="-2" pref="70" max="-2" attributes="0"/>
-                          <Component id="CortarAjuda" alignment="0" min="-2" pref="70" max="-2" attributes="0"/>
+                          <Component id="pularAjudaBotao" alignment="0" min="-2" pref="70" max="-2" attributes="0"/>
+                          <Component id="cortarAjudaBotao" alignment="0" min="-2" pref="70" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="CortarAjuda">
+            <Component class="javax.swing.JButton" name="cortarAjudaBotao">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/images/Cortar.png"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CortarAjudaActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cortarAjudaBotaoActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="EstudantesAjuda">
+            <Component class="javax.swing.JButton" name="estudantesAjudaBotao">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/images/universitarioss.png"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EstudantesAjudaActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="estudantesAjudaBotaoActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="PularAjuda">
+            <Component class="javax.swing.JButton" name="pularAjudaBotao">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/images/pular.png"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PularAjudaActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pularAjudaBotaoActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="TelefoneAjuda">
+            <Component class="javax.swing.JButton" name="telefoneAjudaBotao">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/images/telefone.png"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TelefoneAjudaActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="telefoneAjudaBotaoActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

@@ -8,13 +8,13 @@ package com.mycompany.TelaAluno.telas;
  *
  * @author diego
  */
-public class pularajudaTela extends javax.swing.JFrame {
+public class TelaAjudarPular extends javax.swing.JFrame {
     public TelaJogo telaJogo;
   
     /**
      * Creates new form pularTela
      */
-    public pularajudaTela(TelaJogo telaJogo) {
+    public TelaAjudarPular(TelaJogo telaJogo) {
         initComponents();
         this.telaJogo = telaJogo;
     }
@@ -126,7 +126,7 @@ public static void main(String args[]) {
 
     java.awt.EventQueue.invokeLater(new Runnable() {
         public void run() {
-            new pularajudaTela(tela).setVisible(true);
+            new TelaAjudarPular(tela).setVisible(true);
         }
     });
 }
