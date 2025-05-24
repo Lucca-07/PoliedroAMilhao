@@ -14,10 +14,8 @@ import java.util.logging.Logger;
  */
 public class TelaInicial extends javax.swing.JFrame {
 
-    /**
-     * Creates new form TelaInicial
-     * @throws java.lang.Exception
-     */
+    private int idAluno;
+    
     public TelaInicial() throws Exception{
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
@@ -106,7 +104,7 @@ public class TelaInicial extends javax.swing.JFrame {
         // TODO add your handling code here:
         TelaModos telaModos = null;
         try {
-            telaModos = new TelaModos();
+            telaModos = new TelaModos(idAluno);
         } catch (Exception ex) {
             Logger.getLogger(TelaInicial.class.getName()).log(Level.SEVERE, null, ex);
         }

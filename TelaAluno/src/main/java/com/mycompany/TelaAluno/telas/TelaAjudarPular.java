@@ -4,11 +4,11 @@
  */
 package com.mycompany.TelaAluno.telas;
 
-/**
- *
- * @author diego
- */
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class TelaAjudarPular extends javax.swing.JFrame {
+    private static int idAluno;
     public TelaJogo telaJogo;
   
     /**
@@ -106,8 +106,12 @@ public class TelaAjudarPular extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void simBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simBotaoActionPerformed
-        // TODO add your handling code here:
-        telaJogo.proximaPergunta();
+        try {
+            // TODO add your handling code here:
+            telaJogo.proximaPergunta();
+        } catch (Exception ex) {
+            Logger.getLogger(TelaAjudarPular.class.getName()).log(Level.SEVERE, null, ex);
+        }
         telaJogo.pararTemporizador();
         this.dispose();
         
@@ -121,8 +125,8 @@ public class TelaAjudarPular extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-public static void main(String args[]) {
-    TelaJogo tela = new TelaJogo();
+public static void main(String args[]) throws Exception {
+    TelaJogo tela = new TelaJogo(idAluno);
 
     java.awt.EventQueue.invokeLater(new Runnable() {
         public void run() {

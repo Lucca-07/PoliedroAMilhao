@@ -2,6 +2,7 @@
 package com.mycompany.TelaAluno.telas;
 
 import com.mycompany.TelaAluno.modelo.ControleJogo;
+import com.mycompany.TelaAluno.telas.TelaJogo;
 
 /**
  *
@@ -9,7 +10,7 @@ import com.mycompany.TelaAluno.modelo.ControleJogo;
  */
 
 public class TelaConfirmacaoErrada extends javax.swing.JFrame {
-    public TelaJogo telaJogo;
+    private TelaJogo telaJogo;
     
    
     public TelaConfirmacaoErrada(TelaJogo telaJogo) {
@@ -103,7 +104,7 @@ public class TelaConfirmacaoErrada extends javax.swing.JFrame {
         ControleJogo.idsUsadas.clear();
         TelaJogo.ajudaUniversitariaUsada = false;
         
-        TelaFimJogo telaFimJogo = new TelaFimJogo();
+        TelaFimJogo telaFimJogo = new TelaFimJogo(telaJogo);
         telaFimJogo.setVisible(true);
 
         if (telaJogo != null) {
