@@ -2,10 +2,13 @@
 package com.mycompany.TelaAluno.telas;
 
 import com.mycompany.TelaAluno.modelo.Materias;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class TelaGeral extends javax.swing.JFrame {
     
+ private int idAluno;   
  private TelaModos telaModos;
     
     public void setTelaModos(TelaModos telaModos) {
@@ -135,7 +138,12 @@ public class TelaGeral extends javax.swing.JFrame {
     private void BotãoContinuarGeralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotãoContinuarGeralActionPerformed
         // TODO add your handling code here:
         Materias.setIdMateriaSelecionada(0);
-        TelaJogo telaJogo = new TelaJogo();
+        TelaJogo telaJogo = null;
+     try {
+         telaJogo = new TelaJogo(idAluno);
+     } catch (Exception ex) {
+         Logger.getLogger(TelaGeral.class.getName()).log(Level.SEVERE, null, ex);
+     }
         telaJogo.setVisible(true);
 
         if (telaModos != null) {

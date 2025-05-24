@@ -1,6 +1,9 @@
 
 package com.mycompany.TelaAluno.telas;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author diego
@@ -97,8 +100,12 @@ public class TelaConfirmacaoCorreta extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotãoSimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotãoSimActionPerformed
-        // TODO add your handling code here:        
-        telaJogo.proximaPergunta();
+        try {
+            // TODO add your handling code here:
+            telaJogo.proximaPergunta();
+        } catch (Exception ex) {
+            Logger.getLogger(TelaConfirmacaoCorreta.class.getName()).log(Level.SEVERE, null, ex);
+        }
         telaJogo.pararTemporizador();
         this.dispose();
         

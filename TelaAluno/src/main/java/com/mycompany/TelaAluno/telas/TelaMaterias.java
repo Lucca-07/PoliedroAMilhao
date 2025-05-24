@@ -8,20 +8,29 @@ import java.util.logging.Logger;
 
 
 public class TelaMaterias extends javax.swing.JFrame {
+    private static int idAluno;
 
-    /**
-     * Creates new form TelaMaterias
-     */
-    public TelaMaterias() {
+    public TelaMaterias(int idAluno) throws Exception {
         initComponents();
+        this.idAluno = idAluno;
+        this.setExtendedState(MAXIMIZED_BOTH);
+
         var daoAluno = new AlunoDAO();
         try {
             nomeLabel.setText(daoAluno.listar());
         } catch (Exception ex) {
             Logger.getLogger(TelaMaterias.class.getName()).log(Level.SEVERE, null, ex);
         }
-        this.setExtendedState(MAXIMIZED_BOTH);
+
+        atualizarMoedas(); 
     }
+
+    private void atualizarMoedas() throws Exception {
+        AlunoDAO dao = new AlunoDAO();
+        int pontuacao = dao.buscarPontuacaoPorId(idAluno);
+        moedasLabel.setText("Moedas: " + pontuacao);
+    
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -44,7 +53,7 @@ public class TelaMaterias extends javax.swing.JFrame {
         nomePanel = new javax.swing.JPanel();
         nomeLabel = new javax.swing.JLabel();
         PanelMoedas = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
+        moedasLabel = new javax.swing.JLabel();
         moedaicon = new javax.swing.JLabel();
         pessoaicon = new javax.swing.JLabel();
 
@@ -150,8 +159,8 @@ public class TelaMaterias extends javax.swing.JFrame {
         PanelMoedas.setBackground(new java.awt.Color(255, 255, 255));
         PanelMoedas.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jLabel4.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
-        jLabel4.setText("Moedas Totais: 0");
+        moedasLabel.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
+        moedasLabel.setText("Moedas Totais: 0");
 
         javax.swing.GroupLayout PanelMoedasLayout = new javax.swing.GroupLayout(PanelMoedas);
         PanelMoedas.setLayout(PanelMoedasLayout);
@@ -159,14 +168,14 @@ public class TelaMaterias extends javax.swing.JFrame {
             PanelMoedasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelMoedasLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel4)
+                .addComponent(moedasLabel)
                 .addContainerGap())
         );
         PanelMoedasLayout.setVerticalGroup(
             PanelMoedasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelMoedasLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel4)
+                .addComponent(moedasLabel)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -251,7 +260,7 @@ public class TelaMaterias extends javax.swing.JFrame {
         // TODO add your handling code here:
         TelaModos telaInicial = null;
         try {
-            telaInicial = new TelaModos();
+            telaInicial = new TelaModos(idAluno);
         } catch (Exception ex) {
             Logger.getLogger(TelaMaterias.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -262,7 +271,12 @@ public class TelaMaterias extends javax.swing.JFrame {
     private void BotãoPortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotãoPortActionPerformed
         // TODO add your handling code here:
         Materias.setIdMateriaSelecionada(2);
-        TelaJogo telaJogo = new TelaJogo();
+        TelaJogo telaJogo = null;
+        try {
+            telaJogo = new TelaJogo(idAluno);
+        } catch (Exception ex) {
+            Logger.getLogger(TelaMaterias.class.getName()).log(Level.SEVERE, null, ex);
+        }
         telaJogo.setVisible(true);
         this.dispose();
 
@@ -271,7 +285,12 @@ public class TelaMaterias extends javax.swing.JFrame {
     private void BotãoCienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotãoCienActionPerformed
             // TODO add your handling code here:
         Materias.setIdMateriaSelecionada(3);
-        TelaJogo telaJogo = new TelaJogo();
+        TelaJogo telaJogo = null;
+        try {
+            telaJogo = new TelaJogo(idAluno);
+        } catch (Exception ex) {
+            Logger.getLogger(TelaMaterias.class.getName()).log(Level.SEVERE, null, ex);
+        }
         telaJogo.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BotãoCienActionPerformed
@@ -279,7 +298,12 @@ public class TelaMaterias extends javax.swing.JFrame {
     private void BotãoMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotãoMatActionPerformed
         // TODO add your handling code here:
         Materias.setIdMateriaSelecionada(1);
-        TelaJogo telaJogo = new TelaJogo();
+        TelaJogo telaJogo = null;
+        try {
+            telaJogo = new TelaJogo(idAluno);
+        } catch (Exception ex) {
+            Logger.getLogger(TelaMaterias.class.getName()).log(Level.SEVERE, null, ex);
+        }
         telaJogo.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BotãoMatActionPerformed
@@ -329,7 +353,11 @@ public class TelaMaterias extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaMaterias().setVisible(true);
+                try {
+                    new TelaMaterias(idAluno).setVisible(true);
+                } catch (Exception ex) {
+                    Logger.getLogger(TelaMaterias.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -342,10 +370,10 @@ public class TelaMaterias extends javax.swing.JFrame {
     private javax.swing.JPanel PanelMoedas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel materiasPanel;
     private javax.swing.JLabel moedaicon;
+    private javax.swing.JLabel moedasLabel;
     private javax.swing.JLabel nomeLabel;
     private javax.swing.JPanel nomePanel;
     private javax.swing.JLabel pessoaicon;

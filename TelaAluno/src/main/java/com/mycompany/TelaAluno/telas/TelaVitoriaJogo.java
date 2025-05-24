@@ -4,15 +4,19 @@
  */
 package com.mycompany.TelaAluno.telas;
 
+import com.mycompany.TelaAluno.modelo.ControleJogo;
+import com.mycompany.TelaAluno.persistencia.AlunoDAO;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author diego
  */
 public class TelaVitoriaJogo extends javax.swing.JFrame {
 
-    /**
-     * Creates new form TelaVitoriaJogo
-     */
+   private TelaJogo telaJogo;
+   
     public TelaVitoriaJogo() {
         initComponents();
     }
@@ -155,11 +159,41 @@ public class TelaVitoriaJogo extends javax.swing.JFrame {
 
     private void sairBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairBotaoActionPerformed
         // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            int idAluno = telaJogo.getIdAluno();
+            int reinicios = telaJogo.getContadorReinicios();
+            int novaPontuacao = ControleJogo.calcularPontuacao(reinicios);
+
+            AlunoDAO dao = new AlunoDAO();
+            int pontuacaoAtual = dao.buscarPontuacaoPorId(idAluno);
+            int pontuacaoFinal = pontuacaoAtual + novaPontuacao;
+
+            dao.atualizarPontuacao(idAluno, pontuacaoFinal);
+            System.exit(0);
+        } catch (Exception ex) {
+            Logger.getLogger(TelaFimJogo.class.getName()).log(Level.SEVERE, null, ex);
+        }
         System.exit(0);
     }//GEN-LAST:event_sairBotaoActionPerformed
 
     private void jogarnovamenteBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jogarnovamenteBotaoActionPerformed
         // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            int idAluno = telaJogo.getIdAluno();
+            int reinicios = telaJogo.getContadorReinicios();
+            int novaPontuacao = ControleJogo.calcularPontuacao(reinicios);
+
+            AlunoDAO dao = new AlunoDAO();
+            int pontuacaoAtual = dao.buscarPontuacaoPorId(idAluno);
+            int pontuacaoFinal = pontuacaoAtual + novaPontuacao;
+
+            dao.atualizarPontuacao(idAluno, pontuacaoFinal);
+            System.exit(0);
+        } catch (Exception ex) {
+            Logger.getLogger(TelaFimJogo.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jogarnovamenteBotaoActionPerformed
 
     /**
