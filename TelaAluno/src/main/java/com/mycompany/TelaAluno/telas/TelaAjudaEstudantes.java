@@ -4,17 +4,22 @@
  */
 package com.mycompany.TelaAluno.telas;
 
+import com.mycompany.TelaAluno.modelo.Respostas;
+
 /**
  *
  * @author diego
  */
-public class estudantesajudaTela extends javax.swing.JFrame {
+public class TelaAjudaEstudantes extends javax.swing.JFrame {
 
     /**
      * Creates new form estudantesajudaTela
-     */
-    public estudantesajudaTela() {
+     */ 
+    public TelaAjudaEstudantes(Respostas alternativaCorreta) {    
         initComponents();
+        balao1Label.setText("Alternativa: " + alternativaCorreta.getLetra());
+        balao2Label.setText("Alternativa: " + alternativaCorreta.getLetra());
+        balao3Label.setText("Alternativa: " + alternativaCorreta.getLetra());
     }
 
     /**
@@ -27,30 +32,40 @@ public class estudantesajudaTela extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        balao1 = new javax.swing.JLabel();
+        balao1Label = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        balao2 = new javax.swing.JLabel();
+        balao2Label = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        balao3 = new javax.swing.JLabel();
+        balao3Label = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        okBotao = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 204));
 
-        balao1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/balao.png"))); // NOI18N
+        balao1Label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        balao1Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/balao.png"))); // NOI18N
+        balao1Label.setText("Alternativa ");
+        balao1Label.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        balao1Label.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/universitario.png"))); // NOI18N
 
-        balao2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/balao.png"))); // NOI18N
+        balao2Label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        balao2Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/balao.png"))); // NOI18N
+        balao2Label.setText("Alternativa");
+        balao2Label.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/universitario.png"))); // NOI18N
 
-        balao3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/balao.png"))); // NOI18N
+        balao3Label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        balao3Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/balao.png"))); // NOI18N
+        balao3Label.setText("Alternativa");
+        balao3Label.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/universitario.png"))); // NOI18N
 
@@ -76,13 +91,13 @@ public class estudantesajudaTela extends javax.swing.JFrame {
                 .addComponent(jLabel1))
         );
 
-        jButton1.setBackground(new java.awt.Color(51, 204, 255));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Ok");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        okBotao.setBackground(new java.awt.Color(51, 204, 255));
+        okBotao.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        okBotao.setForeground(new java.awt.Color(255, 255, 255));
+        okBotao.setText("Ok");
+        okBotao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                okBotaoActionPerformed(evt);
             }
         });
 
@@ -96,21 +111,21 @@ public class estudantesajudaTela extends javax.swing.JFrame {
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(balao1)
+                            .addComponent(balao1Label)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
                                 .addComponent(jLabel6)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(balao2)
+                            .addComponent(balao2Label)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                    .addComponent(okBotao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(balao3)
+                            .addComponent(balao3Label)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
                                 .addComponent(jLabel8)))
@@ -120,12 +135,12 @@ public class estudantesajudaTela extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(9, Short.MAX_VALUE)
+                .addContainerGap(18, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(balao3)
+                        .addComponent(balao3Label)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(19, 19, 19))
@@ -133,17 +148,17 @@ public class estudantesajudaTela extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(78, 78, 78)
-                                .addComponent(balao1)
+                                .addComponent(balao1Label)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(balao2)
+                                .addComponent(balao2Label)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(12, 19, Short.MAX_VALUE))))
+                                .addComponent(okBotao, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(12, 24, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -161,10 +176,10 @@ public class estudantesajudaTela extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void okBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okBotaoActionPerformed
         // TODO add your handling code here:
         this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_okBotaoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -183,34 +198,31 @@ public class estudantesajudaTela extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(estudantesajudaTela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaAjudaEstudantes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(estudantesajudaTela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaAjudaEstudantes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(estudantesajudaTela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaAjudaEstudantes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(estudantesajudaTela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaAjudaEstudantes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new estudantesajudaTela().setVisible(true);
-            }
-        });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel balao1;
-    private javax.swing.JLabel balao2;
-    private javax.swing.JLabel balao3;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel balao1Label;
+    private javax.swing.JLabel balao2Label;
+    private javax.swing.JLabel balao3Label;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JButton okBotao;
     // End of variables declaration//GEN-END:variables
 }

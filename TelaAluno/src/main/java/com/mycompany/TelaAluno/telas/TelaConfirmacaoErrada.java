@@ -1,6 +1,8 @@
 
 package com.mycompany.TelaAluno.telas;
 
+import com.mycompany.TelaAluno.modelo.ControleJogo;
+
 /**
  *
  * @author diego
@@ -98,6 +100,9 @@ public class TelaConfirmacaoErrada extends javax.swing.JFrame {
 
     private void BotãoSimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotãoSimActionPerformed
         // TODO add your handling code here:
+        ControleJogo.idsUsadas.clear();
+        TelaJogo.ajudaUniversitariaUsada = false;
+        
         TelaFimJogo telaFimJogo = new TelaFimJogo();
         telaFimJogo.setVisible(true);
 

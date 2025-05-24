@@ -1,6 +1,9 @@
 
 package com.mycompany.TelaAluno.persistencia;
 import com.mycompany.TelaAluno.modelo.Respostas;
+import java.util.ArrayList;
+import java.util.List;
+
 
 
 
@@ -54,6 +57,32 @@ public class RespostasDAO {
     }
     return null; 
 }
+    public List<Respostas> AlternativasIncorretas(int idPergunta) throws Exception {
+        List<Respostas> lista = new ArrayList<>();
+
+        String sql = "SELECT pr.Correta, r.Texto, r.Letra, p.Id_Pergunta FROM Pergunta_Resposta pr JOIN Respostas r ON pr.Id_Resposta = r.Id_Resposta "
+                + "JOIN Perguntas p ON p.Id_Pergunta = pr.Id_Pergunta WHERE pr.Correta = 0 AND p.Id_Pergunta = ? LIMIT 3"; 
+
+        var fabricaDeConexoes = new ConnectionFactory();
+        try (
+                var conexao = fabricaDeConexoes.obterConexao(); var ps = conexao.prepareStatement(sql);) {
+            ps.setInt(1, idPergunta);
+            try (var rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    Respostas r = new Respostas(
+                            rs.getString("Texto"),
+                            rs.getString("Letra"),
+                            rs.getInt("Id_Pergunta"),
+                            rs.getBoolean("Correta")
+                    );
+                    lista.add(r);
+                }
+            }
+        }
+        return lista;
+    }
+
+    
 
     
     

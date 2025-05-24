@@ -4,6 +4,7 @@ package com.mycompany.TelaAluno.telas;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
+import com.mycompany.TelaAluno.telas.TelaJogo;
 
 public class TelaFimJogo extends javax.swing.JFrame {
 
@@ -176,7 +177,11 @@ public class TelaFimJogo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jogarnovamenteBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jogarnovamenteBotaoActionPerformed
-        // TODO add your handling code here:
+        TelaJogo.ajudaUniversitariaUsada = false;
+        TelaJogo.ajudaCortarUsada = false;
+        TelaJogo.ajudaPularUsada = false;
+        TelaJogo.ajudaTelefoneUsada = false;
+        
         TelaModos telaModos = null;
         try {
             telaModos = new TelaModos();
