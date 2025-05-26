@@ -34,12 +34,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel2" max="-2" attributes="0"/>
+          <Component id="jPanel2" alignment="1" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel2" alignment="0" pref="788" max="32767" attributes="0"/>
+          <Component id="jPanel2" alignment="0" pref="795" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -64,30 +64,22 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="btnRanking7Ano" min="-2" pref="245" max="-2" attributes="0"/>
-                              <Component id="btnRanking6Ano" min="-2" pref="245" max="-2" attributes="0"/>
-                              <Component id="btnRanking8Ano" alignment="0" min="-2" pref="245" max="-2" attributes="0"/>
-                              <Component id="btnRanking9Ano" min="-2" pref="245" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="btnRanking1EMAno" alignment="1" min="-2" pref="245" max="-2" attributes="0"/>
-                              <Component id="btnRanking2EMAno" alignment="1" min="-2" pref="245" max="-2" attributes="0"/>
-                              <Component id="btnRanking3EMAno" alignment="1" min="-2" pref="245" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="0" pref="459" max="32767" attributes="0"/>
-                          <Component id="jLabel1" min="-2" pref="356" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
-                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="jLabel1" min="-2" pref="356" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
+                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                  <Component id="btnRanking6Ano" min="-2" pref="245" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
+                  <Component id="btnRanking7Ano" min="-2" pref="245" max="-2" attributes="0"/>
+                  <EmptySpace pref="85" max="32767" attributes="0"/>
+                  <Component id="btnRanking8Ano" min="-2" pref="245" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
+                  <Component id="btnRanking9Ano" min="-2" pref="245" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -100,48 +92,23 @@
                           <Component id="jLabel3" min="-2" pref="113" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                           <Component id="jLabel1" min="-2" pref="118" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                          <Component id="btnRanking6Ano" min="-2" pref="68" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                          <Component id="btnRanking7Ano" min="-2" pref="68" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
-                          <Component id="btnRanking8Ano" min="-2" pref="68" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                          <Component id="btnRanking9Ano" min="-2" pref="68" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                          <Component id="btnRanking1EMAno" min="-2" pref="68" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
-                          <Component id="btnRanking2EMAno" min="-2" pref="68" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
-                          <Component id="btnRanking3EMAno" min="-2" pref="76" max="-2" attributes="0"/>
-                      </Group>
+                  <EmptySpace min="-2" pref="188" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="btnRanking6Ano" alignment="3" min="-2" pref="68" max="-2" attributes="0"/>
+                      <Component id="btnRanking7Ano" alignment="3" min="-2" pref="68" max="-2" attributes="0"/>
+                      <Component id="btnRanking9Ano" alignment="3" min="-2" pref="68" max="-2" attributes="0"/>
+                      <Component id="btnRanking8Ano" alignment="3" min="-2" pref="68" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="136" max="32767" attributes="0"/>
+                  <EmptySpace pref="385" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="btnRanking1EMAno">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="24" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="1 EM"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRanking1EMAnoActionPerformed"/>
-          </Events>
-        </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
@@ -202,28 +169,6 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRanking6AnoActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnRanking3EMAno">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="24" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="3 EM"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRanking3EMAnoActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnRanking2EMAno">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="24" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="2 EM"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRanking2EMAnoActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

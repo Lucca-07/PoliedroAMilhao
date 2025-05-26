@@ -30,15 +30,12 @@ public class ViewProfessor extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        btnRanking1EMAno = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         btnRanking8Ano = new javax.swing.JButton();
         btnRanking9Ano = new javax.swing.JButton();
         btnRanking7Ano = new javax.swing.JButton();
         btnRanking6Ano = new javax.swing.JButton();
-        btnRanking3EMAno = new javax.swing.JButton();
-        btnRanking2EMAno = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(204, 255, 255));
@@ -55,14 +52,6 @@ public class ViewProfessor extends javax.swing.JFrame {
         jPanel2.setMaximumSize(new java.awt.Dimension(2440, 1920));
         jPanel2.setMinimumSize(new java.awt.Dimension(1240, 720));
         jPanel2.setPreferredSize(new java.awt.Dimension(1360, 768));
-
-        btnRanking1EMAno.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        btnRanking1EMAno.setText("1 EM");
-        btnRanking1EMAno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRanking1EMAnoActionPerformed(evt);
-            }
-        });
 
         jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\ENZO CHAGAS GRANADA\\Downloads\\WhatsApp_Image_2025-04-30_at_08.03.31-removebg-preview.png")); // NOI18N
 
@@ -102,46 +91,26 @@ public class ViewProfessor extends javax.swing.JFrame {
             }
         });
 
-        btnRanking3EMAno.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        btnRanking3EMAno.setText("3 EM");
-        btnRanking3EMAno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRanking3EMAnoActionPerformed(evt);
-            }
-        });
-
-        btnRanking2EMAno.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        btnRanking2EMAno.setText("2 EM");
-        btnRanking2EMAno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRanking2EMAnoActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(65, 65, 65)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnRanking7Ano, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnRanking6Ano, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnRanking8Ano, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnRanking9Ano, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnRanking1EMAno, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnRanking2EMAno, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnRanking3EMAno, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 459, Short.MAX_VALUE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(110, 110, 110)
-                        .addComponent(jLabel3)))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(71, 71, 71)
+                .addComponent(jLabel3)
                 .addGap(96, 96, 96))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(btnRanking6Ano, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(81, 81, 81)
+                .addComponent(btnRanking7Ano, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
+                .addComponent(btnRanking8Ano, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(101, 101, 101)
+                .addComponent(btnRanking9Ano, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(71, 71, 71))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,51 +120,31 @@ public class ViewProfessor extends javax.swing.JFrame {
                         .addGap(24, 24, 24)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
+                        .addGap(36, 36, 36)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(30, 30, 30)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(btnRanking6Ano, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(50, 50, 50)
-                        .addComponent(btnRanking7Ano, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(73, 73, 73)
-                        .addComponent(btnRanking8Ano, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(60, 60, 60)
-                        .addComponent(btnRanking9Ano, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(btnRanking1EMAno, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(59, 59, 59)
-                        .addComponent(btnRanking2EMAno, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(69, 69, 69)
-                        .addComponent(btnRanking3EMAno, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(136, Short.MAX_VALUE))
+                .addGap(188, 188, 188)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnRanking6Ano, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRanking7Ano, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRanking9Ano, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRanking8Ano, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(385, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 788, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 795, Short.MAX_VALUE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnRanking1EMAnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRanking1EMAnoActionPerformed
-    TelaRanking1EMano tela = new TelaRanking1EMano();
-    tela.setVisible(true);
-    this.dispose(); 
-    
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnRanking1EMAnoActionPerformed
 
     private void btnRanking8AnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRanking8AnoActionPerformed
     TelaRanking8ano tela = new TelaRanking8ano();
@@ -223,22 +172,6 @@ public class ViewProfessor extends javax.swing.JFrame {
     this.dispose();
 // TODO add your handling code here:
     }//GEN-LAST:event_btnRanking6AnoActionPerformed
-
-    private void btnRanking3EMAnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRanking3EMAnoActionPerformed
-        // TODO add your handling code here:
-        TelaRanking3EMano tela = new  TelaRanking3EMano();
-        tela.setVisible(true); 
-        this.dispose();
-        
-        
-    }//GEN-LAST:event_btnRanking3EMAnoActionPerformed
-
-    private void btnRanking2EMAnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRanking2EMAnoActionPerformed
-        // TODO add your handling code here:
-        TelaRanking2EMano tela = new TelaRanking2EMano();
-        tela.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnRanking2EMAnoActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
     this.setExtendedState(JFrame.MAXIMIZED_BOTH);        // TODO add your handling code here:
@@ -280,9 +213,6 @@ public class ViewProfessor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnRanking1EMAno;
-    private javax.swing.JButton btnRanking2EMAno;
-    private javax.swing.JButton btnRanking3EMAno;
     private javax.swing.JButton btnRanking6Ano;
     private javax.swing.JButton btnRanking7Ano;
     private javax.swing.JButton btnRanking8Ano;
