@@ -1,9 +1,6 @@
 
 package br.poliedro.telainicioprofessor.modelo;
-import lombok.*;
 
-@Getter
-@Setter
 public class Respostas {
     private int codigo;
     private String texto;
@@ -12,7 +9,19 @@ public class Respostas {
         this.texto = texto;
     }
 
-    
-    
-    
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
+    public String getTexto() {
+        return texto;
+    }
+
+    public void setTexto(String texto) {
+        this.texto = texto;
+    }
 }

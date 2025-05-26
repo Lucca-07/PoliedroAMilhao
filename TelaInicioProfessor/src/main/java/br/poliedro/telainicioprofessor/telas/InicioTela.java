@@ -4,23 +4,78 @@
  */
 package br.poliedro.telainicioprofessor.telas;
 
+import java.awt.Component;
+import java.beans.PropertyVetoException;
+import javax.swing.JDesktopPane;
+import javax.swing.JInternalFrame;
+import javax.swing.JLayeredPane;
+
 /**
  *
  * @author caiquef
  */
-public class TelaInicio extends javax.swing.JFrame {
+public class InicioTela extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaInicio
      */
-    public TelaInicio() {
+    CadastroPerguntaTela cpt = new CadastroPerguntaTela(this);
+    ConfiguracoesTela ct = new ConfiguracoesTela(this);
+    CadastroUsuarioTela cut = new CadastroUsuarioTela();
+
+    public InicioTela() {
         initComponents();
         setExtendedState(MAXIMIZED_BOTH);
+        jDesktopPane1.add(cpt);
+        jDesktopPane1.add(ct);
+        jDesktopPane1.add(cut);
     }
-    
-    Configuracoes config = new Configuracoes();
-    CadastroTela ca = new CadastroTela();
-    
+
+    public void adicionarNoDesktop(Component component) {
+        if (component == null || jDesktopPane1 == null) {
+            return;
+        }
+
+        try {
+            // Remove se já existir
+            if (component.getParent() == jDesktopPane1) {
+                jDesktopPane1.remove(component);
+            }
+
+            // Adiciona o componente
+            jDesktopPane1.add(component, JLayeredPane.DEFAULT_LAYER);
+            component.setVisible(true);
+
+            // Centraliza
+            centerComponent(component);
+
+            // Comportamentos específicos para JInternalFrame
+            if (component instanceof JInternalFrame) {
+                handleInternalFrame((JInternalFrame) component);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void centerComponent(Component component) {
+        component.setLocation(
+                (jDesktopPane1.getWidth() - component.getWidth()) / 2,
+                (jDesktopPane1.getHeight() - component.getHeight()) / 2
+        );
+    }
+
+    private void handleInternalFrame(JInternalFrame frame) throws PropertyVetoException {
+        frame.setSelected(true);
+        frame.moveToFront();
+        frame.toFront();
+        frame.setMaximum(false); // Garante que não está maximizado
+    }
+
+    public JDesktopPane getDesktop() {
+        return jDesktopPane1;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -30,7 +85,8 @@ public class TelaInicio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        fundoPanel = new javax.swing.JPanel();
+        jDesktopPane1 = new javax.swing.JDesktopPane();
+        jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         rankingButton = new javax.swing.JButton();
         editarPerguntaButton = new javax.swing.JButton();
@@ -46,10 +102,13 @@ public class TelaInicio extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(2440, 1920));
         setMinimumSize(new java.awt.Dimension(1320, 720));
+        setUndecorated(true);
 
-        fundoPanel.setBackground(new java.awt.Color(204, 255, 255));
+        jDesktopPane1.setBackground(new java.awt.Color(163, 236, 255));
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(163, 236, 255));
+
+        jPanel1.setBackground(new java.awt.Color(163, 236, 255));
 
         rankingButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         rankingButton.setText("Ranking");
@@ -175,70 +234,88 @@ public class TelaInicio extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout fundoPanelLayout = new javax.swing.GroupLayout(fundoPanel);
-        fundoPanel.setLayout(fundoPanelLayout);
-        fundoPanelLayout.setHorizontalGroup(
-            fundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fundoPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(configButton)
-                .addGap(17, 17, 17))
-            .addGroup(fundoPanelLayout.createSequentialGroup()
-                .addContainerGap(554, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(550, Short.MAX_VALUE))
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap(557, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(configButton)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(550, Short.MAX_VALUE))))
         );
-        fundoPanelLayout.setVerticalGroup(
-            fundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fundoPanelLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(configButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 194, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 289, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(296, Short.MAX_VALUE))
+                .addContainerGap(214, Short.MAX_VALUE))
+        );
+
+        jDesktopPane1.setLayer(jPanel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
+        jDesktopPane1.setLayout(jDesktopPane1Layout);
+        jDesktopPane1Layout.setHorizontalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jDesktopPane1Layout.setVerticalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fundoPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jDesktopPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fundoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jDesktopPane1)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void configButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_configButtonActionPerformed
+        // TODO add your handling code here:
+        if (!ct.isVisible()) {
+            ConfiguracoesTela.centralizarInternalFrame(ct, jDesktopPane1);
+            ct.setVisible(true);
+        }
+    }//GEN-LAST:event_configButtonActionPerformed
+
     private void criarPerguntaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criarPerguntaButtonActionPerformed
         // TODO add your handling code here:
-        
-        TelaSelecaoAno tsa = new TelaSelecaoAno();
-        tsa.setVisible(true);
+
+        if (!cpt.isVisible()) {
+            CadastroPerguntaTela.centralizarInternalFrame(cpt, jDesktopPane1);
+            cpt.setVisible(true);
+        }
+
     }//GEN-LAST:event_criarPerguntaButtonActionPerformed
+
+    private void cadastrarAlunoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarAlunoButtonActionPerformed
+        // TODO add your handling code here:
+
+        if (!cut.isVisible()) {
+            CadastroUsuarioTela.centralizarInternalFrame(cut, jDesktopPane1);
+            cut.setVisible(true);
+        }
+    }//GEN-LAST:event_cadastrarAlunoButtonActionPerformed
 
     private void editarPerguntaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarPerguntaButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_editarPerguntaButtonActionPerformed
-
-    private void configButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_configButtonActionPerformed
-        // TODO add your handling code here:
-        if (config.isVisible() == false) {
-            config.setVisible(true);
-            config.setOpacity(0.9f);
-        }
-    }//GEN-LAST:event_configButtonActionPerformed
-
-    private void cadastrarAlunoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarAlunoButtonActionPerformed
-        // TODO add your handling code here:
-        
-        if (ca.isVisible()== false){
-        ca.setVisible(true);
-        }
-    }//GEN-LAST:event_cadastrarAlunoButtonActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -256,20 +333,21 @@ public class TelaInicio extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InicioTela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InicioTela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InicioTela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InicioTela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaInicio().setVisible(true);
+                new InicioTela().setVisible(true);
             }
         });
     }
@@ -279,13 +357,14 @@ public class TelaInicio extends javax.swing.JFrame {
     private javax.swing.JButton configButton;
     private javax.swing.JButton criarPerguntaButton;
     private javax.swing.JButton editarPerguntaButton;
-    private javax.swing.JPanel fundoPanel;
     private javax.swing.JLabel icone1Label;
     private javax.swing.JLabel icone2Label;
     private javax.swing.JLabel icone3Label;
     private javax.swing.JLabel icone4Label;
     private javax.swing.JLabel inicioTextField;
+    private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JButton rankingButton;
     // End of variables declaration//GEN-END:variables
 }
