@@ -25,7 +25,7 @@ public class DAORanking {
     }
     public List<Object[]> obterRankingCompleto7() throws Exception {
         List<Object[]> ranking = new ArrayList<>();
-        String sql = "SELECT Nome, Pontuacao FROM Aluno ORDER BY Pontuacao DESC"; // Busca nome e pontuação
+        String sql = "SELECT Nome, Pontuacao, Serie FROM Aluno WHERE Serie LIKE '%7%' ORDER BY Pontuacao DESC ;"; // Busca nome e pontuação
 
         try (
             var conexao = new ConnectionFactory().obterConexao();
@@ -41,7 +41,7 @@ public class DAORanking {
         return ranking;
     }public List<Object[]> obterRankingCompleto8() throws Exception {
         List<Object[]> ranking = new ArrayList<>();
-        String sql = "SELECT Nome, Pontuacao FROM Aluno ORDER BY Pontuacao DESC"; // Busca nome e pontuação
+        String sql = "SELECT Nome, Pontuacao, Serie FROM Aluno WHERE Serie LIKE '%8%' ORDER BY Pontuacao DESC ;"; // Busca nome e pontuação
 
         try (
             var conexao = new ConnectionFactory().obterConexao();
@@ -57,7 +57,7 @@ public class DAORanking {
         return ranking;
     }public List<Object[]> obterRankingCompleto9() throws Exception {
         List<Object[]> ranking = new ArrayList<>();
-        String sql = "SELECT Nome, Pontuacao FROM Aluno ORDER BY Pontuacao DESC"; // Busca nome e pontuação
+        String sql = "SELECT Nome, Pontuacao, Serie FROM Aluno WHERE Serie LIKE '%9%' ORDER BY Pontuacao DESC ;"; // Busca nome e pontuação
 
         try (
             var conexao = new ConnectionFactory().obterConexao();

@@ -8,6 +8,7 @@ package br.granado.mavenproject1.telas;
  *
  * @author ENZO CHAGAS GRANADA
  */
+import br.granado.mavenproject1.persistencia.DAORanking;
 import br.granado.mavenproject1.telas.ViewProfessor;
 import java.util.List;
 import javax.swing.RowSorter;
@@ -26,19 +27,33 @@ public class TelaRanking8ano extends javax.swing.JFrame {
     }
     
     public void carregarDados(){
-        javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) jTable1.getModel();
-        model.setRowCount(0);
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0); // Limpa a tabela
+
+        try {
+            DAORanking dao = new DAORanking();
+            List<Object[]> ranking = dao.obterRankingCompleto8(); // Busca dados do banco
+
+            // Adiciona cada linha na JTable
+            for (Object[] linha : ranking) {
+                model.addRow(linha);
+            }
+
+            // Ordena por pontuação (decrescente)
+            TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(model);
+            jTable1.setRowSorter(sorter);
+            sorter.setSortKeys(List.of(new RowSorter.SortKey(1, SortOrder.DESCENDING)));
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            javax.swing.JOptionPane.showMessageDialog(
+                this, 
+                "Erro ao carregar ranking: " + e.getMessage(), 
+                "Erro", 
+                javax.swing.JOptionPane.ERROR_MESSAGE
+            );
         
-        
-        model.addRow(new Object[]{"Enzo",100.00});
-        model.addRow(new Object[]{"Diego", 12.8});
-        model.addRow(new Object[]{"Paulo", 87.8});
-        model.addRow(new Object[]{"Caique", 56.8});
-        model.addRow(new Object[]{"Lucca", 0.0});
-        
-        TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(model);
-        jTable1.setRowSorter(sorter);
-        sorter.setSortKeys(List.of(new RowSorter.SortKey(1, SortOrder.DESCENDING)));
+        }
     }
     /**
      * This method is called from within the constructor to initialize the form.
