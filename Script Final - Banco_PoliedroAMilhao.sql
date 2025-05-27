@@ -350,9 +350,99 @@ SELECT p.Id_Pergunta, p.Enunciado, p.Dificuldade,
 FROM Perguntas p
 JOIN Pergunta_Resposta pr ON p.Id_Pergunta = pr.Id_Pergunta
 JOIN Respostas r ON pr.Id_Resposta = r.Id_Resposta
-WHERE p.Id_Materia = 3
+WHERE p.Id_Materia >= 0
 ORDER BY p.Dificuldade, p.Id_Pergunta, r.Letra;
 
+SELECT * FROM Premiacoes;
+DELETE FROM Premiacoes WHERE Id_Premiacao = 1;
+DELETE FROM Premiacoes WHERE Id_Premiacao = 2;
+DELETE FROM Premiacoes WHERE Id_Premiacao = 3;
 
+-- 1. ADICIONAR MATÉRIA DE GEOGRAFIA COM ID 5
+SET @id_geografia = 5;
+DELETE FROM Materias WHERE Id_Materia = @id_geografia;
+INSERT INTO Materias (Id_Materia, Nome_Materia) VALUES (@id_geografia, 'Geografia');
 
+-- 2. INSERIR PERGUNTAS DE GEOGRAFIA USANDO A PROCEDURE EXISTENTE
+-- Geografia - Fácil
+CALL InserirPerguntaResposta('Qual dessas regiões brasileiras apresenta maior concentração industrial?', @id_geografia, 'Fácil', 'Norte', 'Nordeste', 'Centro-Oeste', 'Sul', 'Sudeste', 'E');
+CALL InserirPerguntaResposta('Qual é a principal organização internacional voltada para a paz mundial?', @id_geografia, 'Fácil', 'OTAN', 'OMC', 'ONU', 'FIFA', 'IMT', 'C');
+CALL InserirPerguntaResposta('Qual é o rio mais extenso do mundo?', @id_geografia, 'Fácil', 'Amazonas', 'Nilo', 'Mississipi', 'Danúbio', 'Tietê', 'A');
+CALL InserirPerguntaResposta('A Terra é dividida em quantos hemisférios?', @id_geografia, 'Fácil', '1', '2', '3', '4', '5', 'B');
+CALL InserirPerguntaResposta('Qual é o instrumento usado para indicar as direções em um mapa?', @id_geografia, 'Fácil', 'Termômetro', 'Rosa dos ventos', 'Pluviómetro', 'Roda dos climas', 'Bússola', 'B');
+CALL InserirPerguntaResposta('Qual bloco econômico reúne países da América do Sul?', @id_geografia, 'Fácil', 'União Europeia', 'NAFTA', 'MERCOSUL', 'BRICS', 'OTAN', 'C');
+CALL InserirPerguntaResposta('O termo "multipolaridade" refere-se a:', @id_geografia, 'Fácil', 'Um mundo dominado por um único país', 'Respeito mundial entre todas religiões', 'Um mundo com várias potências influentes ao mesmo tempo', 'Divisão geográfica do Hemisfério Sul', 'Submissão ao poder militar', 'C');
+CALL InserirPerguntaResposta('O que é um bloqueio econômico?', @id_geografia, 'Fácil', 'Abertura de fronteiras', 'Isolamento político de uma cidade', 'Restrição de comércio imposta a um país', 'Troca de moedas entre países', 'Aliança militar', 'C');
 
+-- Geografia - Médio
+CALL InserirPerguntaResposta('Qual o principal objetivo da cartografia?', @id_geografia, 'Média', 'Estudar os climas', 'Produzir mapas para representar o espaço geográfico', 'Medir a altitude das montanhas', 'Mapear os astros', 'Construir globos terrestres', 'B');
+CALL InserirPerguntaResposta('Qual das opções representa um país transcontinental?', @id_geografia, 'Média', 'México', 'Itália', 'Rússia', 'Canadá', 'Nova Zelândia', 'C');
+CALL InserirPerguntaResposta('Qual é a principal atividade econômica nas regiões litorâneas brasileiras?', @id_geografia, 'Média', 'Mineração', 'Agricultura', 'Turismo', 'Pecuária', 'Indústria têxtil', 'C');
+CALL InserirPerguntaResposta('Qual é o nome do processo de formação das placas tectônicas?', @id_geografia, 'Média', 'Intemperismo', 'Tectonismo', 'Vulcanismo', 'Erosão', 'Sedimentação', 'B');
+CALL InserirPerguntaResposta('Qual ponto cardeal indica o nascer do sol?', @id_geografia, 'Média', 'Oeste', 'Norte', 'Sul', 'Leste', 'Noroeste', 'D');
+CALL InserirPerguntaResposta('A expansão da agricultura sobre áreas de floresta pode causar:', @id_geografia, 'Média', 'Aumento da umidade', 'Regeneração ambiental', 'Desertificação e perda de biodiversidade', 'Redução da poluição', 'Aumento da vegetação nativa', 'C');
+CALL InserirPerguntaResposta('Qual dos estados abaixo pertence à Região Norte do Brasil?', @id_geografia, 'Média', 'Goiás', 'Amazonas', 'Mato Grosso', 'Bahia', 'Maranhão', 'B');
+CALL InserirPerguntaResposta('O que é o intemperismo?', @id_geografia, 'Média', 'A formação de nuvens de chuva', 'O movimento das placas tectônicas', 'A decomposição das rochas', 'O ciclo das marés', 'A criação de dunas', 'C');
+
+-- Geografia - Difícil
+CALL InserirPerguntaResposta('A litosfera é:', @id_geografia, 'Difícil', 'A camada líquida do planeta', 'A camada de gases que envolve a Terra', 'A camada sólida da Terra', 'A parte atmosférica superior', 'A formação de nuvens', 'C');
+CALL InserirPerguntaResposta('A sigla OMC significa:', @id_geografia, 'Difícil', 'Organização Mundial do Clima', 'Organização Médica Continental', 'Organização Mundial do Comércio', 'Organização de Mapas Cartográficos', 'Ordem Mundial Climática', 'C');
+CALL InserirPerguntaResposta('O Trópico de Capricórnio corta qual região do Brasil?', @id_geografia, 'Difícil', 'Norte', 'Nordeste', 'Sul', 'Centro-Oeste', 'Norte e Sul', 'C');
+CALL InserirPerguntaResposta('O Aquífero Guarani está localizado principalmente em qual região do Brasil?', @id_geografia, 'Difícil', 'Norte', 'Sul', 'Sudeste', 'Centro-Oeste', 'Nordeste', 'D');
+CALL InserirPerguntaResposta('Qual continente possui mais países membros da ONU?', @id_geografia, 'Difícil', 'Europa', 'Ásia', 'América', 'África', 'Oceania', 'D');
+CALL InserirPerguntaResposta('Qual é a capital política da União Europeia?', @id_geografia, 'Difícil', 'Roma', 'Paris', 'Bruxelas', 'Lisboa', 'Londres', 'C');
+CALL InserirPerguntaResposta('Qual é o país com maior população muçulmana do mundo?', @id_geografia, 'Difícil', 'Arábia Saudita', 'Irã', 'Indonésia', 'Egito', 'Paquistão', 'C');
+CALL InserirPerguntaResposta('Qual país é conhecido por sua política de "neutralidade armada"?', @id_geografia, 'Difícil', 'Suíça', 'Brasil', 'Estados Unidos', 'Coreia do Sul', 'Japão', 'A');
+
+SELECT p.Id_Pergunta, p.Enunciado, p.Dificuldade, 
+       r.Letra, r.Texto, pr.Correta
+FROM Perguntas p
+JOIN Pergunta_Resposta pr ON p.Id_Pergunta = pr.Id_Pergunta
+JOIN Respostas r ON pr.Id_Resposta = r.Id_Resposta
+WHERE p.Id_Materia = 5  
+ORDER BY p.Dificuldade, p.Id_Pergunta, r.Letra;
+
+SELECT * FROM Materias;
+
+-- 1. ADICIONAR MATÉRIA DE HISTÓRIA
+INSERT INTO Materias (Nome_Materia) VALUES ('História');
+SET @id_historia = LAST_INSERT_ID();
+
+-- 2. INSERIR PERGUNTAS DE HISTÓRIA USANDO A PROCEDURE EXISTENTE
+-- História - Fácil
+CALL InserirPerguntaResposta('Quem descobriu o Brasil?', @id_historia, 'Fácil', 'Pietro Álvares Cabral', 'Pedro Álvares Cabral', 'Vasco da Gama', 'Dom João VI', 'Cristóvão Colombo', 'B');
+CALL InserirPerguntaResposta('A escravidão no Brasil foi oficialmente abolida em que ano?', @id_historia, 'Fácil', '1808', '1888', '1822', '1900', '1789', 'B');
+CALL InserirPerguntaResposta('Quem proclamou a independência do Brasil?', @id_historia, 'Fácil', 'Tiradentes', 'Dom João VI', 'Dom Pedro I', 'Marechal Deodoro', 'José Bonifácio', 'C');
+CALL InserirPerguntaResposta('Quem foi Tiradentes?', @id_historia, 'Fácil', 'Um rei do Brasil', 'Um padre português', 'Um bandeirante', 'Um escravocrata', 'Um dentista e líder da Inconfidência Mineira', 'E');
+CALL InserirPerguntaResposta('Qual foi a principal consequência da Revolução Industrial?', @id_historia, 'Fácil', 'Desenvolvimento das fábricas e urbanização', 'Aumento da agricultura', 'Redução de trabalho', 'Extinção da escravidão', 'Fim das guerras', 'A');
+CALL InserirPerguntaResposta('O que foi a Revolução Francesa?', @id_historia, 'Fácil', 'Expansão imperial', 'Conflito religioso', 'Luta por liberdade, igualdade e fraternidade', 'Revolta dos escravos', 'Guerra entre reis', 'C');
+CALL InserirPerguntaResposta('O que foi a Guerra Fria?', @id_historia, 'Fácil', 'Conflito entre Brasil e Argentina', 'Guerra mundial', 'Disputa ideológica entre EUA e URSS', 'Revolução francesa', 'Independência da América Latina', 'C');
+CALL InserirPerguntaResposta('Qual povo construiu as pirâmides do Egito?', @id_historia, 'Fácil', 'Romanos', 'Maias', 'Incas', 'Egípcios', 'Fenícios', 'D');
+
+-- História - Médias
+CALL InserirPerguntaResposta('Qual era a principal atividade econômica no Brasil colonial no século XVI?', @id_historia, 'Média', 'Pecuária', 'Café', 'Cana-de-açúcar', 'Borracha', 'Algodão', 'C');
+CALL InserirPerguntaResposta('Qual foi o marco inicial da Ditadura Militar no Brasil?', @id_historia, 'Média', 'A criação do Plano Real', 'A promulgação da Constituição de 1988', 'O golpe militar de 1964', 'A eleição direta de Tancredo Neves', 'A renúncia de Jânio Quadros', 'C');
+CALL InserirPerguntaResposta('O que foi o feudalismo?', @id_historia, 'Média', 'Organização social da Idade Média baseada em terras', 'Regime militar', 'Sistema de leis', 'Sistema democrático', 'Comércio marítimo', 'A');
+CALL InserirPerguntaResposta('O que foi o Iluminismo?', @id_historia, 'Média', 'Um estilo artístico', 'Corrente filosófica que defendia razão e liberdade', 'Movimento religioso', 'Teoria política absolutista', 'Reforma da Igreja', 'B');
+CALL InserirPerguntaResposta('Qual foi a consequência da Crise de 1929 no Brasil?', @id_historia, 'Média', 'Crescimento das exportações', 'Queda da monarquia', 'Queda do café e ascensão de Vargas ao poder', 'Fim da escravidão', 'Intervenção militar estrangeira', 'C');
+CALL InserirPerguntaResposta('Qual país sofreu com o regime do apartheid no século XX?', @id_historia, 'Média', 'Estados Unidos', 'Alemanha', 'Brasil', 'Índia', 'África do Sul', 'E');
+CALL InserirPerguntaResposta('Quem foi o principal líder da Revolta dos Escravos no Quilombo dos Palmares?', @id_historia, 'Média', 'Tiradentes', 'Zumbi', 'Dom João VI', 'Dandara', 'Castro Alves', 'B');
+CALL InserirPerguntaResposta('Qual foi o principal objetivo das Grandes Navegações?', @id_historia, 'Média', 'Fugir das guerras', 'Buscar novas rotas comerciais e riquezas', 'Descobrir novas religiões', 'Fundar novas igrejas', 'Expandir o cristianismo', 'B');
+
+-- História - Difíceis
+CALL InserirPerguntaResposta('Qual era o objetivo da Doutrina Truman?', @id_historia, 'Difícil', 'Combater o tráfico de escravos', 'Estabelecer o nazismo', 'Conter o avanço do comunismo durante a Guerra Fria', 'Apoiar os países do Eixo', 'Lutar pela independência da Ásia', 'C');
+CALL InserirPerguntaResposta('O que foi a Revolta da Chibata?', @id_historia, 'Difícil', 'Protesto dos trabalhadores rurais', 'Levante de marinheiros contra castigos físicos', 'Manifesto de estudantes', 'Revolta de escravizados', 'Rebelião indígena', 'B');
+CALL InserirPerguntaResposta('Qual fato histórico marca o início da Idade Moderna?', @id_historia, 'Difícil', 'Queda de Constantinopla', 'Queda do Império Romano', 'Descobrimento do Brasil', 'Revolução Francesa', 'Expansão marítima', 'A');
+CALL InserirPerguntaResposta('Durante a Era Vargas, qual era a função do "DIP"?', @id_historia, 'Difícil', 'Criar leis trabalhistas', 'Promover campanhas contra o analfabetismo', 'Controlar a informação e promover a imagem do governo', 'Organizar partidos de oposição', 'Apoiar campanhas religiosas', 'C');
+CALL InserirPerguntaResposta('O que foi o Mercantilismo, prática comum entre os séculos XVI e XVIII?', @id_historia, 'Difícil', 'Política de livre mercado', 'Sistema econômico baseado na industrialização', 'Política de isenção de impostos', 'Teoria socialista de produção', 'Práticas econômicas que visavam o acúmulo de metais preciosos', 'E');
+CALL InserirPerguntaResposta('O que foi o Tratado de Tordesilhas (1494)?', @id_historia, 'Difícil', 'Acordo entre portugueses e espanhóis sobre a escravidão', 'Tratado de paz entre tribos indígenas', 'Divisão das terras "descobertas" entre Portugal e Espanha', 'Documento que criava a Inquisição', 'Decreto de independência das colônias', 'C');
+CALL InserirPerguntaResposta('O que motivou a participação do Brasil na Segunda Guerra Mundial?', @id_historia, 'Difícil', 'Pressão do Japão', 'Ataques alemães a navios brasileiros', 'Aliança histórica com a Itália', 'Acordo com a URSS', 'Defesa da neutralidade', 'B');
+CALL InserirPerguntaResposta('O movimento das Diretas Já (1983-1984) no Brasil tinha como objetivo:', @id_historia, 'Difícil', 'Derrubar o presidente João Goulart', 'Aprovar a Constituição de 1988', 'Impedir o impeachment de Fernando Collor', 'Apoiar os candidatos da direita', 'Restabelecer eleições diretas para presidente', 'E');
+
+SELECT p.Id_Pergunta, p.Enunciado, p.Dificuldade, 
+       r.Letra, r.Texto, pr.Correta
+FROM Perguntas p
+JOIN Pergunta_Resposta pr ON p.Id_Pergunta = pr.Id_Pergunta
+JOIN Respostas r ON pr.Id_Resposta = r.Id_Resposta
+WHERE p.Id_Materia = @id_historia
+ORDER BY p.Dificuldade, p.Id_Pergunta, r.Letra;
