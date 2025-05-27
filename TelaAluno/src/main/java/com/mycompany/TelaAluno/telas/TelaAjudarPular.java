@@ -4,6 +4,7 @@
  */
 package com.mycompany.TelaAluno.telas;
 
+import com.mycompany.TelaAluno.modelo.ControleJogo;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -29,72 +30,76 @@ public class TelaAjudarPular extends javax.swing.JFrame {
     private void initComponents() {
 
         fundoPanel = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         simBotao = new javax.swing.JButton();
-        naoBotao = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
         fundoPanel.setBackground(new java.awt.Color(0, 153, 204));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Deseja pular para próxima pergunta?");
-
-        simBotao.setBackground(new java.awt.Color(51, 204, 255));
         simBotao.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        simBotao.setForeground(new java.awt.Color(255, 255, 255));
-        simBotao.setText("Sim");
+        simBotao.setText("Ok");
         simBotao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 simBotaoActionPerformed(evt);
             }
         });
 
-        naoBotao.setBackground(new java.awt.Color(51, 204, 255));
-        naoBotao.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        naoBotao.setForeground(new java.awt.Color(255, 255, 255));
-        naoBotao.setText("Não");
-        naoBotao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                naoBotaoActionPerformed(evt);
-            }
-        });
+        jPanel1.setBackground(new java.awt.Color(0, 204, 255));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Pulando Para Próxima Questão!");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout fundoPanelLayout = new javax.swing.GroupLayout(fundoPanel);
         fundoPanel.setLayout(fundoPanelLayout);
         fundoPanelLayout.setHorizontalGroup(
             fundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fundoPanelLayout.createSequentialGroup()
-                .addContainerGap(32, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(37, 37, 37))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fundoPanelLayout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(naoBotao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(88, 88, 88)
-                .addComponent(simBotao, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45))
+            .addGroup(fundoPanelLayout.createSequentialGroup()
+                .addGroup(fundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(fundoPanelLayout.createSequentialGroup()
+                        .addGap(107, 107, 107)
+                        .addComponent(simBotao, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(fundoPanelLayout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
         fundoPanelLayout.setVerticalGroup(
             fundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fundoPanelLayout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addComponent(jLabel1)
-                .addGap(35, 35, 35)
-                .addGroup(fundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(naoBotao, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(simBotao, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addGap(29, 29, 29)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addComponent(simBotao, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(53, 53, 53))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fundoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(fundoPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -117,16 +122,12 @@ public class TelaAjudarPular extends javax.swing.JFrame {
         
     }//GEN-LAST:event_simBotaoActionPerformed
 
-    private void naoBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_naoBotaoActionPerformed
-        // TODO add your handling code here:
-        this.dispose();
-    }//GEN-LAST:event_naoBotaoActionPerformed
-
     /**
      * @param args the command line arguments
      */
 public static void main(String args[]) throws Exception {
-    TelaJogo tela = new TelaJogo(idAluno);
+    int contadorReinicios = 1;
+    TelaJogo tela = new TelaJogo(idAluno, contadorReinicios);
 
     java.awt.EventQueue.invokeLater(new Runnable() {
         public void run() {
@@ -138,7 +139,7 @@ public static void main(String args[]) throws Exception {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel fundoPanel;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JButton naoBotao;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JButton simBotao;
     // End of variables declaration//GEN-END:variables
 }
