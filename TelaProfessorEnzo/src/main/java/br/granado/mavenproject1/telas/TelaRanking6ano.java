@@ -1,13 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-package br.granado.mavenproject1.telas;
 
-/**
- *
- * @author ENZO CHAGAS GRANADA
- */
+package br.granado.mavenproject1.telas;
+import br.granado.mavenproject1.persistencia.DAORanking;
 import br.granado.mavenproject1.telas.ViewProfessor;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
@@ -27,21 +20,33 @@ public class TelaRanking6ano extends javax.swing.JFrame {
     }
     
     public void carregarDados(){
-        javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) jTable1.getModel();
-        model.setRowCount(0);
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0); // Limpa a tabela
+
+        try {
+            DAORanking dao = new DAORanking();
+            List<Object[]> ranking = dao.obterRankingCompleto6(); // Busca dados do banco
+
+            // Adiciona cada linha na JTable
+            for (Object[] linha : ranking) {
+                model.addRow(linha);
+            }
+
+            // Ordena por pontuação (decrescente)
+            TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(model);
+            jTable1.setRowSorter(sorter);
+            sorter.setSortKeys(List.of(new RowSorter.SortKey(1, SortOrder.DESCENDING)));
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            javax.swing.JOptionPane.showMessageDialog(
+                this, 
+                "Erro ao carregar ranking: " + e.getMessage(), 
+                "Erro", 
+                javax.swing.JOptionPane.ERROR_MESSAGE
+            );
         
-        
-        model.addRow(new Object[]{"Enzo",100.00});
-        model.addRow(new Object[]{"Diego", 12.8});
-        model.addRow(new Object[]{"Paulo", 87.8});
-        model.addRow(new Object[]{"Caique", 56.8});
-        model.addRow(new Object[]{"Lucca", 0.0});
-        
-        TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(model);
-        jTable1.setRowSorter(sorter);
-        sorter.setSortKeys(List.of(new RowSorter.SortKey(1, SortOrder.DESCENDING)));
-        
-        
+        }
     }
     
     
