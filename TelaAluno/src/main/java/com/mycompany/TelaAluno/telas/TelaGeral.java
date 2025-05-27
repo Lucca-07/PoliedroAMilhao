@@ -1,6 +1,7 @@
 
 package com.mycompany.TelaAluno.telas;
 
+import com.mycompany.TelaAluno.modelo.ControleJogo;
 import com.mycompany.TelaAluno.modelo.Materias;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -140,7 +141,8 @@ public class TelaGeral extends javax.swing.JFrame {
         Materias.setIdMateriaSelecionada(0);
         TelaJogo telaJogo = null;
      try {
-         telaJogo = new TelaJogo(idAluno);
+         int contadorReinicios = 1;
+         telaJogo = new TelaJogo(idAluno, contadorReinicios);
      } catch (Exception ex) {
          Logger.getLogger(TelaGeral.class.getName()).log(Level.SEVERE, null, ex);
      }

@@ -1,6 +1,7 @@
 
 package com.mycompany.TelaAluno.telas;
 
+import com.mycompany.TelaAluno.modelo.ControleJogo;
 import com.mycompany.TelaAluno.modelo.Materias;
 import com.mycompany.TelaAluno.persistencia.AlunoDAO;
 import java.util.logging.Level;
@@ -260,6 +261,7 @@ public class TelaMaterias extends javax.swing.JFrame {
         // TODO add your handling code here:
         TelaModos telaInicial = null;
         try {
+            int contadorReinicios = 1;
             telaInicial = new TelaModos(idAluno);
         } catch (Exception ex) {
             Logger.getLogger(TelaMaterias.class.getName()).log(Level.SEVERE, null, ex);
@@ -273,7 +275,8 @@ public class TelaMaterias extends javax.swing.JFrame {
         Materias.setIdMateriaSelecionada(2);
         TelaJogo telaJogo = null;
         try {
-            telaJogo = new TelaJogo(idAluno);
+            int contadorReinicios = 1;
+            telaJogo = new TelaJogo(idAluno, contadorReinicios);
         } catch (Exception ex) {
             Logger.getLogger(TelaMaterias.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -287,7 +290,8 @@ public class TelaMaterias extends javax.swing.JFrame {
         Materias.setIdMateriaSelecionada(3);
         TelaJogo telaJogo = null;
         try {
-            telaJogo = new TelaJogo(idAluno);
+            int contadorReinicios = 1;
+            telaJogo = new TelaJogo(idAluno, contadorReinicios);
         } catch (Exception ex) {
             Logger.getLogger(TelaMaterias.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -300,7 +304,8 @@ public class TelaMaterias extends javax.swing.JFrame {
         Materias.setIdMateriaSelecionada(1);
         TelaJogo telaJogo = null;
         try {
-            telaJogo = new TelaJogo(idAluno);
+            int contadorReinicios = 1;
+            telaJogo = new TelaJogo(idAluno, contadorReinicios);
         } catch (Exception ex) {
             Logger.getLogger(TelaMaterias.class.getName()).log(Level.SEVERE, null, ex);
         }

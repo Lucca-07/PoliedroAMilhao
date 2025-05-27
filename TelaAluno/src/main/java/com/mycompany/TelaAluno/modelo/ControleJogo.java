@@ -21,31 +21,33 @@ public class ControleJogo {
             case 2:
                 return 1250;
             case 3:
-                return 1250;
+                return 2500;
             case 4:
-                return 1250;
+                return 3750;
             case 5:
-                return 1250;
-            case 6:
                 return 5000;
+            case 6:
+                return 10000;
             case 7:
-                return 15000;
-            case 8:
                 return 25000;
-            case 9:
+            case 8:
                 return 50000;
+            case 9:
+                return 100000;
             case 10:
-                return 150000;
-            case 11:
                 return 250000;
+            case 11:
+                return 500000;
             case 12:
-                return 225000;
+                return 750000;
             case 13:
-                return 275000; // da 1.000.000
+                return 1000000;
             default:
                 return 0;
         }
-    }
+        
+
     
 
+    }
 }

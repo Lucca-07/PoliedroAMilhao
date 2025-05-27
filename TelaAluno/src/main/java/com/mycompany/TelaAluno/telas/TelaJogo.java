@@ -19,7 +19,7 @@ import java.util.logging.Logger;
 
 public class TelaJogo extends javax.swing.JFrame {
 
-    private int contadorReinicios = ControleJogo.idsUsadas.size() + 1;
+    public int contadorReinicios = ControleJogo.idsUsadas.size() + 1;
     private Timer timer;
     private int segundos = 45;
     private int idPerguntaAtual;
@@ -36,11 +36,12 @@ public class TelaJogo extends javax.swing.JFrame {
     public static boolean ajudaTelefoneUsada = false;
     
 
-    public TelaJogo(int idAluno) throws Exception {
+    public TelaJogo(int idAluno, int reinicios) throws Exception {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
         this.idAluno = idAluno;
-        mostrarPontuacaoTotal();
+        this.contadorReinicios = reinicios;
+        atualizarPontuacao(contadorReinicios);
         atualizarMoedas();
         
         try {
@@ -81,6 +82,7 @@ public class TelaJogo extends javax.swing.JFrame {
 
                 // Exibe o número da pergunta
                 contadorLabel.setText("Pergunta de número: " + contadorReinicios);
+
                 
                 
                 
@@ -190,7 +192,7 @@ public class TelaJogo extends javax.swing.JFrame {
                 pontuacaoAtual = 500000;
                 break;
             case 12:
-                pontuacaoAtual = 725000;
+                pontuacaoAtual = 750000;
                 break;
             case 13:
                 pontuacaoAtual = 1000000;
@@ -198,15 +200,15 @@ public class TelaJogo extends javax.swing.JFrame {
             default:
                 pontuacaoAtual = 0;
         }
-
+        // mostra na tela
         pontuacaoLabel.setText("Pontuação: " + pontuacaoAtual);
+       
     }
 
     
 
     public void proximaPergunta() throws Exception {
         atualizarPontuacao(contadorReinicios);
-        
         contadorReinicios++;
         ControleJogo.idsUsadas.add(idPerguntaAtual);
         this.dispose();
@@ -214,7 +216,7 @@ public class TelaJogo extends javax.swing.JFrame {
             TelaVitoriaJogo telaVitoriaJogo = new TelaVitoriaJogo();
             telaVitoriaJogo.setVisible(true);
         } else {
-            TelaJogo novaTela = new TelaJogo(idAluno);
+            TelaJogo novaTela = new TelaJogo(idAluno, contadorReinicios);
             novaTela.setVisible(true);
         }
     }
@@ -856,7 +858,8 @@ public class TelaJogo extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    new TelaJogo(idAluno).setVisible(true);
+                    int contadorReinicios = 0;
+                    new TelaJogo(idAluno, contadorReinicios).setVisible(true);
                 } catch (Exception ex) {
                     Logger.getLogger(TelaJogo.class.getName()).log(Level.SEVERE, null, ex);
                 }
