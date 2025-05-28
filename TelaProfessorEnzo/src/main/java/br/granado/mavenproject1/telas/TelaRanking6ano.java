@@ -48,7 +48,7 @@ public class TelaRanking6ano extends javax.swing.JFrame {
         
         }
     }
-    
+
     
     
     /**
