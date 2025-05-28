@@ -105,7 +105,7 @@ public class TelaRanking7ano extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        btnVoltarMenuRanking.setFont(new java.awt.Font("Calibri", 0, 36)); // NOI18N
+        btnVoltarMenuRanking.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         btnVoltarMenuRanking.setText("Voltar");
         btnVoltarMenuRanking.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,7 +145,7 @@ public class TelaRanking7ano extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(35, 35, 35)
                         .addComponent(jLabel1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(45, 45, 45)
                 .addComponent(btnVoltarMenuRanking)
