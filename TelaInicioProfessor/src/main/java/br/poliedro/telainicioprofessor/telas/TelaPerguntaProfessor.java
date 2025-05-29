@@ -1,32 +1,37 @@
-package br.poliedro.telainicioprofessor.telas;
+        package br.poliedro.telainicioprofessor.telas;
 
+import br.poliedro.telainicioprofessor.modelo.Materia;
 import br.poliedro.telainicioprofessor.modelo.PerguntaResposta;
 import br.poliedro.telainicioprofessor.modelo.Perguntas;
 import br.poliedro.telainicioprofessor.modelo.Respostas;
-import br.poliedro.telainicioprofessor.persistencia.PerguntaDAO;
-import java.awt.Container;
+import br.poliedro.telainicioprofessor.persistencia.PerguntasMediaDAO;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;import java.awt.Container;
+import static java.awt.Frame.MAXIMIZED_BOTH;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
 import javax.swing.Timer;
 
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
- */
-/**
- *
- * @author Lucca
- */
-public class ProfessorPerguntaTela extends javax.swing.JInternalFrame {
+public class TelaPerguntaProfessor extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form ProfessorPerguntaTela
-     */
-    public ProfessorPerguntaTela() {
+    private Materia materiaSelecionada;
+    private String dificuldade;
+    
+    public TelaPerguntaProfessor(Materia materia, String dificuldade) {
         initComponents();
-
+        this.materiaSelecionada = materia;
+    System.out.println("Matéria recebida na tela: " + materia.getNome());
+    System.out.println("ID da matéria: " + materia.getId());
+    this.dificuldade = dificuldade;    
+    grupoBotoes.add(rbResposta1);
+    grupoBotoes.add(rbResposta2);
+    grupoBotoes.add(rbResposta3);
+    grupoBotoes.add(rbResposta4);
+    grupoBotoes.add(rbResposta5);
         // Configurações básicas
         setBorder(null);
         ((BasicInternalFrameUI) this.getUI()).setNorthPane(null);
@@ -43,6 +48,8 @@ public class ProfessorPerguntaTela extends javax.swing.JInternalFrame {
         });
         timer.start();
     }
+
+    public CadastroPerguntaTela cadastroTela;
 
     public static void centralizarInternalFrame(JInternalFrame internalFrame, JDesktopPane desktopPane) {
         int width = desktopPane.getWidth();
@@ -65,6 +72,7 @@ public class ProfessorPerguntaTela extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        grupoBotoes = new javax.swing.ButtonGroup();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         tlPergunta = new javax.swing.JPanel();
         btVoltar = new javax.swing.JButton();
@@ -306,18 +314,19 @@ public class ProfessorPerguntaTela extends javax.swing.JInternalFrame {
                 .addGap(0, 336, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 642, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(342, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tlPerguntaLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(tlPerguntaLayout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addComponent(btVoltar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tlPerguntaLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(tlPerguntaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tlPerguntaLayout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tlPerguntaLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         tlPerguntaLayout.setVerticalGroup(
             tlPerguntaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -372,47 +381,83 @@ public class ProfessorPerguntaTela extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btVoltarActionPerformed
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
-        // TODO add your handling code here:
-        if (!txtPergunta.getText().equals("Insira a pergunta aqui:") && !txtResposta1.getText().equals("Resposta 1") && !txtResposta2.getText().equals("Resposta 2") && !txtResposta3.getText().equals("Resposta 3") && !txtResposta4.getText().equals("Resposta 4") && !txtResposta5.getText().equals("Resposta 5") ) {
-            var enunciado = txtPergunta.getText();
-
-            var resposta1 = txtResposta1.getText();
-            var resposta2 = txtResposta2.getText();
-            var resposta3 = txtResposta3.getText();
-            var resposta4 = txtResposta4.getText();
-            var resposta5 = txtResposta5.getText();
-
-            var correta1 = rbResposta1.isSelected();
-            var correta2 = rbResposta2.isSelected();
-            var correta3 = rbResposta3.isSelected();
-            var correta4 = rbResposta4.isSelected();
-            var correta5 = rbResposta5.isSelected();
-
-            var pergunta = new Perguntas(enunciado);
-            var pr1 = new PerguntaResposta(pergunta, new Respostas(resposta1), correta1);
-            var pr2 = new PerguntaResposta(pergunta, new Respostas(resposta2), correta2);
-            var pr3 = new PerguntaResposta(pergunta, new Respostas(resposta3), correta3);
-            var pr4 = new PerguntaResposta(pergunta, new Respostas(resposta4), correta4);
-            var pr5 = new PerguntaResposta(pergunta, new Respostas(resposta5), correta5);
-            pergunta.getRespostas().add(pr1);
-            pergunta.getRespostas().add(pr2);
-            pergunta.getRespostas().add(pr3);
-            pergunta.getRespostas().add(pr4);
-            pergunta.getRespostas().add(pr5);
-
-            try {
-                var dao1 = new PerguntaDAO();
-                var p = new Perguntas(enunciado);
-                dao1.cadastrarPergunta(p);
-                System.out.println("Cadastrado");
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
+        System.out.println("Matéria na hora de salvar: " + materiaSelecionada);
+        if (materiaSelecionada != null) {
+            System.out.println("Nome: " + materiaSelecionada.getNome());
+            System.out.println("ID: " + materiaSelecionada.getId());
         } else {
+            System.out.println("A matéria está null!");
+        }
 
+        String enunciado = txtPergunta.getText().trim();
+        String resposta1 = txtResposta1.getText().trim();
+        String resposta2 = txtResposta2.getText().trim();
+        String resposta3 = txtResposta3.getText().trim();
+        String resposta4 = txtResposta4.getText().trim();
+        String resposta5 = txtResposta5.getText().trim();
+
+        boolean correta1 = rbResposta1.isSelected();
+        boolean correta2 = rbResposta2.isSelected();
+        boolean correta3 = rbResposta3.isSelected();
+        boolean correta4 = rbResposta4.isSelected();
+        boolean correta5 = rbResposta5.isSelected();
+
+        if (materiaSelecionada == null) {
+            JOptionPane.showMessageDialog(this, "Matéria selecionada inválida!");
+            return;
+        }
+        if (enunciado.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor, insira a pergunta.");
+            return;
+        }
+        if (resposta1.isEmpty() || resposta2.isEmpty() || resposta3.isEmpty() || resposta4.isEmpty() || resposta5.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor, preencha todas as respostas.");
+            return;
+        }
+
+        int totalCorretas = 0;
+        totalCorretas += correta1 ? 1 : 0;
+        totalCorretas += correta2 ? 1 : 0;
+        totalCorretas += correta3 ? 1 : 0;
+        totalCorretas += correta4 ? 1 : 0;
+        totalCorretas += correta5 ? 1 : 0;
+
+        if (totalCorretas != 1) {
+            JOptionPane.showMessageDialog(this, "Por favor, marque exatamente uma resposta correta.");
+            return;
+        }
+
+        Perguntas pergunta = new Perguntas(enunciado);
+        pergunta.setDificuldade(dificuldade);
+        pergunta.setIdMateria(materiaSelecionada.getId());
+
+        pergunta.getRespostas().add(new PerguntaResposta(pergunta, new Respostas(resposta1), correta1));
+        pergunta.getRespostas().add(new PerguntaResposta(pergunta, new Respostas(resposta2), correta2));
+        pergunta.getRespostas().add(new PerguntaResposta(pergunta, new Respostas(resposta3), correta3));
+        pergunta.getRespostas().add(new PerguntaResposta(pergunta, new Respostas(resposta4), correta4));
+        pergunta.getRespostas().add(new PerguntaResposta(pergunta, new Respostas(resposta5), correta5));
+
+        try {
+            PerguntasMediaDAO dao = new PerguntasMediaDAO();
+            dao.cadastrarPergunta(pergunta);
+            JOptionPane.showMessageDialog(this, "Pergunta cadastrada com sucesso!");
+            // Opcional: limpar campos após salvar
+            limparCampos();
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Erro ao cadastrar pergunta: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btSalvarActionPerformed
-
+    private void limparCampos() {
+        txtPergunta.setText("Insira a Pergunta:");
+        txtResposta1.setText("Resposta 1");
+        txtResposta2.setText("Resposta 2");
+        txtResposta3.setText("Resposta 3");
+        txtResposta4.setText("Resposta 4");
+        txtResposta5.setText("Resposta 5");
+        grupoBotoes.clearSelection();
+    }
+    
     private void txtPerguntaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPerguntaMouseClicked
         // TODO add your handling code here:
         txtPergunta.setFocusable(true);
@@ -476,6 +521,7 @@ public class ProfessorPerguntaTela extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btSalvar;
     private javax.swing.JButton btVoltar;
+    private javax.swing.ButtonGroup grupoBotoes;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;

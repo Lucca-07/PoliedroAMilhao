@@ -1,32 +1,75 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
- */
+
 package br.poliedro.telainicioprofessor.telas;
 
+import br.poliedro.telainicioprofessor.modelo.Materia;
 import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
+import br.poliedro.telainicioprofessor.persistencia.MateriaDAO;
+import br.poliedro.telainicioprofessor.telas.TelaPerguntaProfessor;
+import java.lang.String;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import javax.swing.JOptionPane;
 
-/**
- *
- * @author Lorenzo
- */
 public class CadastroPerguntaTela extends javax.swing.JInternalFrame {
-
-    /**
-     * Creates new form CadastroPerguntaTela
-     */
+    private Map<String, Materia> mapaMaterias = new HashMap<>();
+    private MateriaDAO materiaDAO = new MateriaDAO();
+    private String dificuldade;
+    private List<Materia> listaMaterias;
     ErroMateriasTela emt = new ErroMateriasTela();
-    ProfessorPerguntaTela ppt = new ProfessorPerguntaTela();
     private final InicioTela inicioTela;
     
     public CadastroPerguntaTela(InicioTela inicioTela) {
-        this.inicioTela = inicioTela;
-        initComponents();
-        ((BasicInternalFrameUI) this.getUI()).setNorthPane(null); //retirar o painel superior
-        pack();
+    this.inicioTela = inicioTela;
+    initComponents();
+    ((BasicInternalFrameUI) this.getUI()).setNorthPane(null); 
+    pack();
+    
+    try {
+        carregarMateriasNoCombo();
+        carregarDificuldades();
+    } catch (Exception ex) {
+        JOptionPane.showMessageDialog(this, "Erro ao carregar dados: " + ex.getMessage());
     }
+}
+
+    private TelaPerguntaProfessor ppt;
+
+
+    
+    public void carregarMateriasNoCombo() throws Exception {
+    listaMaterias = materiaDAO.listarMaterias(); 
+    jcMaterias.removeAllItems();
+    mapaMaterias.clear();
+    for (Materia materia : materiaDAO.listarMaterias()) {
+    jcMaterias.addItem(materia.getNome());
+    mapaMaterias.put(materia.getNome(), materia); 
+}
+    }
+    
+    public Materia getMateriaSelecionada() {
+    String nomeSelecionado = (String) jcMaterias.getSelectedItem();
+
+    if (nomeSelecionado == null || listaMaterias == null) return null;
+
+    for (Materia m : listaMaterias) {
+        if (nomeSelecionado.equals(m.getNome())) {
+            return m;
+        }
+    }
+
+    return null;
+    }
+    
+     private void carregarDificuldades() {
+        jcDificuldade.removeAllItems();
+        jcDificuldade.addItem("Fácil");
+        jcDificuldade.addItem("Média");
+        jcDificuldade.addItem("Difícil");
+    }
+    
 
     public static void centralizarInternalFrame(JInternalFrame internalFrame, JDesktopPane desktopPane) {
         int width = desktopPane.getWidth();
@@ -62,7 +105,6 @@ public class CadastroPerguntaTela extends javax.swing.JInternalFrame {
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
 
         jcMaterias.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jcMaterias.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione a matéria:", "Português", "Matemática", "Geografia", "História", "Ciências" }));
         jcMaterias.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         jcMaterias.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jcMaterias.setFocusable(false);
@@ -84,7 +126,6 @@ public class CadastroPerguntaTela extends javax.swing.JInternalFrame {
         });
 
         jcDificuldade.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jcDificuldade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione a dificuldade:", "Fácil", "Médio", "Difícil" }));
         jcDificuldade.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         jcDificuldade.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jcDificuldade.setFocusable(false);
@@ -152,19 +193,24 @@ public class CadastroPerguntaTela extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jcMateriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcMateriasActionPerformed
-        // TODO add your handling code here:
+       String nomeSelecionado = (String) jcMaterias.getSelectedItem();
+
+    if (nomeSelecionado != null && listaMaterias != null) {
+        for (Materia m : listaMaterias) {
+            if (nomeSelecionado.equals(m.getNome())) {
+                System.out.println("Matéria selecionada: " + m.getNome());
+                System.out.println("ID da matéria: " + m.getId());
+                break;
+    }                                          
+
+        }   
+    }
     }//GEN-LAST:event_jcMateriasActionPerformed
 
     private void btConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConfirmarActionPerformed
         // TODO add your handling code here:
         JDesktopPane jDesktopPane1 = inicioTela.getDesktop();
-        if (!jcMaterias.getSelectedItem().toString().equals("Selecione a matéria:") && !jcDificuldade.getSelectedItem().toString().equals("Selecione a dificuldade:")) {
-
-            inicioTela.adicionarNoDesktop(ppt); // Usa a referência inicializada
-            if (!ppt.isVisible()) {
-                ppt.setVisible(true);
-                this.setVisible(false);
-            }
+        if (!jcMaterias.getSelectedItem().toString().equals("Selecione a matéria:") && !jcDificuldade.getSelectedItem().toString().equals("Selecione a dificuldade:")) { 
         } else {
             inicioTela.adicionarNoDesktop(emt);
             if (!emt.isVisible()) {
@@ -173,6 +219,32 @@ public class CadastroPerguntaTela extends javax.swing.JInternalFrame {
                 this.setVisible(false);
             }
         }
+        
+         String materiaSelecionada = (String) jcMaterias.getSelectedItem();
+    String dificuldadeSelecionada = (String) jcDificuldade.getSelectedItem();
+
+    if (materiaSelecionada != null && dificuldadeSelecionada != null && !dificuldadeSelecionada.isEmpty()) {
+        Materia materia = mapaMaterias.get(materiaSelecionada);
+
+        if (materia != null) {
+            // Cria a tela passando a matéria e dificuldade
+            ppt = new TelaPerguntaProfessor(materia, dificuldadeSelecionada);
+
+            // Adiciona a tela ao desktop do início
+            inicioTela.adicionarNoDesktop(ppt);
+
+            // Exibe a nova tela
+            ppt.setVisible(true);
+
+            // Fecha a tela atual
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(this, "Matéria selecionada inválida.");
+        }
+    } else {
+        JOptionPane.showMessageDialog(this, "Por favor, selecione uma matéria e uma dificuldade válidas.");
+    }
+
     }//GEN-LAST:event_btConfirmarActionPerformed
 
     private void jcDificuldadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcDificuldadeActionPerformed
@@ -181,8 +253,7 @@ public class CadastroPerguntaTela extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jcDificuldadeActionPerformed
 
     private void voltarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarButtonActionPerformed
-        // TODO add your handling code here:
-        this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_voltarButtonActionPerformed
 
 

@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package br.poliedro.telainicioprofessor.telas;
 
 import java.awt.Component;
@@ -9,6 +6,8 @@ import java.beans.PropertyVetoException;
 import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
 import javax.swing.JLayeredPane;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -16,12 +15,9 @@ import javax.swing.JLayeredPane;
  */
 public class InicioTela extends javax.swing.JFrame {
 
-    /**
-     * Creates new form TelaInicio
-     */
     CadastroPerguntaTela cpt = new CadastroPerguntaTela(this);
-    ConfiguracoesTela ct = new ConfiguracoesTela(this);
-    CadastroUsuarioTela cut = new CadastroUsuarioTela();
+    Configuracoes ct = new Configuracoes(this);
+    CadastroTela cut = new CadastroTela();
 
     public InicioTela() {
         initComponents();
@@ -30,6 +26,9 @@ public class InicioTela extends javax.swing.JFrame {
         jDesktopPane1.add(ct);
         jDesktopPane1.add(cut);
     }
+    
+    Configuracoes config = new Configuracoes(this);
+    CadastroTela ca = new CadastroTela();
 
     public void adicionarNoDesktop(Component component) {
         if (component == null || jDesktopPane1 == null) {
@@ -289,32 +288,42 @@ public class InicioTela extends javax.swing.JFrame {
     private void configButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_configButtonActionPerformed
         // TODO add your handling code here:
         if (!ct.isVisible()) {
-            ConfiguracoesTela.centralizarInternalFrame(ct, jDesktopPane1);
+            Configuracoes.centralizarInternalFrame(ct, jDesktopPane1);
             ct.setVisible(true);
         }
     }//GEN-LAST:event_configButtonActionPerformed
 
     private void criarPerguntaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criarPerguntaButtonActionPerformed
-        // TODO add your handling code here:
-
-        if (!cpt.isVisible()) {
+        try {
+            // TODO add your handling code here:
+            
+            CadastroPerguntaTela cpt = new CadastroPerguntaTela(this);
             CadastroPerguntaTela.centralizarInternalFrame(cpt, jDesktopPane1);
-            cpt.setVisible(true);
+            if(cpt.isVisible() == false){
+                jDesktopPane1.add(cpt);
+                cpt.setVisible(true);
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(InicioTela.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }//GEN-LAST:event_criarPerguntaButtonActionPerformed
 
     private void cadastrarAlunoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarAlunoButtonActionPerformed
         // TODO add your handling code here:
 
         if (!cut.isVisible()) {
-            CadastroUsuarioTela.centralizarInternalFrame(cut, jDesktopPane1);
+            CadastroTela.centralizarInternalFrame(cut, jDesktopPane1);
             cut.setVisible(true);
         }
     }//GEN-LAST:event_cadastrarAlunoButtonActionPerformed
 
     private void editarPerguntaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarPerguntaButtonActionPerformed
-        // TODO add your handling code here:
+       EditarPerguntaTela ept = new EditarPerguntaTela();
+        EditarPerguntaTela.centralizarInternalFrame(ept, jDesktopPane1);
+        if(ept.isVisible() == false){
+            jDesktopPane1.add(ept);
+            ept.setVisible(true);
+        }
     }//GEN-LAST:event_editarPerguntaButtonActionPerformed
     /**
      * @param args the command line arguments

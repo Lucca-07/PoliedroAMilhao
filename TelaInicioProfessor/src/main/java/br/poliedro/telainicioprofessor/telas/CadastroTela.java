@@ -14,7 +14,7 @@ import javax.swing.plaf.basic.BasicInternalFrameUI;
  *
  * @author Lorenzo
  */
-public class CadastroUsuarioTela extends javax.swing.JInternalFrame {
+public class CadastroTela extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form CadastroUsuarioTela
@@ -22,7 +22,7 @@ public class CadastroUsuarioTela extends javax.swing.JInternalFrame {
     SucessoCadastroUsuarioTela scut = new SucessoCadastroUsuarioTela();
     ErroCadastroUsuarioTela ecut = new ErroCadastroUsuarioTela();
     
-    public CadastroUsuarioTela() {
+    public CadastroTela() {
         initComponents();
         ((BasicInternalFrameUI) this.getUI()).setNorthPane(null); //retirar o painel superior
         pack();

@@ -8,21 +8,16 @@ import javax.swing.ImageIcon;
 import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
+import javax.swing.*;
+import java.awt.*;
 
-/**
- *
- * @author Lucca
- */
-public class ConfiguracoesTela extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form ConfiguracoesTela
-     */
-    
+public class Configuracoes extends javax.swing.JInternalFrame {
+ 
     SairTela st = new SairTela();
     private final InicioTela inicioTela;
     
-    public ConfiguracoesTela(InicioTela inicioTela) {
+    public Configuracoes(InicioTela inicioTela) {
         this.inicioTela = inicioTela;
         initComponents();
         ((BasicInternalFrameUI) this.getUI()).setNorthPane(null); //retirar o painel superior

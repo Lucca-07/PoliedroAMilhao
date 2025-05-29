@@ -97,14 +97,7 @@
               <Font name="Arial" size="18" style="1"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="6">
-                <StringItem index="0" value="Selecione a mat&#xe9;ria:"/>
-                <StringItem index="1" value="Portugu&#xea;s"/>
-                <StringItem index="2" value="Matem&#xe1;tica"/>
-                <StringItem index="3" value="Geografia"/>
-                <StringItem index="4" value="Hist&#xf3;ria"/>
-                <StringItem index="5" value="Ci&#xea;ncias"/>
-              </StringArray>
+              <StringArray count="0"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -149,12 +142,7 @@
               <Font name="Arial" size="18" style="1"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Selecione a dificuldade:"/>
-                <StringItem index="1" value="F&#xe1;cil"/>
-                <StringItem index="2" value="M&#xe9;dio"/>
-                <StringItem index="3" value="Dif&#xed;cil"/>
-              </StringArray>
+              <StringArray count="0"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">

@@ -1,42 +1,32 @@
-
 package br.poliedro.telainicioprofessor.modelo;
+
+import lombok.*;
 import java.util.*;
 
+@Getter
+@Setter
 public class Perguntas {
 
     private int codigo;
     private String enunciado;
-    private List <PerguntaResposta> respostas;
-    
+    private String dificuldade;
+    private int idMateria;  // novo campo para armazenar o ID da matéria
+    private List<PerguntaResposta> respostas;
+
     public Perguntas(String enunciado){
         this.enunciado = enunciado;
-        respostas = new ArrayList<>();      
+        respostas = new ArrayList<>();
     }
 
-    public int getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
-    }
-
-    public String getEnunciado() {
-        return enunciado;
-    }
-
-    public void setEnunciado(String enunciado) {
+    // construtor opcional com idMateria, caso queira usar
+    public Perguntas(String enunciado, int idMateria){
         this.enunciado = enunciado;
-    }
-
-    public List<PerguntaResposta> getRespostas() {
-        return respostas;
-    }
-
-    public void setRespostas(List<PerguntaResposta> respostas) {
-        this.respostas = respostas;
+        this.idMateria = idMateria;
+        respostas = new ArrayList<>();
     }
     
-    
-  
+    public int getIdMateria() {
+    return idMateria;
+}
+
 }
