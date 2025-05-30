@@ -88,18 +88,15 @@ public class InicioTela extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         rankingButton = new javax.swing.JButton();
-        editarPerguntaButton = new javax.swing.JButton();
         cadastrarAlunoButton = new javax.swing.JButton();
         criarPerguntaButton = new javax.swing.JButton();
         inicioTextField = new javax.swing.JLabel();
         icone1Label = new javax.swing.JLabel();
         icone4Label = new javax.swing.JLabel();
-        icone2Label = new javax.swing.JLabel();
         icone3Label = new javax.swing.JLabel();
         configButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(2440, 1920));
         setMinimumSize(new java.awt.Dimension(1320, 720));
         setUndecorated(true);
 
@@ -116,19 +113,6 @@ public class InicioTela extends javax.swing.JFrame {
         rankingButton.setFocusPainted(false);
         rankingButton.setFocusable(false);
         rankingButton.setOpaque(true);
-
-        editarPerguntaButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        editarPerguntaButton.setText("Editar pergunta");
-        editarPerguntaButton.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        editarPerguntaButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        editarPerguntaButton.setFocusPainted(false);
-        editarPerguntaButton.setFocusable(false);
-        editarPerguntaButton.setOpaque(true);
-        editarPerguntaButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editarPerguntaButtonActionPerformed(evt);
-            }
-        });
 
         cadastrarAlunoButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         cadastrarAlunoButton.setText("Cadastrar aluno");
@@ -167,8 +151,6 @@ public class InicioTela extends javax.swing.JFrame {
 
         icone4Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Adicionar.png"))); // NOI18N
 
-        icone2Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/EditarPergunta.png"))); // NOI18N
-
         icone3Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ranking.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -182,14 +164,12 @@ public class InicioTela extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(12, 12, 12)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(icone2Label)
                             .addComponent(icone1Label)
                             .addComponent(icone4Label)
                             .addComponent(icone3Label))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(criarPerguntaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(editarPerguntaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(rankingButton, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cadastrarAlunoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 46, Short.MAX_VALUE)))
@@ -207,10 +187,6 @@ public class InicioTela extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(icone1Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(icone2Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(editarPerguntaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(rankingButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(icone3Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -218,7 +194,7 @@ public class InicioTela extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cadastrarAlunoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(icone4Label, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addGap(62, 62, 62))
         );
 
         configButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Config.png"))); // NOI18N
@@ -316,15 +292,6 @@ public class InicioTela extends javax.swing.JFrame {
             cut.setVisible(true);
         }
     }//GEN-LAST:event_cadastrarAlunoButtonActionPerformed
-
-    private void editarPerguntaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarPerguntaButtonActionPerformed
-       EditarPerguntaTela ept = new EditarPerguntaTela();
-        EditarPerguntaTela.centralizarInternalFrame(ept, jDesktopPane1);
-        if(ept.isVisible() == false){
-            jDesktopPane1.add(ept);
-            ept.setVisible(true);
-        }
-    }//GEN-LAST:event_editarPerguntaButtonActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -365,9 +332,7 @@ public class InicioTela extends javax.swing.JFrame {
     private javax.swing.JButton cadastrarAlunoButton;
     private javax.swing.JButton configButton;
     private javax.swing.JButton criarPerguntaButton;
-    private javax.swing.JButton editarPerguntaButton;
     private javax.swing.JLabel icone1Label;
-    private javax.swing.JLabel icone2Label;
     private javax.swing.JLabel icone3Label;
     private javax.swing.JLabel icone4Label;
     private javax.swing.JLabel inicioTextField;

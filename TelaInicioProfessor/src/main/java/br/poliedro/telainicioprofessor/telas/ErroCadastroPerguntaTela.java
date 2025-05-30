@@ -12,12 +12,12 @@ import javax.swing.plaf.basic.BasicInternalFrameUI;
  *
  * @author Lorenzo
  */
-public class ErroCadastroUsuarioTela extends javax.swing.JInternalFrame {
+public class ErroCadastroPerguntaTela extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form ErroCadastroUsuarioTela
      */
-    public ErroCadastroUsuarioTela() {
+    public ErroCadastroPerguntaTela() {
         initComponents();
         ((BasicInternalFrameUI) this.getUI()).setNorthPane(null); //retirar o painel superior
         pack();
