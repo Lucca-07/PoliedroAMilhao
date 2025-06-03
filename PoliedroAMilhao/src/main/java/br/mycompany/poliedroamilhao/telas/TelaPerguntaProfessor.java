@@ -216,6 +216,7 @@ public class TelaPerguntaProfessor extends javax.swing.JInternalFrame {
         });
 
         rbResposta1.setBackground(new java.awt.Color(163, 236, 255));
+        rbResposta1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         rbResposta1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbResposta1ActionPerformed(evt);
@@ -223,12 +224,16 @@ public class TelaPerguntaProfessor extends javax.swing.JInternalFrame {
         });
 
         rbResposta2.setBackground(new java.awt.Color(163, 236, 255));
+        rbResposta2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         rbResposta3.setBackground(new java.awt.Color(163, 236, 255));
+        rbResposta3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         rbResposta4.setBackground(new java.awt.Color(163, 236, 255));
+        rbResposta4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         rbResposta5.setBackground(new java.awt.Color(163, 236, 255));
+        rbResposta5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         btSalvar.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btSalvar.setText("Salvar");
@@ -320,12 +325,13 @@ public class TelaPerguntaProfessor extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tlPerguntaLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(tlPerguntaLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(tlPerguntaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tlPerguntaLayout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tlPerguntaLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         tlPerguntaLayout.setVerticalGroup(
             tlPerguntaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -64,7 +64,7 @@ public class Configuracoes extends javax.swing.JInternalFrame {
 
         jsVolume.setBackground(new java.awt.Color(163, 236, 255));
         jsVolume.setValue(100);
-        jsVolume.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jsVolume.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jsVolume.setFocusable(false);
         jsVolume.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -83,7 +83,7 @@ public class Configuracoes extends javax.swing.JInternalFrame {
         jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.setFocusPainted(false);
         jButton1.setFocusable(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -99,7 +99,7 @@ public class Configuracoes extends javax.swing.JInternalFrame {
         jButton2.setBorder(null);
         jButton2.setBorderPainted(false);
         jButton2.setContentAreaFilled(false);
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton2.setFocusPainted(false);
         jButton2.setFocusable(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -113,7 +113,7 @@ public class Configuracoes extends javax.swing.JInternalFrame {
         btSound.setBorder(null);
         btSound.setBorderPainted(false);
         btSound.setContentAreaFilled(false);
-        btSound.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btSound.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btSound.setFocusPainted(false);
         btSound.setFocusable(false);
         btSound.addActionListener(new java.awt.event.ActionListener() {

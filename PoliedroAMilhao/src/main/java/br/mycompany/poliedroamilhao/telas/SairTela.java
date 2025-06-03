@@ -62,7 +62,7 @@ public class SairTela extends javax.swing.JInternalFrame {
         jButton16.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jButton16.setText("Sim, quero sair!");
         jButton16.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        jButton16.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButton16.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton16.setFocusPainted(false);
         jButton16.setFocusable(false);
         jButton16.addActionListener(new java.awt.event.ActionListener() {
@@ -74,7 +74,7 @@ public class SairTela extends javax.swing.JInternalFrame {
         jButton17.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jButton17.setText("Não, quero voltar!");
         jButton17.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        jButton17.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButton17.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton17.setFocusPainted(false);
         jButton17.setFocusable(false);
         jButton17.addActionListener(new java.awt.event.ActionListener() {

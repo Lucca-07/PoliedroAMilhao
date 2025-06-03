@@ -109,7 +109,7 @@ public class InicioTela extends javax.swing.JFrame {
         rankingButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         rankingButton.setText("Ranking");
         rankingButton.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        rankingButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        rankingButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         rankingButton.setFocusPainted(false);
         rankingButton.setFocusable(false);
         rankingButton.setOpaque(true);
@@ -122,7 +122,7 @@ public class InicioTela extends javax.swing.JFrame {
         cadastrarAlunoButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         cadastrarAlunoButton.setText("Cadastrar usuário");
         cadastrarAlunoButton.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        cadastrarAlunoButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        cadastrarAlunoButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cadastrarAlunoButton.setFocusPainted(false);
         cadastrarAlunoButton.setFocusable(false);
         cadastrarAlunoButton.setOpaque(true);
@@ -135,7 +135,7 @@ public class InicioTela extends javax.swing.JFrame {
         criarPerguntaButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         criarPerguntaButton.setText("Criar pergunta");
         criarPerguntaButton.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        criarPerguntaButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        criarPerguntaButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         criarPerguntaButton.setFocusPainted(false);
         criarPerguntaButton.setFocusable(false);
         criarPerguntaButton.setOpaque(true);
@@ -205,7 +205,7 @@ public class InicioTela extends javax.swing.JFrame {
         configButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Config.png"))); // NOI18N
         configButton.setBorderPainted(false);
         configButton.setContentAreaFilled(false);
-        configButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        configButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         configButton.setFocusPainted(false);
         configButton.setFocusable(false);
         configButton.addActionListener(new java.awt.event.ActionListener() {

@@ -89,11 +89,13 @@ public class CadastroTela extends javax.swing.JInternalFrame {
         jLabel3.setText("Senha:");
 
         nomeTextField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        nomeTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         emailTextField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        emailTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         senhaTextField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        senhaTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        senhaTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         jButton2.setBackground(new java.awt.Color(204, 255, 255));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -102,7 +104,7 @@ public class CadastroTela extends javax.swing.JInternalFrame {
         jButton2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton2.setBorderPainted(false);
         jButton2.setContentAreaFilled(false);
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton2.setFocusPainted(false);
         jButton2.setFocusable(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -114,7 +116,7 @@ public class CadastroTela extends javax.swing.JInternalFrame {
         serieComboBox.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         serieComboBox.setMaximumRowCount(8);
         serieComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione:", "6º ano", "7º ano", "8º ano", "9º ano" }));
-        serieComboBox.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        serieComboBox.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         serieComboBox.setFocusable(false);
         serieComboBox.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -134,7 +136,7 @@ public class CadastroTela extends javax.swing.JInternalFrame {
         cadastrarButton.setBorder(null);
         cadastrarButton.setBorderPainted(false);
         cadastrarButton.setContentAreaFilled(false);
-        cadastrarButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        cadastrarButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cadastrarButton.setFocusPainted(false);
         cadastrarButton.setFocusable(false);
         cadastrarButton.addActionListener(new java.awt.event.ActionListener() {
@@ -158,7 +160,7 @@ public class CadastroTela extends javax.swing.JInternalFrame {
         alunoComboBox.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         alunoComboBox.setMaximumRowCount(2);
         alunoComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sim", "Não" }));
-        alunoComboBox.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        alunoComboBox.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         alunoComboBox.setFocusable(false);
         alunoComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -305,9 +307,9 @@ public class CadastroTela extends javax.swing.JInternalFrame {
             try {
                 var dao = new UsuarioDAO();
                 if (alunoComboBox.getSelectedItem().toString().equals("Sim")) {
-//                    dao.cadastrar(u, false);
+                    dao.cadastrar(u, false);
                 } else {
-//                    dao.cadastrar(u, true);
+                    dao.cadastrar(u, true);
                 }
                 SucessoCadastroUsuarioTela.centralizarInternalFrame(scut, jDesktopPane1);
                 if (!scut.isVisible()) {

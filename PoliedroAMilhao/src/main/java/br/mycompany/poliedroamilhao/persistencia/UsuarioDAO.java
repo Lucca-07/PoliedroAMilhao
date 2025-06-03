@@ -43,7 +43,7 @@ public class UsuarioDAO {
                             ps2.setString(1, generatedKeys.getString(1));
                             ps2.setString(2, u.getEmail());
                             ps2.setString(3, u.getSenha());
-                            ps2.setString(4, "Ativo");
+                            ps2.setString(4, "Inativo");
                             ps2.executeUpdate();
                         } else {
                             throw new SQLException("Falha ao obter ID do aluno.");
@@ -75,17 +75,16 @@ public class UsuarioDAO {
     }
     
     public Usuario logar(Usuario u) throws Exception {
-        String sql = "SELECT 'aluno' as tipo FROM login_aluno WHERE email = ? AND senha = ? "
+        // Consulta modificada para incluir estado quando for aluno
+        String sql = "SELECT 'aluno' as tipo, estado FROM login_aluno WHERE email = ? AND senha = ? "
                 + "UNION ALL "
-                + "SELECT 'professor' as tipo FROM login_professor WHERE email = ? AND senha = ?";
+                + "SELECT 'professor' as tipo, NULL as estado FROM login_professor WHERE email = ? AND senha = ?";
 
-        System.out.println("SQL: " + sql); // Debug 1
-        System.out.println("Email: " + u.getEmail() + ", Senha: " + u.getSenha()); // Debug 2
+        System.out.println("SQL: " + sql);
+        System.out.println("Email: " + u.getEmail() + ", Senha: " + u.getSenha());
 
         try (
-                var conexao = new ConnectionFactory().obterConexao();
-                var ps = conexao.prepareStatement(sql)
-            ) {
+                var conexao = new ConnectionFactory().obterConexao(); var ps = conexao.prepareStatement(sql)) {
 
             ps.setString(1, u.getEmail());
             ps.setString(2, u.getSenha());
@@ -93,11 +92,29 @@ public class UsuarioDAO {
             ps.setString(4, u.getSenha());
 
             try (
-                    var rs = ps.executeQuery()
-                ) {
+                    var rs = ps.executeQuery()) {
                 if (rs.next()) {
                     String tipo = rs.getString("tipo");
                     boolean isAdmin = "professor".equals(tipo);
+
+                    if (!isAdmin) {
+                        String estado = rs.getString("estado");
+                        boolean ativo = "Ativo".equals(estado);
+
+                        // Atualiza última online
+                        String updateSql = "UPDATE login_aluno SET Ultima_online = CURRENT_DATE() WHERE email = ?";
+
+                        // Se inativo, ativa o usuário
+                        if (!ativo) {
+                            updateSql = "UPDATE login_aluno SET Ultima_online = CURRENT_DATE(), estado = 'Ativo' WHERE email = ?";
+                        }
+
+                        try (
+                                var ps1 = conexao.prepareStatement(updateSql);) {
+                            ps1.setString(1, u.getEmail());
+                            ps1.executeUpdate();
+                        }
+                    }
                     return new Usuario(true, isAdmin);
                 }
                 return new Usuario(false, false);

@@ -61,6 +61,7 @@ public class LoginTela extends javax.swing.JFrame {
         labelSenha.setText("Senha");
 
         senhaPasswordField.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        senhaPasswordField.setEchoChar('*');
         senhaPasswordField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 senhaPasswordFieldActionPerformed(evt);
@@ -70,7 +71,7 @@ public class LoginTela extends javax.swing.JFrame {
         entrarButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         entrarButton.setText("Entrar");
         entrarButton.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(159, 209, 224), 2, true));
-        entrarButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        entrarButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         entrarButton.setDefaultCapable(false);
         entrarButton.setFocusPainted(false);
         entrarButton.setFocusable(false);
@@ -97,7 +98,7 @@ public class LoginTela extends javax.swing.JFrame {
         mostrarSenhaCheckBox.setBackground(new java.awt.Color(173, 228, 244));
         mostrarSenhaCheckBox.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         mostrarSenhaCheckBox.setText("Mostrar senha");
-        mostrarSenhaCheckBox.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        mostrarSenhaCheckBox.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         mostrarSenhaCheckBox.setFocusPainted(false);
         mostrarSenhaCheckBox.setFocusable(false);
         mostrarSenhaCheckBox.addActionListener(new java.awt.event.ActionListener() {
@@ -148,7 +149,7 @@ public class LoginTela extends javax.swing.JFrame {
         sairButton.setBorder(null);
         sairButton.setBorderPainted(false);
         sairButton.setContentAreaFilled(false);
-        sairButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        sairButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         sairButton.setFocusPainted(false);
         sairButton.setFocusable(false);
         sairButton.addActionListener(new java.awt.event.ActionListener() {

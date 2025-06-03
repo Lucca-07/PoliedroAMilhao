@@ -61,7 +61,7 @@ public class ErroMateriasTela extends javax.swing.JInternalFrame {
         btVoltar.setText("Voltar");
         btVoltar.setBorder(null);
         btVoltar.setBorderPainted(false);
-        btVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btVoltar.setFocusPainted(false);
         btVoltar.setFocusable(false);
         btVoltar.setRolloverEnabled(false);
@@ -121,8 +121,7 @@ public class ErroMateriasTela extends javax.swing.JInternalFrame {
                         .addGap(28, 28, 28))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel3)
-                        .addGap(0, 0, 0)))
+                        .addComponent(jLabel3)))
                 .addComponent(jLabel1)
                 .addGap(0, 0, 0)
                 .addComponent(jLabel2)

@@ -106,7 +106,7 @@ public class CadastroPerguntaTela extends javax.swing.JInternalFrame {
 
         jcMaterias.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jcMaterias.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        jcMaterias.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jcMaterias.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jcMaterias.setFocusable(false);
         jcMaterias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,7 +117,7 @@ public class CadastroPerguntaTela extends javax.swing.JInternalFrame {
         btConfirmar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btConfirmar.setText("Confirmar");
         btConfirmar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        btConfirmar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btConfirmar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btConfirmar.setFocusable(false);
         btConfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,7 +127,7 @@ public class CadastroPerguntaTela extends javax.swing.JInternalFrame {
 
         jcDificuldade.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jcDificuldade.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        jcDificuldade.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jcDificuldade.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jcDificuldade.setFocusable(false);
         jcDificuldade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,7 +138,7 @@ public class CadastroPerguntaTela extends javax.swing.JInternalFrame {
         voltarButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         voltarButton.setText("Voltar");
         voltarButton.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        voltarButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        voltarButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         voltarButton.setFocusable(false);
         voltarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
