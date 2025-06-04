@@ -19,8 +19,12 @@ public class TelaInicial extends javax.swing.JFrame {
     public TelaInicial() throws Exception{
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
+        
+        this.idAluno = idAluno;
+        
         var dao = new AlunoDAO();
-        bemvindoLabel.setText("Seja bem vindo " + dao.listar() + "!");
+        String nome = dao.buscarNomePorId(idAluno);
+        bemvindoLabel.setText("Seja bem vindo " + nome + "!");
     }
 
     /**
@@ -103,6 +107,7 @@ public class TelaInicial extends javax.swing.JFrame {
     private void JogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JogarActionPerformed
         // TODO add your handling code here:
         TelaModos telaModos = null;
+
         try {
             telaModos = new TelaModos(idAluno);
         } catch (Exception ex) {
@@ -144,6 +149,7 @@ public class TelaInicial extends javax.swing.JFrame {
             @Override
             public void run() {
                 try {
+                    int idAluno = 7;
                     new TelaInicial().setVisible(true);
                 } catch (Exception ex) {
                     Logger.getLogger(TelaInicial.class.getName()).log(Level.SEVERE, null, ex);

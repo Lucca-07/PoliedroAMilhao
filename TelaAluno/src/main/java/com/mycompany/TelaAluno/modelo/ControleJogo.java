@@ -3,6 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.TelaAluno.modelo;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -45,9 +50,36 @@ public class ControleJogo {
             default:
                 return 0;
         }
-        
-
-    
-
     }
+    
+    public void iniciarNovaPontuacaoParaAluno(int idAluno, Connection conexao) {
+    int idPremiacao = -1;
+    String sqlInserirPremiacao = "INSERT INTO Premiacoes (Quantidade_Dinheiro) VALUES (NULL)";
+
+    try (PreparedStatement stmt = conexao.prepareStatement(sqlInserirPremiacao, Statement.RETURN_GENERATED_KEYS)) {
+        stmt.executeUpdate();
+        ResultSet rs = stmt.getGeneratedKeys();
+        if (rs.next()) {
+            idPremiacao = rs.getInt(1); 
+        } else {
+            throw new SQLException("ID de premiação não gerado.");
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+        return;
+    }
+
+    // UPDATE no Aluno
+    String sqlAtualizarAluno = "UPDATE Aluno SET Pontuacao = ? WHERE Id_Aluno = ?";
+    try (PreparedStatement stmt = conexao.prepareStatement(sqlAtualizarAluno)) {
+        stmt.setInt(1, idPremiacao);
+        stmt.setInt(2, idAluno);
+        stmt.executeUpdate();
+    } catch (SQLException e) {
+        e.printStackTrace();
+        }
+    }
+
 }
+
+

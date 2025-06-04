@@ -5,11 +5,13 @@
 package com.mycompany.TelaAluno.telas;
 
 import com.mycompany.TelaAluno.modelo.ControleJogo;
+import java.sql.Connection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class TelaAjudarPular extends javax.swing.JFrame {
     private static int idAluno;
+    private static Connection conexao;
     public TelaJogo telaJogo;
   
     /**
@@ -127,7 +129,7 @@ public class TelaAjudarPular extends javax.swing.JFrame {
      */
 public static void main(String args[]) throws Exception {
     int contadorReinicios = 1;
-    TelaJogo tela = new TelaJogo(idAluno, contadorReinicios);
+    TelaJogo tela = new TelaJogo(idAluno, contadorReinicios, conexao);
 
     java.awt.EventQueue.invokeLater(new Runnable() {
         public void run() {

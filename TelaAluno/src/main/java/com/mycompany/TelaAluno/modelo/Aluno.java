@@ -14,6 +14,6 @@ public class Aluno {
     private int id_aluno;
     private String nome;
     private String serie;
-    private int premiacoes;
+    private int pontuacao;
     
 }

@@ -14,21 +14,26 @@ public class TelaFimJogo extends javax.swing.JFrame {
 
     public TelaFimJogo(TelaJogo telaJogo) {
         initComponents();
+        
         this.telaJogo = telaJogo;
         this.setExtendedState(MAXIMIZED_BOTH);
         
+        try {
         int reinicios = telaJogo.getContadorReinicios();
         int ganho = ControleJogo.calcularPontuacao(reinicios);
-        ganhoLabel.setText("Você ganhou " + ganho + " !");
+
+        ganhoLabel.setText("Você ganhou " + ganho + " pontos!");
         
+        } catch (Exception e) {
+            e.printStackTrace();
+            ganhoLabel.setText("Erro ao atualizar pontuação.");
+        }
 
     }
+    
     public void setTelaJogo(TelaJogo telaJogo) {
         this.telaJogo = telaJogo;
     }
-    
-    
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -180,58 +185,68 @@ public class TelaFimJogo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jogarnovamenteBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jogarnovamenteBotaoActionPerformed
-        try {                                                    
+        try {
             TelaJogo.ajudaUniversitariaUsada = false;
             TelaJogo.ajudaCortarUsada = false;
             TelaJogo.ajudaPularUsada = false;
             TelaJogo.ajudaTelefoneUsada = false;
-            
+
             int idAluno = telaJogo.getIdAluno();
             int reinicios = telaJogo.getContadorReinicios();
-            int novaPontuacao = ControleJogo.calcularPontuacao(reinicios);
+
+            // Calcula os pontos ganhos com base nos reinícios
+            int pontosGanhos = ControleJogo.calcularPontuacao(reinicios);
 
             AlunoDAO dao = new AlunoDAO();
-            int pontuacaoAtual = dao.buscarPontuacaoPorId(idAluno);
-            int pontuacaoFinal = pontuacaoAtual + novaPontuacao;
 
-            
-            dao.atualizarPontuacao(idAluno, pontuacaoFinal);
-            
-            TelaModos telaModos = null;
-            try {
-                telaModos = new TelaModos(idAluno);
-            } catch (Exception ex) {
-                Logger.getLogger(TelaFimJogo.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            // Garante a premiação existir com esse valor
+            dao.garantirPremiacaoExiste(pontosGanhos, pontosGanhos);
+
+            // Soma esses pontos à pontuação total
+            dao.atualizarPontuacaoTotalSomando(idAluno, pontosGanhos);
+
+            // SINCRONIZA OS CAMPOS PONTUACAO COM PONTUACAOTOTAL 
+            dao.migrarPontuacaoTotalParaPontuacao();
+
+            // Próxima tela
+            TelaModos telaModos = new TelaModos(idAluno);
             telaModos.setVisible(true);
             this.dispose();
-            
+
         } catch (Exception ex) {
+            ex.printStackTrace();
             Logger.getLogger(TelaFimJogo.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+    
+
     }//GEN-LAST:event_jogarnovamenteBotaoActionPerformed
 
-    
-   
     private void sairBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairBotaoActionPerformed
         try {
-            // TODO add your handling code here:
             int idAluno = telaJogo.getIdAluno();
             int reinicios = telaJogo.getContadorReinicios();
-            int novaPontuacao = ControleJogo.calcularPontuacao(reinicios);
+
+            // Calcula os pontos ganhos com base nos reinícios
+            int pontosGanhos = ControleJogo.calcularPontuacao(reinicios);
 
             AlunoDAO dao = new AlunoDAO();
-            int pontuacaoAtual = dao.buscarPontuacaoPorId(idAluno);
-            int pontuacaoFinal = pontuacaoAtual + novaPontuacao;
-            
-            
-            dao.atualizarPontuacao(idAluno, pontuacaoFinal);
+
+            // Garante que há uma premiação com esse valor
+            dao.garantirPremiacaoExiste(pontosGanhos, pontosGanhos);
+
+            // Atualiza o campo PontuacaoTotal SOMANDO os pontos ganhos
+            dao.atualizarPontuacaoTotalSomando(idAluno, pontosGanhos);
+
+            //  SINCRONIZA OS CAMPOS PONTUACAO COM PONTUACAOTOTAL 
+            dao.migrarPontuacaoTotalParaPontuacao();
+
             System.exit(0);
         } catch (Exception ex) {
             Logger.getLogger(TelaFimJogo.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
+
+
     }//GEN-LAST:event_sairBotaoActionPerformed
 
     /**
