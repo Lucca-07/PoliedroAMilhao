@@ -4,13 +4,17 @@ package com.mycompany.TelaAluno.telas;
 import com.mycompany.TelaAluno.modelo.ControleJogo;
 import com.mycompany.TelaAluno.modelo.Materias;
 import com.mycompany.TelaAluno.persistencia.AlunoDAO;
+import com.mycompany.TelaAluno.persistencia.ConnectionFactory;
+import java.sql.Connection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 
 public class TelaMaterias extends javax.swing.JFrame {
     private static int idAluno;
-
+    private static Connection conexao;
+    
     public TelaMaterias(int idAluno) throws Exception {
         initComponents();
         this.idAluno = idAluno;
@@ -18,15 +22,15 @@ public class TelaMaterias extends javax.swing.JFrame {
 
         var daoAluno = new AlunoDAO();
         try {
-            nomeLabel.setText(daoAluno.listar());
+            nomeLabel.setText(daoAluno.buscarNomePorId(idAluno));
         } catch (Exception ex) {
             Logger.getLogger(TelaMaterias.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        atualizarMoedas(); 
+        moedasTotais(); 
     }
 
-    private void atualizarMoedas() throws Exception {
+    private void moedasTotais() throws Exception {
         AlunoDAO dao = new AlunoDAO();
         int pontuacao = dao.buscarPontuacaoPorId(idAluno);
         moedasLabel.setText("Moedas: " + pontuacao);
@@ -304,14 +308,26 @@ public class TelaMaterias extends javax.swing.JFrame {
         // TODO add your handling code here:
         Materias.setIdMateriaSelecionada(5);
         TelaJogo telaJogo = null;
+
         try {
+            ConnectionFactory fabrica = new ConnectionFactory();
+            Connection conexao = fabrica.obterConexao();
+            if (conexao == null) {
+                throw new IllegalStateException("Falha na conexão com o banco de dados!");
+            }
+
+            ControleJogo controle = new ControleJogo();
+            controle.iniciarNovaPontuacaoParaAluno(idAluno, conexao);
+
             int contadorReinicios = 1;
-            telaJogo = new TelaJogo(idAluno, contadorReinicios);
+            telaJogo = new TelaJogo(idAluno, contadorReinicios, conexao);
+            telaJogo.setVisible(true);
+
+            this.dispose();
         } catch (Exception ex) {
-            Logger.getLogger(TelaMaterias.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Erro ao iniciar o jogo: " + ex.getMessage());
         }
-        telaJogo.setVisible(true);
-        this.dispose();
 
     }//GEN-LAST:event_geografiaBotaoActionPerformed
 
@@ -319,56 +335,104 @@ public class TelaMaterias extends javax.swing.JFrame {
             // TODO add your handling code here:
         Materias.setIdMateriaSelecionada(3);
         TelaJogo telaJogo = null;
+
         try {
+            ConnectionFactory fabrica = new ConnectionFactory();
+            Connection conexao = fabrica.obterConexao();
+            if (conexao == null) {
+                throw new IllegalStateException("Falha na conexão com o banco de dados!");
+            }
+
+            ControleJogo controle = new ControleJogo();
+            controle.iniciarNovaPontuacaoParaAluno(idAluno, conexao);
+
             int contadorReinicios = 1;
-            telaJogo = new TelaJogo(idAluno, contadorReinicios);
+            telaJogo = new TelaJogo(idAluno, contadorReinicios, conexao);
+            telaJogo.setVisible(true);
+
+            this.dispose();
         } catch (Exception ex) {
-            Logger.getLogger(TelaMaterias.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Erro ao iniciar o jogo: " + ex.getMessage());
         }
-        telaJogo.setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_cienciasBotaoActionPerformed
 
     private void matematicaBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_matematicaBotaoActionPerformed
         // TODO add your handling code here:
         Materias.setIdMateriaSelecionada(1);
         TelaJogo telaJogo = null;
+
         try {
+            ConnectionFactory fabrica = new ConnectionFactory();
+            Connection conexao = fabrica.obterConexao();
+            if (conexao == null) {
+                throw new IllegalStateException("Falha na conexão com o banco de dados!");
+            }
+
+            ControleJogo controle = new ControleJogo();
+            controle.iniciarNovaPontuacaoParaAluno(idAluno, conexao);
+
             int contadorReinicios = 1;
-            telaJogo = new TelaJogo(idAluno, contadorReinicios);
+            telaJogo = new TelaJogo(idAluno, contadorReinicios, conexao);
+            telaJogo.setVisible(true);
+
+            this.dispose();
         } catch (Exception ex) {
-            Logger.getLogger(TelaMaterias.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Erro ao iniciar o jogo: " + ex.getMessage());
         }
-        telaJogo.setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_matematicaBotaoActionPerformed
 
     private void portuguesBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_portuguesBotaoActionPerformed
         // TODO add your handling code here:
         Materias.setIdMateriaSelecionada(2);
         TelaJogo telaJogo = null;
+
         try {
+            ConnectionFactory fabrica = new ConnectionFactory();
+            Connection conexao = fabrica.obterConexao();
+            if (conexao == null) {
+                throw new IllegalStateException("Falha na conexão com o banco de dados!");
+            }
+
+            ControleJogo controle = new ControleJogo();
+            controle.iniciarNovaPontuacaoParaAluno(idAluno, conexao);
+
             int contadorReinicios = 1;
-            telaJogo = new TelaJogo(idAluno, contadorReinicios);
+            telaJogo = new TelaJogo(idAluno, contadorReinicios, conexao);
+            telaJogo.setVisible(true);
+
+            this.dispose();
         } catch (Exception ex) {
-            Logger.getLogger(TelaMaterias.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Erro ao iniciar o jogo: " + ex.getMessage());
         }
-        telaJogo.setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_portuguesBotaoActionPerformed
 
     private void historiaBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_historiaBotaoActionPerformed
         // TODO add your handling code here:
         Materias.setIdMateriaSelecionada(6);
         TelaJogo telaJogo = null;
+
         try {
+            ConnectionFactory fabrica = new ConnectionFactory();
+            Connection conexao = fabrica.obterConexao();
+            if (conexao == null) {
+                throw new IllegalStateException("Falha na conexão com o banco de dados!");
+            }
+
+            ControleJogo controle = new ControleJogo();
+            controle.iniciarNovaPontuacaoParaAluno(idAluno, conexao);
+
             int contadorReinicios = 1;
-            telaJogo = new TelaJogo(idAluno, contadorReinicios);
+            telaJogo = new TelaJogo(idAluno, contadorReinicios, conexao);
+            telaJogo.setVisible(true);
+
+            this.dispose();
         } catch (Exception ex) {
-            Logger.getLogger(TelaMaterias.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Erro ao iniciar o jogo: " + ex.getMessage());
         }
-        telaJogo.setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_historiaBotaoActionPerformed
 
     /**

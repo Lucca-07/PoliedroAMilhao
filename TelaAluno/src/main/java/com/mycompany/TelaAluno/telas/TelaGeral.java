@@ -3,13 +3,17 @@ package com.mycompany.TelaAluno.telas;
 
 import com.mycompany.TelaAluno.modelo.ControleJogo;
 import com.mycompany.TelaAluno.modelo.Materias;
+import com.mycompany.TelaAluno.persistencia.ConnectionFactory;
+import java.sql.Connection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 
 public class TelaGeral extends javax.swing.JFrame {
     
  private int idAluno;   
+ private static Connection obterConexao;
  private TelaModos telaModos;
     
     public void setTelaModos(TelaModos telaModos) {
@@ -137,25 +141,34 @@ public class TelaGeral extends javax.swing.JFrame {
     }//GEN-LAST:event_BotãoVoltarGeralActionPerformed
 
     private void BotãoContinuarGeralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotãoContinuarGeralActionPerformed
-        // TODO add your handling code here:
         Materias.setIdMateriaSelecionada(0);
         TelaJogo telaJogo = null;
-     try {
-         int contadorReinicios = 1;
-         telaJogo = new TelaJogo(idAluno, contadorReinicios);
-     } catch (Exception ex) {
-         Logger.getLogger(TelaGeral.class.getName()).log(Level.SEVERE, null, ex);
-     }
-        telaJogo.setVisible(true);
 
-        if (telaModos != null) {
-            telaModos.dispose();
+        try {
+            ConnectionFactory fabrica = new ConnectionFactory();
+            Connection conexao = fabrica.obterConexao(); 
+            if (conexao == null) {
+                throw new IllegalStateException("Falha na conexão com o banco de dados!");
+            }
+
+           
+            ControleJogo controle = new ControleJogo();
+            controle.iniciarNovaPontuacaoParaAluno(idAluno, conexao);
+
+            int contadorReinicios = 1;
+            telaJogo = new TelaJogo(idAluno, contadorReinicios, conexao);
+            telaJogo.setVisible(true);
+
+            if (telaModos != null) {
+                telaModos.dispose();
+            }
+
+            this.dispose();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Erro ao iniciar o jogo: " + ex.getMessage());
         }
-        
-        this.dispose();
- 
-            
-
+    
        
     }//GEN-LAST:event_BotãoContinuarGeralActionPerformed
 

@@ -6,6 +6,7 @@ import com.mycompany.TelaAluno.modelo.Materias;
 import com.mycompany.TelaAluno.modelo.Pergunta;
 import com.mycompany.TelaAluno.modelo.Respostas;    
 import com.mycompany.TelaAluno.persistencia.AlunoDAO;
+import com.mycompany.TelaAluno.persistencia.ConnectionFactory;
 import com.mycompany.TelaAluno.persistencia.PerguntasDificilDAO;
 import com.mycompany.TelaAluno.persistencia.PerguntasMediaDAO;
 import com.mycompany.TelaAluno.persistencia.PerguntasFacilDAO;
@@ -14,6 +15,7 @@ import java.util.List;
 import javax.swing.*;
 import java.util.ArrayList;
 import java.awt.event.*;
+import java.sql.Connection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -23,8 +25,8 @@ public class TelaJogo extends javax.swing.JFrame {
     private Timer timer;
     private int segundos = 45;
     private int idPerguntaAtual;
-    private int pontuacaoAtual = 0;
     private static int idAluno;
+    private Connection obterConexao;
     private Respostas respostaSelecionadaA;
     private Respostas respostaSelecionadaB;
     private Respostas respostaSelecionadaC;
@@ -36,18 +38,23 @@ public class TelaJogo extends javax.swing.JFrame {
     public static boolean ajudaTelefoneUsada = false;
     
 
-    public TelaJogo(int idAluno, int reinicios) throws Exception {
+    public TelaJogo(int idAluno, int reinicios, Connection obterConexao) throws Exception {
         initComponents();
+        ControleJogo controle = new ControleJogo();
+        controle.iniciarNovaPontuacaoParaAluno(idAluno, obterConexao);
         this.setExtendedState(MAXIMIZED_BOTH);
         this.idAluno = idAluno;
+        this.obterConexao = obterConexao;
         this.contadorReinicios = reinicios;
+
         atualizarPontuacao(contadorReinicios);
-        atualizarMoedas();
+        moedasTotais();
+   
         
         try {
             // Nome do aluno
             var daoAluno = new AlunoDAO();
-            nomeLabel.setText(daoAluno.listar());
+            nomeLabel.setText(daoAluno.buscarNomePorId(idAluno));
             
             //Guarda a pergunta atual
             Pergunta perguntaAtual = null;
@@ -55,7 +62,6 @@ public class TelaJogo extends javax.swing.JFrame {
             //Pega a materia
             int idMateria = Materias.getIdMateriaSelecionada();
             
-
             // Nível de dificuldade
             if (contadorReinicios <= 4) {
                 PerguntasFacilDAO daoFacil = new PerguntasFacilDAO();
@@ -67,9 +73,7 @@ public class TelaJogo extends javax.swing.JFrame {
             
             } else if (contadorReinicios <= 12) {
                 PerguntasDificilDAO daoDificil = new PerguntasDificilDAO();
-                perguntaAtual = daoDificil.buscarPerguntaDificil(idMateria); 
-               
-
+                perguntaAtual = daoDificil.buscarPerguntaDificil(idMateria);         
             }
 
             if (perguntaAtual != null) {
@@ -83,9 +87,6 @@ public class TelaJogo extends javax.swing.JFrame {
                 // Exibe o número da pergunta
                 contadorLabel.setText("Pergunta de número: " + contadorReinicios);
 
-                
-                
-                
                 // Buscar alternativas com o ID correto da pergunta
                 int idPergunta = perguntaAtual.getId_pergunta();
                 var daoresposta = new RespostasDAO();
@@ -134,10 +135,15 @@ public class TelaJogo extends javax.swing.JFrame {
         }
     }
     
-    private void atualizarMoedas() throws Exception {
+    private void moedasTotais() throws Exception {
         AlunoDAO dao = new AlunoDAO();
-        int pontuacao = dao.buscarPontuacaoPorId(idAluno);
-        moedasLabel.setText("Moedas: " + pontuacao);
+
+        int idPremiacao = dao.buscarPontuacaoPorId(idAluno);
+
+        int moedas = dao.buscarPontuacaoPorId(idPremiacao);
+
+        moedasLabel.setText("Moedas: " + moedas);
+
     }
     
     private void mostrarPontuacaoTotal() {
@@ -213,10 +219,10 @@ public class TelaJogo extends javax.swing.JFrame {
         ControleJogo.idsUsadas.add(idPerguntaAtual);
         this.dispose();
         if (contadorReinicios == 13) {
-            TelaVitoriaJogo telaVitoriaJogo = new TelaVitoriaJogo();
+            TelaVitoriaJogo telaVitoriaJogo = new TelaVitoriaJogo(this);
             telaVitoriaJogo.setVisible(true);
         } else {
-            TelaJogo novaTela = new TelaJogo(idAluno, contadorReinicios);
+            TelaJogo novaTela = new TelaJogo(idAluno, contadorReinicios, obterConexao);
             novaTela.setVisible(true);
         }
     }
@@ -658,6 +664,11 @@ public class TelaJogo extends javax.swing.JFrame {
                 if (segundos <= 0) {
                     timer.stop();
                     JOptionPane.showMessageDialog(null, "Tempo esgotado!");
+                    ControleJogo.idsUsadas.clear();
+                    TelaJogo.ajudaUniversitariaUsada = false;
+
+                    TelaFimJogo telaFimJogo = new TelaFimJogo(TelaJogo.this);
+                    telaFimJogo.setVisible(true);
                     dispose();
                 }
             }
@@ -867,9 +878,15 @@ public class TelaJogo extends javax.swing.JFrame {
             public void run() {
                 try {
                     int contadorReinicios = 0;
-                    new TelaJogo(idAluno, contadorReinicios).setVisible(true);
+                    ConnectionFactory connectionFactory = new ConnectionFactory();
+                    
+                    Connection conexao = connectionFactory.obterConexao();
+
+                    new TelaJogo(idAluno, contadorReinicios, conexao).setVisible(true);
+
                 } catch (Exception ex) {
-                    Logger.getLogger(TelaJogo.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(TelaJogo.class.getName()).log(Level.SEVERE, "Erro ao iniciar aplicação", ex);
+                    JOptionPane.showMessageDialog(null, "Erro fatal: " + ex.getMessage());
                 }
             }
         });

@@ -110,15 +110,10 @@
                       <Component id="matematicaBotao" alignment="3" min="-2" pref="91" max="-2" attributes="0"/>
                       <Component id="historiaBotao" alignment="3" min="-2" pref="91" max="-2" attributes="0"/>
                   </Group>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace pref="41" max="32767" attributes="0"/>
-                          <Component id="cienciasBotao" min="-2" pref="91" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="geografiaBotao" min="-2" pref="91" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="cienciasBotao" alignment="1" min="-2" pref="91" max="-2" attributes="0"/>
+                      <Component id="geografiaBotao" alignment="1" min="-2" pref="91" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="32767" attributes="0"/>
                   <Component id="portuguesBotao" min="-2" pref="91" max="-2" attributes="0"/>

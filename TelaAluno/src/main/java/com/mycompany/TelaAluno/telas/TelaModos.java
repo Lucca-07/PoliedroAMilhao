@@ -15,16 +15,20 @@ public class TelaModos extends javax.swing.JFrame {
         this.setExtendedState(MAXIMIZED_BOTH);
         
         var dao = new AlunoDAO();
-        nomeLabel.setText(dao.listar());
+        nomeLabel.setText(dao.buscarNomePorId(idAluno));
         
         // Atualiza moedas na label
-        atualizarMoedas();
+        moedasTotais();
     }
 
-    private void atualizarMoedas() throws Exception {
+    private void moedasTotais() throws Exception {
         AlunoDAO dao = new AlunoDAO();
-        int pontuacao = dao.buscarPontuacaoPorId(idAluno);
-        moedasLabel.setText("Moedas: " + pontuacao);
+        //  buscar o id da premiacao (está na coluna Pontuacao da tabela Aluno)
+        int idPremiacao = dao.buscarPontuacaoPorId(idAluno);
+        //  buscar o valor em dinheiro na tabela Premiacoes
+        int moedas = dao.buscarPontuacaoPorId(idPremiacao);
+
+        moedasLabel.setText("Moedas: " + moedas);   
        
                
     }
