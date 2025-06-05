@@ -1,0 +1,293 @@
+
+package com.mycompany.TelaAluno.telas;
+
+import com.mycompany.TelaAluno.modelo.ControleJogo;
+import com.mycompany.TelaAluno.persistencia.AlunoDAO;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.*;
+
+public class TelaFimJogo extends javax.swing.JFrame {
+
+    private TelaJogo telaJogo;
+    private Timer timer;
+
+    public TelaFimJogo(TelaJogo telaJogo) {
+        initComponents();
+        
+        this.telaJogo = telaJogo;
+        this.setExtendedState(MAXIMIZED_BOTH);
+        
+        try {
+        int reinicios = telaJogo.getContadorReinicios();
+        int ganho = ControleJogo.calcularPontuacao(reinicios);
+
+        ganhoLabel.setText("Você ganhou " + ganho + " pontos!");
+        
+        } catch (Exception e) {
+            e.printStackTrace();
+            ganhoLabel.setText("Erro ao atualizar pontuação.");
+        }
+
+    }
+    
+    public void setTelaJogo(TelaJogo telaJogo) {
+        this.telaJogo = telaJogo;
+    }
+
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jPanel1 = new javax.swing.JPanel();
+        jogarnovamenteBotao = new javax.swing.JButton();
+        sairBotao = new javax.swing.JButton();
+        poliedroIcone = new javax.swing.JLabel();
+        fimDeJogoPanel = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        moedaIcone = new javax.swing.JLabel();
+        ganhoLabel = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBackground(new java.awt.Color(153, 255, 255));
+
+        jogarnovamenteBotao.setBackground(new java.awt.Color(0, 204, 204));
+        jogarnovamenteBotao.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jogarnovamenteBotao.setForeground(new java.awt.Color(255, 255, 255));
+        jogarnovamenteBotao.setText("Jogar Novamente");
+        jogarnovamenteBotao.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jogarnovamenteBotao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jogarnovamenteBotaoActionPerformed(evt);
+            }
+        });
+
+        sairBotao.setBackground(new java.awt.Color(0, 204, 204));
+        sairBotao.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        sairBotao.setForeground(new java.awt.Color(255, 255, 255));
+        sairBotao.setText("Sair");
+        sairBotao.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        sairBotao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sairBotaoActionPerformed(evt);
+            }
+        });
+
+        poliedroIcone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/LogoPoliedroAMIlhao-removebg-500png.png"))); // NOI18N
+
+        fimDeJogoPanel.setBackground(new java.awt.Color(0, 204, 204));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("FIM DE JOGO");
+
+        jPanel3.setBackground(new java.awt.Color(0, 153, 153));
+
+        moedaIcone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/POLIEDROMOEDA-removebg-preview.png"))); // NOI18N
+
+        ganhoLabel.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
+        ganhoLabel.setForeground(new java.awt.Color(255, 255, 255));
+        ganhoLabel.setText("+ (GANHO)");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(moedaIcone)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ganhoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(23, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(moedaIcone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(ganhoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout fimDeJogoPanelLayout = new javax.swing.GroupLayout(fimDeJogoPanel);
+        fimDeJogoPanel.setLayout(fimDeJogoPanelLayout);
+        fimDeJogoPanelLayout.setHorizontalGroup(
+            fimDeJogoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fimDeJogoPanelLayout.createSequentialGroup()
+                .addContainerGap(42, Short.MAX_VALUE)
+                .addGroup(fimDeJogoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fimDeJogoPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(161, 161, 161))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fimDeJogoPanelLayout.createSequentialGroup()
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(36, 36, 36))))
+        );
+        fimDeJogoPanelLayout.setVerticalGroup(
+            fimDeJogoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fimDeJogoPanelLayout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(31, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(280, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(sairBotao, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jogarnovamenteBotao, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(280, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(fimDeJogoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(poliedroIcone, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(65, Short.MAX_VALUE)
+                .addComponent(poliedroIcone)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addComponent(fimDeJogoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                .addComponent(jogarnovamenteBotao, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addComponent(sairBotao, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(55, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        pack();
+        setLocationRelativeTo(null);
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void jogarnovamenteBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jogarnovamenteBotaoActionPerformed
+        try {
+            TelaJogo.ajudaUniversitariaUsada = false;
+            TelaJogo.ajudaCortarUsada = false;
+            TelaJogo.ajudaPularUsada = false;
+            TelaJogo.ajudaTelefoneUsada = false;
+
+            int idAluno = telaJogo.getIdAluno();
+            int reinicios = telaJogo.getContadorReinicios();
+
+            // Calcula os pontos ganhos com base nos reinícios
+            int pontosGanhos = ControleJogo.calcularPontuacao(reinicios);
+
+            AlunoDAO dao = new AlunoDAO();
+
+            // Garante a premiação existir com esse valor
+            dao.garantirPremiacaoExiste(pontosGanhos, pontosGanhos);
+
+            // Soma esses pontos à pontuação total
+            dao.atualizarPontuacaoTotalSomando(idAluno, pontosGanhos);
+
+            // SINCRONIZA OS CAMPOS PONTUACAO COM PONTUACAOTOTAL 
+            dao.migrarPontuacaoTotalParaPontuacao();
+
+            // Próxima tela
+            TelaModos telaModos = new TelaModos(idAluno);
+            telaModos.setVisible(true);
+            this.dispose();
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            Logger.getLogger(TelaFimJogo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
+
+    }//GEN-LAST:event_jogarnovamenteBotaoActionPerformed
+
+    private void sairBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairBotaoActionPerformed
+        try {
+            int idAluno = telaJogo.getIdAluno();
+            int reinicios = telaJogo.getContadorReinicios();
+
+            // Calcula os pontos ganhos com base nos reinícios
+            int pontosGanhos = ControleJogo.calcularPontuacao(reinicios);
+
+            AlunoDAO dao = new AlunoDAO();
+
+            // Garante que há uma premiação com esse valor
+            dao.garantirPremiacaoExiste(pontosGanhos, pontosGanhos);
+
+            // Atualiza o campo PontuacaoTotal SOMANDO os pontos ganhos
+            dao.atualizarPontuacaoTotalSomando(idAluno, pontosGanhos);
+
+            //  SINCRONIZA OS CAMPOS PONTUACAO COM PONTUACAOTOTAL 
+            dao.migrarPontuacaoTotalParaPontuacao();
+
+            System.exit(0);
+        } catch (Exception ex) {
+            Logger.getLogger(TelaFimJogo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
+
+    }//GEN-LAST:event_sairBotaoActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(TelaFimJogo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(TelaFimJogo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(TelaFimJogo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(TelaFimJogo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+
+    }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel fimDeJogoPanel;
+    private javax.swing.JLabel ganhoLabel;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JButton jogarnovamenteBotao;
+    private javax.swing.JLabel moedaIcone;
+    private javax.swing.JLabel poliedroIcone;
+    private javax.swing.JButton sairBotao;
+    // End of variables declaration//GEN-END:variables
+}
