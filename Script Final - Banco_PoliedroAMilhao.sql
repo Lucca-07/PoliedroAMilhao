@@ -446,3 +446,83 @@ JOIN Pergunta_Resposta pr ON p.Id_Pergunta = pr.Id_Pergunta
 JOIN Respostas r ON pr.Id_Resposta = r.Id_Resposta
 WHERE p.Id_Materia = @id_historia
 ORDER BY p.Dificuldade, p.Id_Pergunta, r.Letra;
+
+SELECT Enunciado, Id_Materia, Dificuldade FROM Perguntas WHERE Id_Materia = 3;
+SELECT * FROM Pergunta_Resposta;
+DELETE FROM Materias WHERE Id_Materia = 4;
+SELECT Id_materia FROM Materias WHERE Id_Materia = @id_ciencias;
+SELECT * FROM Materias;
+SHOW CREATE TABLE login_aluno;
+SELECT * FROM Aluno WHERE Id_Aluno = 1;
+SHOW CREATE TABLE Premiacoes;
+
+-- Inserir premiação (se necessário)
+INSERT INTO Premiacoes (Id_Premiacao, Quantidade_Dinheiro) VALUES (3, 10);
+
+-- Capturar o ID da premiação
+SET @id_premiacao := LAST_INSERT_ID();
+
+-- Inserir aluno com a premiação correta
+INSERT INTO Aluno (Nome, Serie, Pontuacao)
+VALUES ('Enzo Chagas', 'Sexto', null);
+
+-- Capturar ID do aluno
+SET @id_aluno := LAST_INSERT_ID();
+
+-- Inserir login do aluno
+INSERT INTO login_aluno (Id_Aluno, email, senha)
+VALUES (@id_aluno, 'enzochagas@gmail.com', 'Chagas1234');
+
+SELECT * FROM login_aluno;
+SELECT * FROM Aluno;
+DELETE FROM login_aluno WHERE Id_Aluno = 1;
+DELETE FROM Aluno WHERE Id_Aluno = 1;
+
+UPDATE Aluno SET Pontuacao = 0 WHERE Pontuacao = 1;
+UPDATE Aluno SET Pontuacao = NULL WHERE Pontuacao = 1;
+UPDATE Aluno SET Pontuacao = 2000 WHERE Pontuacao IS NULL;
+
+INSERT INTO Premiacoes (Id_Premiacao, Quantidade_Dinheiro) VALUES (4, 2000);
+SET @id_premio = LAST_INSERT_ID();
+UPDATE Aluno SET Pontuacao = @id_premio WHERE Pontuacao IS NULL;
+
+SELECT * FROM Perguntas;
+DELETE FROM Pergunta WHERE Id_Pergunta >= 124;
+DELETE FROM Respostas WHERE Id_Pergunta >= 124;
+DELETE FROM Pergunta_Resposta WHERE Id_Pergunta >= 124;
+
+-- EVENTO: 
+DELIMITER //
+CREATE EVENT buscaInatividade
+ON SCHEDULE EVERY 1 DAY
+STARTS CURRENT_TIMESTAMP
+ON COMPLETION PRESERVE
+DO
+BEGIN
+    -- Desativa safe updates temporariamente para esta sessão
+    SET @original_safe_updates = @@SQL_SAFE_UPDATES;
+    SET SESSION SQL_SAFE_UPDATES = 0;
+    
+    -- Atualiza os registros inativos
+    UPDATE login_aluno 
+    SET estado = 'Inativo' 
+    WHERE Ultima_online <= DATE_SUB(CURRENT_DATE(), INTERVAL 2 MONTH) 
+    OR Ultima_online = NULL;
+    
+    -- Restaura safe updates
+    SET SESSION SQL_SAFE_UPDATES = @original_safe_updates;
+END //
+DELIMITER ;
+
+DROP EVENT buscaInatividade;
+
+SHOW EVENTS;
+
+ALTER EVENT buscaInatividade ENABLE;
+ALTER EVENT buscaInatividade DISABLE;
+
+-- ADICIONANDO Ultima_online ao login_aluno
+ALTER TABLE login_aluno ADD Ultima_online DATE;
+
+
+
