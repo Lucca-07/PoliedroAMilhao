@@ -2,21 +2,35 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.mycompany.TelaAluno.telas;
+package br.mycompany.poliedroamilhao.telas;
 
-import com.mycompany.TelaAluno.modelo.ControleJogo;
 import java.sql.Connection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class TelaAjudarPular extends javax.swing.JFrame {
-    private static int idAluno;
+    private static String nome;
     private static Connection conexao;
     public TelaJogo telaJogo;
+    private int contadorReinicios;
+    private static int idMateria;
   
     /**
      * Creates new form pularTela
+     * @param telaJogo
+     * @param contadorReinicios
+     * @param conexao
+     * @param nome
      */
+    public TelaAjudarPular(TelaJogo telaJogo, int contadorReinicios, Connection conexao, String nome, int idMateria) {
+        initComponents();
+        this.telaJogo = telaJogo;
+        this.nome = nome;
+        this.conexao = conexao;
+        this.contadorReinicios = contadorReinicios;
+        this.idMateria = idMateria;
+        
+    }
     public TelaAjudarPular(TelaJogo telaJogo) {
         initComponents();
         this.telaJogo = telaJogo;
@@ -39,10 +53,14 @@ public class TelaAjudarPular extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        fundoPanel.setBackground(new java.awt.Color(0, 153, 204));
+        fundoPanel.setBackground(new java.awt.Color(163, 236, 255));
+        fundoPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
 
-        simBotao.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        simBotao.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
         simBotao.setText("Ok");
+        simBotao.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        simBotao.setFocusPainted(false);
+        simBotao.setFocusable(false);
         simBotao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 simBotaoActionPerformed(evt);
@@ -63,12 +81,12 @@ public class TelaAjudarPular extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -78,23 +96,20 @@ public class TelaAjudarPular extends javax.swing.JFrame {
         fundoPanelLayout.setHorizontalGroup(
             fundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fundoPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(fundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(fundoPanelLayout.createSequentialGroup()
-                        .addGap(107, 107, 107)
-                        .addComponent(simBotao, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(fundoPanelLayout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(31, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(simBotao, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         fundoPanelLayout.setVerticalGroup(
             fundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fundoPanelLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addContainerGap(50, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addComponent(simBotao, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -115,7 +130,7 @@ public class TelaAjudarPular extends javax.swing.JFrame {
     private void simBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simBotaoActionPerformed
         try {
             // TODO add your handling code here:
-            telaJogo.proximaPergunta();
+            telaJogo.proximaPergunta(nome);
         } catch (Exception ex) {
             Logger.getLogger(TelaAjudarPular.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -129,11 +144,11 @@ public class TelaAjudarPular extends javax.swing.JFrame {
      */
 public static void main(String args[]) throws Exception {
     int contadorReinicios = 1;
-    TelaJogo tela = new TelaJogo(idAluno, contadorReinicios, conexao);
+    TelaJogo tela = new TelaJogo(contadorReinicios, conexao, nome, idMateria);
 
     java.awt.EventQueue.invokeLater(new Runnable() {
         public void run() {
-            new TelaAjudarPular(tela).setVisible(true);
+            new TelaAjudarPular(tela, contadorReinicios, conexao, nome, idMateria).setVisible(true);
         }
     });
 }

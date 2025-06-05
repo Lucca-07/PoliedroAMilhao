@@ -1,39 +1,39 @@
 
-package com.mycompany.TelaAluno.telas;
+package br.mycompany.poliedroamilhao.telas;
 
-import com.mycompany.TelaAluno.persistencia.AlunoDAO;
+import br.mycompany.poliedroamilhao.persistencia.UsuarioDAO;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
 public class TelaModos extends javax.swing.JFrame {
 
-    private int idAluno;
+    private static String nome;
     
-    public TelaModos(int idAluno) throws Exception {
+    public TelaModos(String nome) throws Exception {
         initComponents();       
+        System.out.println(nome);
         this.setExtendedState(MAXIMIZED_BOTH);
-        
-        var dao = new AlunoDAO();
-        nomeLabel.setText(dao.buscarNomePorId(idAluno));
+        TelaModos.nome = nome;
+        nomeLabel.setText(nome);
         
         // Atualiza moedas na label
         moedasTotais();
     }
 
     private void moedasTotais() throws Exception {
-        AlunoDAO dao = new AlunoDAO();
-        //  buscar o id da premiacao (está na coluna Pontuacao da tabela Aluno)
-        int idPremiacao = dao.buscarPontuacaoPorId(idAluno);
-        //  buscar o valor em dinheiro na tabela Premiacoes
+        
+        UsuarioDAO dao = new UsuarioDAO();
+
+        int idPremiacao = dao.buscarPontuacaoPorNome(nome);
+
         int moedas = dao.buscarPontuacaoPorId(idPremiacao);
 
-        moedasLabel.setText("Moedas: " + moedas);   
-       
-               
+        moedasLabel.setText("Moedas: "+ moedas);
+
     }
     
-
+    ConfiguracoesAluno ct = new ConfiguracoesAluno();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -57,18 +57,21 @@ public class TelaModos extends javax.swing.JFrame {
         nomePanel = new javax.swing.JPanel();
         nomeLabel = new javax.swing.JLabel();
         pessoaicon = new javax.swing.JLabel();
+        configButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setFocusable(false);
         setMinimumSize(new java.awt.Dimension(1240, 720));
         setName("frameInicial"); // NOI18N
+        setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(153, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(163, 236, 255));
 
-        BotãoGeral.setBackground(new java.awt.Color(0, 153, 153));
-        BotãoGeral.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        BotãoGeral.setForeground(new java.awt.Color(255, 255, 255));
+        BotãoGeral.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         BotãoGeral.setText("Geral");
-        BotãoGeral.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BotãoGeral.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        BotãoGeral.setFocusPainted(false);
+        BotãoGeral.setFocusable(false);
         BotãoGeral.setRequestFocusEnabled(false);
         BotãoGeral.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,36 +79,49 @@ public class TelaModos extends javax.swing.JFrame {
             }
         });
 
-        BotãoMat.setBackground(new java.awt.Color(0, 153, 153));
-        BotãoMat.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        BotãoMat.setForeground(new java.awt.Color(255, 255, 255));
+        BotãoMat.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         BotãoMat.setText("Matérias");
-        BotãoMat.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BotãoMat.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        BotãoMat.setFocusPainted(false);
+        BotãoMat.setFocusable(false);
         BotãoMat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotãoMatActionPerformed(evt);
             }
         });
 
-        modosPanel.setBackground(new java.awt.Color(0, 0, 0));
-        modosPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        modosPanel.setBackground(new java.awt.Color(173, 230, 244));
+        modosPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         modosPanel.setForeground(new java.awt.Color(153, 153, 153));
-        modosPanel.setLayout(new java.awt.BorderLayout());
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 48)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("MODOS");
         jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel2.setMaximumSize(new java.awt.Dimension(32767, 32767));
         jLabel2.setPreferredSize(new java.awt.Dimension(200, 63));
-        modosPanel.add(jLabel2, java.awt.BorderLayout.CENTER);
+
+        javax.swing.GroupLayout modosPanelLayout = new javax.swing.GroupLayout(modosPanel);
+        modosPanel.setLayout(modosPanelLayout);
+        modosPanelLayout.setHorizontalGroup(
+            modosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, modosPanelLayout.createSequentialGroup()
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 452, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        modosPanelLayout.setVerticalGroup(
+            modosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(modosPanelLayout.createSequentialGroup()
+                .addContainerGap(34, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(34, Short.MAX_VALUE))
+        );
 
         moedaicon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/POLIEDROMOEDA-removebg-preview.png"))); // NOI18N
 
         PanelMoedas.setBackground(new java.awt.Color(255, 255, 255));
-        PanelMoedas.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        PanelMoedas.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
         moedasLabel.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
         moedasLabel.setText("Moedas Totais: 0");
@@ -115,22 +131,22 @@ public class TelaModos extends javax.swing.JFrame {
         PanelMoedasLayout.setHorizontalGroup(
             PanelMoedasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelMoedasLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(39, 39, 39)
                 .addComponent(moedasLabel)
-                .addContainerGap())
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         PanelMoedasLayout.setVerticalGroup(
             PanelMoedasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelMoedasLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(20, 20, 20)
                 .addComponent(moedasLabel)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(21, 21, 21))
         );
 
         poliedroLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/LogoPoliedroAMIlhao-removebg-300png.png"))); // NOI18N
 
         nomePanel.setBackground(new java.awt.Color(255, 255, 255));
-        nomePanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        nomePanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
         nomeLabel.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
         nomeLabel.setText("Nome");
@@ -142,97 +158,130 @@ public class TelaModos extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, nomePanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(nomeLabel)
-                .addContainerGap())
+                .addGap(79, 79, 79))
         );
         nomePanelLayout.setVerticalGroup(
             nomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(nomePanelLayout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, nomePanelLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
                 .addComponent(nomeLabel)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(21, 21, 21))
         );
 
         pessoaicon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/pessoaicon52.png"))); // NOI18N
+
+        configButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Config.png"))); // NOI18N
+        configButton.setBorderPainted(false);
+        configButton.setContentAreaFilled(false);
+        configButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        configButton.setFocusPainted(false);
+        configButton.setFocusable(false);
+        configButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                configButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(moedaicon, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pessoaicon, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(nomePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(PanelMoedas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 331, Short.MAX_VALUE)
+                .addComponent(poliedroLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 581, Short.MAX_VALUE)
+                .addComponent(configButton))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(moedaicon, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(PanelMoedas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pessoaicon)
-                .addGap(12, 12, 12)
-                .addComponent(nomePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(modosPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(poliedroLabel))
-            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel3))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(BotãoMat, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BotãoGeral, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(modosPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(nomePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(configButton))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(PanelMoedas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(moedaicon, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(71, 71, 71))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(poliedroLabel))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(pessoaicon, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(moedaicon, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(38, 38, 38)
+                                .addComponent(poliedroLabel)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(pessoaicon)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(nomePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(PanelMoedas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(78, 78, 78)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(modosPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                        .addComponent(modosPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                 .addComponent(BotãoGeral, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                 .addComponent(BotãoMat, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(225, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BotãoGeralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotãoGeralActionPerformed
-        // TODO add your handling code here:
-        TelaGeral telaGeral = new TelaGeral();
-        telaGeral.setTelaModos(this);
-        telaGeral.setVisible(true);
-    }//GEN-LAST:event_BotãoGeralActionPerformed
-
     private void BotãoMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotãoMatActionPerformed
         // TODO add your handling code here:
         TelaMaterias telaMaterias = null;
         try {
-            telaMaterias = new TelaMaterias(idAluno);
+            telaMaterias = new TelaMaterias(nome);
         } catch (Exception ex) {
             Logger.getLogger(TelaModos.class.getName()).log(Level.SEVERE, null, ex);
         }
         telaMaterias.setVisible(true);
         this.dispose();
-
     }//GEN-LAST:event_BotãoMatActionPerformed
+
+    private void BotãoGeralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotãoGeralActionPerformed
+        // TODO add your handling code here:
+        TelaGeral telaGeral = new TelaGeral(nome, 0);
+        telaGeral.setVisible(true);
+    }//GEN-LAST:event_BotãoGeralActionPerformed
+
+    private void configButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_configButtonActionPerformed
+        // TODO add your handling code here:
+        if (!ct.isVisible()) {
+            ct.setVisible(true);
+        }
+    }//GEN-LAST:event_configButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -268,6 +317,7 @@ public class TelaModos extends javax.swing.JFrame {
     private javax.swing.JButton BotãoGeral;
     private javax.swing.JButton BotãoMat;
     private javax.swing.JPanel PanelMoedas;
+    private javax.swing.JButton configButton;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;

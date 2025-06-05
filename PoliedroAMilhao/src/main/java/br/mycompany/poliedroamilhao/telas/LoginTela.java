@@ -6,8 +6,6 @@ package br.mycompany.poliedroamilhao.telas;
 
 import br.mycompany.poliedroamilhao.modelo.Usuario;
 import br.mycompany.poliedroamilhao.persistencia.UsuarioDAO;
-import java.awt.Color;
-import javax.swing.BorderFactory;
 
 /**
  *
@@ -184,7 +182,7 @@ public class LoginTela extends javax.swing.JFrame {
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addComponent(sairButton)
-                .addGap(67, 67, 67)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                 .addComponent(imagemLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -241,6 +239,10 @@ public class LoginTela extends javax.swing.JFrame {
                 this.dispose();
             } else if (resultado.isCheck()) {
                 System.out.println("Logado como aluno!");
+                TelaInicial ti = new TelaInicial(resultado.getNome());
+                System.out.println(resultado.getNome());
+                ti.setVisible(true);
+                this.dispose();
             } else {
                 if (elt.isVisible() == false) {
                     elt.setVisible(true);

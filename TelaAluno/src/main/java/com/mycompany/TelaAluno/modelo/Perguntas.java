@@ -11,7 +11,7 @@ import lombok.*;
 @Setter
 @AllArgsConstructor
 
-public class Perguntas {
+public class Pergunta {
     private int Id_pergunta;
     private String Enunciado;
     private int Id_Materia;

@@ -2,7 +2,6 @@
 package br.mycompany.poliedroamilhao.persistencia;
 
 import br.mycompany.poliedroamilhao.modelo.Materia;
-import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.List;
 

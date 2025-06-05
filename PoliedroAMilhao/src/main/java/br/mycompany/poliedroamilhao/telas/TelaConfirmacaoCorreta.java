@@ -1,22 +1,23 @@
 
-package com.mycompany.TelaAluno.telas;
+package br.mycompany.poliedroamilhao.telas;
 
-import com.mycompany.TelaAluno.modelo.ControleJogo;
-import com.mycompany.TelaAluno.telas.TelaJogo;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author diego
  */
 
-public class TelaConfirmacaoErrada extends javax.swing.JFrame {
-    private TelaJogo telaJogo;
+public class TelaConfirmacaoCorreta extends javax.swing.JFrame {
+    public TelaJogo telaJogo;
+    private String nome;
     
    
-    public TelaConfirmacaoErrada(TelaJogo telaJogo) {
+    public TelaConfirmacaoCorreta(TelaJogo telaJogo, String nome) {
         initComponents();
         this.telaJogo = telaJogo;
-        
+        this.nome = nome;
 
     }
 
@@ -37,21 +38,29 @@ public class TelaConfirmacaoErrada extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(163, 236, 255));
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Tem certeza da sua resposta?");
 
+        BotãoSim.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         BotãoSim.setText("Sim");
+        BotãoSim.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        BotãoSim.setFocusPainted(false);
+        BotãoSim.setFocusable(false);
         BotãoSim.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotãoSimActionPerformed(evt);
             }
         });
 
+        BotãoNão.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         BotãoNão.setText("Não");
+        BotãoNão.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        BotãoNão.setFocusPainted(false);
+        BotãoNão.setFocusable(false);
         BotãoNão.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotãoNãoActionPerformed(evt);
@@ -66,10 +75,10 @@ public class TelaConfirmacaoErrada extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(BotãoNão)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(BotãoNão, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(BotãoSim)))
+                        .addComponent(BotãoSim, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(26, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -77,10 +86,10 @@ public class TelaConfirmacaoErrada extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BotãoSim)
-                    .addComponent(BotãoNão))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(BotãoNão, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                    .addComponent(BotãoSim, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(20, 20, 20))
         );
 
@@ -100,19 +109,15 @@ public class TelaConfirmacaoErrada extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotãoSimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotãoSimActionPerformed
-        // TODO add your handling code here:
-        ControleJogo.idsUsadas.clear();
-        TelaJogo.ajudaUniversitariaUsada = false;
-        
-        TelaFimJogo telaFimJogo = new TelaFimJogo(telaJogo);
-        telaFimJogo.setVisible(true);
-
-        if (telaJogo != null) {
-            telaJogo.pararTemporizador(); 
-            telaJogo.dispose();           
+        try {
+            // TODO add your handling code here:
+            telaJogo.proximaPergunta(nome);
+        } catch (Exception ex) {
+            Logger.getLogger(TelaConfirmacaoCorreta.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-        this.dispose(); // Fecha a tela de confirmação errada
+        telaJogo.pararTemporizador();
+        this.dispose();
+        
 
         
     }//GEN-LAST:event_BotãoSimActionPerformed
@@ -139,14 +144,18 @@ public class TelaConfirmacaoErrada extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaConfirmacaoErrada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaConfirmacaoCorreta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaConfirmacaoErrada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaConfirmacaoCorreta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaConfirmacaoErrada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaConfirmacaoCorreta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaConfirmacaoErrada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaConfirmacaoCorreta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>

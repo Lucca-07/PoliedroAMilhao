@@ -1,8 +1,6 @@
+package br.mycompany.poliedroamilhao.telas;
 
-package com.mycompany.TelaAluno.telas;
-
-import com.mycompany.TelaAluno.modelo.Respostas;
-import java.util.List;
+import br.mycompany.poliedroamilhao.modelo.Respostas;
 
 /**
  *
@@ -15,22 +13,21 @@ public class TelaAjudaTelefone extends javax.swing.JFrame {
      */
     public TelaAjudaTelefone(Respostas a, Respostas b, Respostas c, Respostas d, Respostas e) {
         initComponents();
-        List<Respostas> todas = List.of(a, b, c, d, e);
+        configurarMensagemAjuda(a, b, c, d, e);
+    }
+
+    private void configurarMensagemAjuda(Respostas... respostas) {
         Respostas correta = null;
         Respostas errada = null;
 
-        // Encontra uma correta
-        for (Respostas r : todas) {
-            if (r.getCorreta()) {
+        for (Respostas r : respostas) {
+            if (r.getCorreta() && correta == null) {
                 correta = r;
-                break;
-            }
-        }
-
-        // Encontra uma errada que seja diferente da correta
-        for (Respostas r : todas) {
-            if (!r.getCorreta()) {
+            } else if (!r.getCorreta() && errada == null) {
                 errada = r;
+            }
+
+            if (correta != null && errada != null) {
                 break;
             }
         }
@@ -38,10 +35,8 @@ public class TelaAjudaTelefone extends javax.swing.JFrame {
         if (correta != null && errada != null) {
             balaoPng.setText("Se eu fosse você, iria na alternativa "
                     + correta.getLetra() + " ou na " + errada.getLetra() + "...");
-        } 
-
         }
-    
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -57,8 +52,10 @@ public class TelaAjudaTelefone extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        setResizable(false);
 
-        fundoPanel.setBackground(new java.awt.Color(0, 153, 204));
+        fundoPanel.setBackground(new java.awt.Color(163, 236, 255));
+        fundoPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
 
         telefonemaPanel.setBackground(new java.awt.Color(0, 204, 255));
 
@@ -73,21 +70,21 @@ public class TelaAjudaTelefone extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, telefonemaPanelLayout.createSequentialGroup()
                 .addContainerGap(50, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(50, 50, 50))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
         telefonemaPanelLayout.setVerticalGroup(
             telefonemaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, telefonemaPanelLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel1))
+            .addGroup(telefonemaPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.setBackground(new java.awt.Color(51, 204, 255));
+        jPanel1.setBackground(new java.awt.Color(163, 236, 255));
 
         balaoPng.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         balaoPng.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         balaoPng.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/balaotelefone.png"))); // NOI18N
-        balaoPng.setText("Se eu fosse você eu iria na alternativa A ou na alternativa B");
         balaoPng.setToolTipText("");
         balaoPng.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
@@ -111,16 +108,17 @@ public class TelaAjudaTelefone extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(balaoPng)
+                .addComponent(balaoPng, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(telefonepng)
-                .addGap(17, 17, 17))
+                .addComponent(telefonepng, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54))
         );
 
-        jButton1.setBackground(new java.awt.Color(51, 204, 255));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jButton1.setText("Fechar");
+        jButton1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jButton1.setFocusPainted(false);
+        jButton1.setFocusable(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -132,28 +130,28 @@ public class TelaAjudaTelefone extends javax.swing.JFrame {
         fundoPanelLayout.setHorizontalGroup(
             fundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fundoPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(telefonemaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(fundoPanelLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fundoPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(191, 191, 191))
+                .addGroup(fundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(fundoPanelLayout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(fundoPanelLayout.createSequentialGroup()
+                        .addGap(104, 104, 104)
+                        .addComponent(telefonemaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(fundoPanelLayout.createSequentialGroup()
+                        .addGap(167, 167, 167)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         fundoPanelLayout.setVerticalGroup(
             fundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fundoPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(telefonemaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
-                .addGap(11, 11, 11))
+                .addContainerGap()
+                .addComponent(telefonemaPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -204,7 +202,6 @@ public class TelaAjudaTelefone extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
