@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.mycompany.TelaAluno.telas;
+package br.mycompany.poliedroamilhao.telas;
 
-import com.mycompany.TelaAluno.modelo.Respostas;
+import br.mycompany.poliedroamilhao.modelo.Respostas;
 import java.util.List;
 
 /**
@@ -34,15 +34,18 @@ public class TelaAjudaCortar extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(0, 153, 204));
+        jPanel1.setBackground(new java.awt.Color(163, 236, 255));
+        jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cortando3png-removebg-preview.png"))); // NOI18N
 
-        cortarBotao.setBackground(new java.awt.Color(51, 204, 255));
         cortarBotao.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        cortarBotao.setForeground(new java.awt.Color(255, 255, 255));
         cortarBotao.setText("Cortar");
+        cortarBotao.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        cortarBotao.setFocusPainted(false);
+        cortarBotao.setFocusable(false);
         cortarBotao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cortarBotaoActionPerformed(evt);
@@ -67,8 +70,8 @@ public class TelaAjudaCortar extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(cortarBotao)
-                .addGap(0, 26, Short.MAX_VALUE))
+                .addComponent(cortarBotao, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 21, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

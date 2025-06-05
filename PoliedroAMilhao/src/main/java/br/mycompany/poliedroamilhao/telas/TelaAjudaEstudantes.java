@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.mycompany.TelaAluno.telas;
+package br.mycompany.poliedroamilhao.telas;
 
-import com.mycompany.TelaAluno.modelo.Respostas;
+import br.mycompany.poliedroamilhao.modelo.Respostas;
 
 /**
  *
@@ -14,6 +14,7 @@ public class TelaAjudaEstudantes extends javax.swing.JFrame {
 
     /**
      * Creates new form estudantesajudaTela
+     * @param alternativaCorreta
      */ 
     public TelaAjudaEstudantes(Respostas alternativaCorreta) {    
         initComponents();
@@ -44,8 +45,10 @@ public class TelaAjudaEstudantes extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(0, 153, 204));
+        jPanel1.setBackground(new java.awt.Color(163, 236, 255));
+        jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
 
         balao1Label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         balao1Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/balao.png"))); // NOI18N
@@ -91,10 +94,11 @@ public class TelaAjudaEstudantes extends javax.swing.JFrame {
                 .addComponent(jLabel1))
         );
 
-        okBotao.setBackground(new java.awt.Color(51, 204, 255));
         okBotao.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        okBotao.setForeground(new java.awt.Color(255, 255, 255));
         okBotao.setText("Ok");
+        okBotao.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        okBotao.setFocusPainted(false);
+        okBotao.setFocusable(false);
         okBotao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 okBotaoActionPerformed(evt);

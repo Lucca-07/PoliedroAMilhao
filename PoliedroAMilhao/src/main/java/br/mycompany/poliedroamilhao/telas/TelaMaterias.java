@@ -1,10 +1,10 @@
 
-package com.mycompany.TelaAluno.telas;
+package br.mycompany.poliedroamilhao.telas;
 
-import com.mycompany.TelaAluno.modelo.ControleJogo;
-import com.mycompany.TelaAluno.modelo.Materias;
-import com.mycompany.TelaAluno.persistencia.AlunoDAO;
-import com.mycompany.TelaAluno.persistencia.ConnectionFactory;
+import br.mycompany.poliedroamilhao.modelo.Materia;
+import br.mycompany.poliedroamilhao.persistencia.ConnectionFactory;
+import br.mycompany.poliedroamilhao.persistencia.PontuacaoDAO;
+import br.mycompany.poliedroamilhao.persistencia.UsuarioDAO;
 import java.sql.Connection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -12,17 +12,17 @@ import javax.swing.JOptionPane;
 
 
 public class TelaMaterias extends javax.swing.JFrame {
-    private static int idAluno;
+    private static String nome;
     private static Connection conexao;
     
-    public TelaMaterias(int idAluno) throws Exception {
+    public TelaMaterias(String nome) throws Exception {
         initComponents();
-        this.idAluno = idAluno;
+        this.nome = nome;
         this.setExtendedState(MAXIMIZED_BOTH);
 
-        var daoAluno = new AlunoDAO();
+        var daoAluno = new UsuarioDAO();
         try {
-            nomeLabel.setText(daoAluno.buscarNomePorId(idAluno));
+            nomeLabel.setText(nome);
         } catch (Exception ex) {
             Logger.getLogger(TelaMaterias.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -31,8 +31,8 @@ public class TelaMaterias extends javax.swing.JFrame {
     }
 
     private void moedasTotais() throws Exception {
-        AlunoDAO dao = new AlunoDAO();
-        int pontuacao = dao.buscarPontuacaoPorId(idAluno);
+        UsuarioDAO dao = new UsuarioDAO();
+        int pontuacao = dao.buscarPontuacaoPorNome(nome);
         moedasLabel.setText("Moedas: " + pontuacao);
     
 }
@@ -64,15 +64,16 @@ public class TelaMaterias extends javax.swing.JFrame {
         historiaBotao = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(153, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(163, 236, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(1360, 768));
 
-        geografiaBotao.setBackground(new java.awt.Color(0, 153, 153));
-        geografiaBotao.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        geografiaBotao.setForeground(new java.awt.Color(255, 255, 255));
+        geografiaBotao.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         geografiaBotao.setText("Geografia");
-        geografiaBotao.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        geografiaBotao.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        geografiaBotao.setFocusPainted(false);
+        geografiaBotao.setFocusable(false);
         geografiaBotao.setPreferredSize(new java.awt.Dimension(72, 23));
         geografiaBotao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,42 +81,46 @@ public class TelaMaterias extends javax.swing.JFrame {
             }
         });
 
-        matematicaBotao.setBackground(new java.awt.Color(0, 153, 153));
-        matematicaBotao.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        matematicaBotao.setForeground(new java.awt.Color(255, 255, 255));
+        matematicaBotao.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         matematicaBotao.setText("Matemática");
-        matematicaBotao.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        matematicaBotao.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        matematicaBotao.setFocusPainted(false);
+        matematicaBotao.setFocusable(false);
         matematicaBotao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 matematicaBotaoActionPerformed(evt);
             }
         });
 
-        cienciasBotao.setBackground(new java.awt.Color(0, 153, 153));
-        cienciasBotao.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        cienciasBotao.setForeground(new java.awt.Color(255, 255, 255));
+        cienciasBotao.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         cienciasBotao.setText("Ciências");
-        cienciasBotao.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        cienciasBotao.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        cienciasBotao.setFocusPainted(false);
+        cienciasBotao.setFocusable(false);
         cienciasBotao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cienciasBotaoActionPerformed(evt);
             }
         });
 
+        BotãoVol.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         BotãoVol.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/seta-removebg-esquerda.png"))); // NOI18N
         BotãoVol.setText("Voltar");
+        BotãoVol.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        BotãoVol.setFocusPainted(false);
+        BotãoVol.setFocusable(false);
         BotãoVol.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotãoVolActionPerformed(evt);
             }
         });
 
-        materiasPanel.setBackground(new java.awt.Color(0, 0, 0));
+        materiasPanel.setBackground(new java.awt.Color(173, 230, 244));
+        materiasPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         materiasPanel.setPreferredSize(new java.awt.Dimension(210, 75));
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 48)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("MATÉRIAS");
         jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -125,24 +130,24 @@ public class TelaMaterias extends javax.swing.JFrame {
         materiasPanelLayout.setHorizontalGroup(
             materiasPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(materiasPanelLayout.createSequentialGroup()
-                .addGap(67, 67, 67)
+                .addContainerGap(126, Short.MAX_VALUE)
                 .addComponent(jLabel2)
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addContainerGap(143, Short.MAX_VALUE))
         );
         materiasPanelLayout.setVerticalGroup(
             materiasPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(materiasPanelLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, materiasPanelLayout.createSequentialGroup()
+                .addContainerGap(33, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         poliedroLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/LogoPoliedroAMIlhao-removebg-300png.png"))); // NOI18N
 
         nomePanel.setBackground(new java.awt.Color(255, 255, 255));
-        nomePanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        nomePanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
-        nomeLabel.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
+        nomeLabel.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         nomeLabel.setText("Nome");
 
         javax.swing.GroupLayout nomePanelLayout = new javax.swing.GroupLayout(nomePanel);
@@ -152,20 +157,20 @@ public class TelaMaterias extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, nomePanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(nomeLabel)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         nomePanelLayout.setVerticalGroup(
             nomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(nomePanelLayout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, nomePanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(nomeLabel)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         PanelMoedas.setBackground(new java.awt.Color(255, 255, 255));
-        PanelMoedas.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        PanelMoedas.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
-        moedasLabel.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
+        moedasLabel.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         moedasLabel.setText("Moedas Totais: 0");
 
         javax.swing.GroupLayout PanelMoedasLayout = new javax.swing.GroupLayout(PanelMoedas);
@@ -173,27 +178,27 @@ public class TelaMaterias extends javax.swing.JFrame {
         PanelMoedasLayout.setHorizontalGroup(
             PanelMoedasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelMoedasLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(39, Short.MAX_VALUE)
                 .addComponent(moedasLabel)
-                .addContainerGap())
+                .addContainerGap(40, Short.MAX_VALUE))
         );
         PanelMoedasLayout.setVerticalGroup(
             PanelMoedasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelMoedasLayout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelMoedasLayout.createSequentialGroup()
+                .addContainerGap(22, Short.MAX_VALUE)
                 .addComponent(moedasLabel)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         moedaicon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/POLIEDROMOEDA-removebg-preview.png"))); // NOI18N
 
         pessoaicon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/pessoaicon52.png"))); // NOI18N
 
-        portuguesBotao.setBackground(new java.awt.Color(0, 153, 153));
-        portuguesBotao.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        portuguesBotao.setForeground(new java.awt.Color(255, 255, 255));
+        portuguesBotao.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         portuguesBotao.setText("Português");
-        portuguesBotao.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        portuguesBotao.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        portuguesBotao.setFocusPainted(false);
+        portuguesBotao.setFocusable(false);
         portuguesBotao.setPreferredSize(new java.awt.Dimension(72, 23));
         portuguesBotao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -201,11 +206,11 @@ public class TelaMaterias extends javax.swing.JFrame {
             }
         });
 
-        historiaBotao.setBackground(new java.awt.Color(0, 153, 153));
-        historiaBotao.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        historiaBotao.setForeground(new java.awt.Color(255, 255, 255));
+        historiaBotao.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         historiaBotao.setText("História");
-        historiaBotao.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        historiaBotao.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        historiaBotao.setFocusPainted(false);
+        historiaBotao.setFocusable(false);
         historiaBotao.setPreferredSize(new java.awt.Dimension(72, 23));
         historiaBotao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -217,25 +222,6 @@ public class TelaMaterias extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(moedaicon, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(PanelMoedas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pessoaicon)
-                .addGap(12, 12, 12)
-                .addComponent(nomePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(poliedroLabel))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(materiasPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addComponent(BotãoVol)))
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(153, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -250,42 +236,68 @@ public class TelaMaterias extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(portuguesBotao, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(609, 609, 609)
+                .addComponent(BotãoVol, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(moedaicon, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(pessoaicon)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(nomePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(PanelMoedas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(poliedroLabel))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(materiasPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(moedaicon, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(nomePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(PanelMoedas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(pessoaicon))
-                            .addGap(7, 7, 7)))
-                    .addComponent(poliedroLabel, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
-                .addComponent(materiasPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                    .addComponent(poliedroLabel)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(pessoaicon, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE)
+                            .addComponent(nomePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(moedaicon, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(PanelMoedas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addComponent(materiasPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(matematicaBotao, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(historiaBotao, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
-                        .addComponent(cienciasBotao, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(geografiaBotao, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(cienciasBotao, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(geografiaBotao, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, Short.MAX_VALUE)
                 .addComponent(portuguesBotao, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
-                .addComponent(BotãoVol)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addComponent(BotãoVol, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45))
         );
 
-        getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         pack();
         setLocationRelativeTo(null);
@@ -296,7 +308,7 @@ public class TelaMaterias extends javax.swing.JFrame {
         TelaModos telaInicial = null;
         try {
             int contadorReinicios = 1;
-            telaInicial = new TelaModos(idAluno);
+            telaInicial = new TelaModos(nome);
         } catch (Exception ex) {
             Logger.getLogger(TelaMaterias.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -306,7 +318,8 @@ public class TelaMaterias extends javax.swing.JFrame {
 
     private void geografiaBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_geografiaBotaoActionPerformed
         // TODO add your handling code here:
-        Materias.setIdMateriaSelecionada(5);
+        var materia = new Materia();
+        materia.setId(5);
         TelaJogo telaJogo = null;
 
         try {
@@ -316,11 +329,11 @@ public class TelaMaterias extends javax.swing.JFrame {
                 throw new IllegalStateException("Falha na conexão com o banco de dados!");
             }
 
-            ControleJogo controle = new ControleJogo();
-            controle.iniciarNovaPontuacaoParaAluno(idAluno, conexao);
+            PontuacaoDAO controle = new PontuacaoDAO();
+            controle.iniciarNovaPontuacaoParaAluno(nome, conexao);
 
             int contadorReinicios = 1;
-            telaJogo = new TelaJogo(idAluno, contadorReinicios, conexao);
+            telaJogo = new TelaJogo(contadorReinicios, conexao, nome, 5);
             telaJogo.setVisible(true);
 
             this.dispose();
@@ -333,7 +346,8 @@ public class TelaMaterias extends javax.swing.JFrame {
 
     private void cienciasBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cienciasBotaoActionPerformed
             // TODO add your handling code here:
-        Materias.setIdMateriaSelecionada(3);
+        var materia = new Materia();
+        materia.setId(3);
         TelaJogo telaJogo = null;
 
         try {
@@ -343,11 +357,11 @@ public class TelaMaterias extends javax.swing.JFrame {
                 throw new IllegalStateException("Falha na conexão com o banco de dados!");
             }
 
-            ControleJogo controle = new ControleJogo();
-            controle.iniciarNovaPontuacaoParaAluno(idAluno, conexao);
+            PontuacaoDAO controle = new PontuacaoDAO();
+            controle.iniciarNovaPontuacaoParaAluno(nome, conexao);
 
             int contadorReinicios = 1;
-            telaJogo = new TelaJogo(idAluno, contadorReinicios, conexao);
+            telaJogo = new TelaJogo(contadorReinicios, conexao, nome, 3);
             telaJogo.setVisible(true);
 
             this.dispose();
@@ -359,7 +373,8 @@ public class TelaMaterias extends javax.swing.JFrame {
 
     private void matematicaBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_matematicaBotaoActionPerformed
         // TODO add your handling code here:
-        Materias.setIdMateriaSelecionada(1);
+        var materia = new Materia();
+        materia.setId(1);
         TelaJogo telaJogo = null;
 
         try {
@@ -369,11 +384,11 @@ public class TelaMaterias extends javax.swing.JFrame {
                 throw new IllegalStateException("Falha na conexão com o banco de dados!");
             }
 
-            ControleJogo controle = new ControleJogo();
-            controle.iniciarNovaPontuacaoParaAluno(idAluno, conexao);
+            PontuacaoDAO controle = new PontuacaoDAO();
+            controle.iniciarNovaPontuacaoParaAluno(nome, conexao);
 
             int contadorReinicios = 1;
-            telaJogo = new TelaJogo(idAluno, contadorReinicios, conexao);
+            telaJogo = new TelaJogo(contadorReinicios, conexao, nome, 1);
             telaJogo.setVisible(true);
 
             this.dispose();
@@ -385,7 +400,8 @@ public class TelaMaterias extends javax.swing.JFrame {
 
     private void portuguesBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_portuguesBotaoActionPerformed
         // TODO add your handling code here:
-        Materias.setIdMateriaSelecionada(2);
+        var materia = new Materia();
+        materia.setId(2);
         TelaJogo telaJogo = null;
 
         try {
@@ -395,11 +411,11 @@ public class TelaMaterias extends javax.swing.JFrame {
                 throw new IllegalStateException("Falha na conexão com o banco de dados!");
             }
 
-            ControleJogo controle = new ControleJogo();
-            controle.iniciarNovaPontuacaoParaAluno(idAluno, conexao);
+            PontuacaoDAO controle = new PontuacaoDAO();
+            controle.iniciarNovaPontuacaoParaAluno(nome, conexao);
 
             int contadorReinicios = 1;
-            telaJogo = new TelaJogo(idAluno, contadorReinicios, conexao);
+            telaJogo = new TelaJogo(contadorReinicios, conexao, nome, 2);
             telaJogo.setVisible(true);
 
             this.dispose();
@@ -411,7 +427,8 @@ public class TelaMaterias extends javax.swing.JFrame {
 
     private void historiaBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_historiaBotaoActionPerformed
         // TODO add your handling code here:
-        Materias.setIdMateriaSelecionada(6);
+        var materia = new Materia();
+        materia.setId(6);
         TelaJogo telaJogo = null;
 
         try {
@@ -421,11 +438,11 @@ public class TelaMaterias extends javax.swing.JFrame {
                 throw new IllegalStateException("Falha na conexão com o banco de dados!");
             }
 
-            ControleJogo controle = new ControleJogo();
-            controle.iniciarNovaPontuacaoParaAluno(idAluno, conexao);
+            PontuacaoDAO controle = new PontuacaoDAO();
+            controle.iniciarNovaPontuacaoParaAluno(nome, conexao);
 
             int contadorReinicios = 1;
-            telaJogo = new TelaJogo(idAluno, contadorReinicios, conexao);
+            telaJogo = new TelaJogo(contadorReinicios, conexao, nome, 6);
             telaJogo.setVisible(true);
 
             this.dispose();
@@ -481,7 +498,7 @@ public class TelaMaterias extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    new TelaMaterias(idAluno).setVisible(true);
+                    new TelaMaterias(nome).setVisible(true);
                 } catch (Exception ex) {
                     Logger.getLogger(TelaMaterias.class.getName()).log(Level.SEVERE, null, ex);
                 }

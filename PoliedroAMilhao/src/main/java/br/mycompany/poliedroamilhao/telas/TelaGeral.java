@@ -1,34 +1,21 @@
+package br.mycompany.poliedroamilhao.telas;
 
-package com.mycompany.TelaAluno.telas;
-
-import com.mycompany.TelaAluno.modelo.ControleJogo;
-import com.mycompany.TelaAluno.modelo.Materias;
-import com.mycompany.TelaAluno.persistencia.ConnectionFactory;
+import br.mycompany.poliedroamilhao.persistencia.ConnectionFactory;
+import br.mycompany.poliedroamilhao.persistencia.PontuacaoDAO;
 import java.sql.Connection;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-
 public class TelaGeral extends javax.swing.JFrame {
-    
- private int idAluno;   
- private static Connection obterConexao;
- private TelaModos telaModos;
-    
-    public void setTelaModos(TelaModos telaModos) {
-        this.telaModos = telaModos;
-    }
+    private static String nome;
+    private static int idMateria;
+    private TelaModos telaModos;
 
-
-    /**
-     * Creates new form TelaGeral
-     */
-    public TelaGeral() {
+    public TelaGeral(String nome, int idMateria) {
+        this.nome = nome;
+        this.idMateria = idMateria;
         initComponents();
     }
 
- 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -43,7 +30,7 @@ public class TelaGeral extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(163, 236, 255));
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -55,21 +42,25 @@ public class TelaGeral extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel3.setText("MATÉRIAS DISPONÍVEIS");
 
-        BotãoVoltarGeral.setBackground(new java.awt.Color(0, 153, 153));
-        BotãoVoltarGeral.setForeground(new java.awt.Color(255, 255, 255));
+        BotãoVoltarGeral.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         BotãoVoltarGeral.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/seta-removebg-esquerda.png"))); // NOI18N
         BotãoVoltarGeral.setText("Voltar");
         BotãoVoltarGeral.setToolTipText("");
+        BotãoVoltarGeral.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        BotãoVoltarGeral.setFocusPainted(false);
+        BotãoVoltarGeral.setFocusable(false);
         BotãoVoltarGeral.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotãoVoltarGeralActionPerformed(evt);
             }
         });
 
-        BotãoContinuarGeral.setBackground(new java.awt.Color(0, 153, 153));
-        BotãoContinuarGeral.setForeground(new java.awt.Color(255, 255, 255));
+        BotãoContinuarGeral.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         BotãoContinuarGeral.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/seta-removebg-direita.png"))); // NOI18N
-        BotãoContinuarGeral.setText("Continuar");
+        BotãoContinuarGeral.setText("Ok");
+        BotãoContinuarGeral.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        BotãoContinuarGeral.setFocusPainted(false);
+        BotãoContinuarGeral.setFocusable(false);
         BotãoContinuarGeral.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         BotãoContinuarGeral.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,10 +100,10 @@ public class TelaGeral extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
-                .addGap(35, 35, 35)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BotãoContinuarGeral)
-                    .addComponent(BotãoVoltarGeral))
+                .addGap(27, 27, 27)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(BotãoContinuarGeral, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                    .addComponent(BotãoVoltarGeral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
@@ -134,42 +125,31 @@ public class TelaGeral extends javax.swing.JFrame {
     private void BotãoVoltarGeralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotãoVoltarGeralActionPerformed
         // TODO add your handling code here:
         this.dispose();
-   
- 
 
 
     }//GEN-LAST:event_BotãoVoltarGeralActionPerformed
 
     private void BotãoContinuarGeralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotãoContinuarGeralActionPerformed
-        Materias.setIdMateriaSelecionada(0);
-        TelaJogo telaJogo = null;
-
         try {
-            ConnectionFactory fabrica = new ConnectionFactory();
-            Connection conexao = fabrica.obterConexao(); 
+            Connection conexao = new ConnectionFactory().obterConexao();
             if (conexao == null) {
                 throw new IllegalStateException("Falha na conexão com o banco de dados!");
             }
 
-           
-            ControleJogo controle = new ControleJogo();
-            controle.iniciarNovaPontuacaoParaAluno(idAluno, conexao);
+            PontuacaoDAO controle = new PontuacaoDAO();
+            controle.iniciarNovaPontuacaoParaAluno(nome, conexao);
 
-            int contadorReinicios = 1;
-            telaJogo = new TelaJogo(idAluno, contadorReinicios, conexao);
+            TelaJogo telaJogo = new TelaJogo(1, conexao, nome, idMateria);
             telaJogo.setVisible(true);
 
             if (telaModos != null) {
                 telaModos.dispose();
             }
-
             this.dispose();
         } catch (Exception ex) {
             ex.printStackTrace();
             JOptionPane.showMessageDialog(this, "Erro ao iniciar o jogo: " + ex.getMessage());
         }
-    
-       
     }//GEN-LAST:event_BotãoContinuarGeralActionPerformed
 
     /**
@@ -202,7 +182,7 @@ public class TelaGeral extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaGeral().setVisible(true);
+                new TelaGeral(nome, idMateria).setVisible(true);
             }
         });
     }

@@ -434,7 +434,7 @@ public class TelaPerguntaProfessor extends javax.swing.JInternalFrame {
 
         Perguntas pergunta = new Perguntas(enunciado);
         pergunta.setDificuldade(dificuldade);
-        pergunta.setIdMateria(materiaSelecionada.getId());
+        pergunta.setId_Materia(materiaSelecionada.getId());
 
         pergunta.getRespostas().add(new PerguntaResposta(pergunta, new Respostas(resposta1), correta1));
         pergunta.getRespostas().add(new PerguntaResposta(pergunta, new Respostas(resposta2), correta2));

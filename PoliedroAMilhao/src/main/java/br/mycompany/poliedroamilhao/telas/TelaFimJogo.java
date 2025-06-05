@@ -1,38 +1,37 @@
+package br.mycompany.poliedroamilhao.telas;
 
-package com.mycompany.TelaAluno.telas;
-
-import com.mycompany.TelaAluno.modelo.ControleJogo;
-import com.mycompany.TelaAluno.persistencia.AlunoDAO;
+import br.mycompany.poliedroamilhao.persistencia.PontuacaoDAO;
+import br.mycompany.poliedroamilhao.persistencia.UsuarioDAO;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.*;
 
 public class TelaFimJogo extends javax.swing.JFrame {
 
     private TelaJogo telaJogo;
-    private Timer timer;
 
     public TelaFimJogo(TelaJogo telaJogo) {
         initComponents();
-        
         this.telaJogo = telaJogo;
         this.setExtendedState(MAXIMIZED_BOTH);
-        
-        try {
-        int reinicios = telaJogo.getContadorReinicios();
-        int ganho = ControleJogo.calcularPontuacao(reinicios);
+        configurarPontuacao();
+    }
 
-        ganhoLabel.setText("Você ganhou " + ganho + " pontos!");
-        
+    private void configurarPontuacao() {
+        try {
+            int reinicios = telaJogo.getContadorReinicios();
+            int ganho = PontuacaoDAO.calcularPontuacao(reinicios);
+            ganhoLabel.setText("Você ganhou " + ganho + " pontos!");
         } catch (Exception e) {
             e.printStackTrace();
             ganhoLabel.setText("Erro ao atualizar pontuação.");
         }
-
     }
-    
-    public void setTelaJogo(TelaJogo telaJogo) {
-        this.telaJogo = telaJogo;
+
+    private void reiniciarAjudas() {
+        TelaJogo.ajudaUniversitariaUsada = false;
+        TelaJogo.ajudaCortarUsada = false;
+        TelaJogo.ajudaPularUsada = false;
+        TelaJogo.ajudaTelefoneUsada = false;
     }
 
     @SuppressWarnings("unchecked")
@@ -46,29 +45,29 @@ public class TelaFimJogo extends javax.swing.JFrame {
         fimDeJogoPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        moedaIcone = new javax.swing.JLabel();
         ganhoLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(153, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(163, 236, 255));
 
-        jogarnovamenteBotao.setBackground(new java.awt.Color(0, 204, 204));
-        jogarnovamenteBotao.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jogarnovamenteBotao.setForeground(new java.awt.Color(255, 255, 255));
+        jogarnovamenteBotao.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jogarnovamenteBotao.setText("Jogar Novamente");
-        jogarnovamenteBotao.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jogarnovamenteBotao.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        jogarnovamenteBotao.setFocusPainted(false);
+        jogarnovamenteBotao.setFocusable(false);
         jogarnovamenteBotao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jogarnovamenteBotaoActionPerformed(evt);
             }
         });
 
-        sairBotao.setBackground(new java.awt.Color(0, 204, 204));
-        sairBotao.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        sairBotao.setForeground(new java.awt.Color(255, 255, 255));
+        sairBotao.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         sairBotao.setText("Sair");
-        sairBotao.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        sairBotao.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        sairBotao.setFocusPainted(false);
+        sairBotao.setFocusable(false);
         sairBotao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sairBotaoActionPerformed(evt);
@@ -77,41 +76,37 @@ public class TelaFimJogo extends javax.swing.JFrame {
 
         poliedroIcone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/LogoPoliedroAMIlhao-removebg-500png.png"))); // NOI18N
 
-        fimDeJogoPanel.setBackground(new java.awt.Color(0, 204, 204));
+        fimDeJogoPanel.setBackground(new java.awt.Color(173, 230, 244));
+        fimDeJogoPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("FIM DE JOGO");
 
-        jPanel3.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel3.setBackground(new java.awt.Color(135, 217, 237));
+        jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
-        moedaIcone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/POLIEDROMOEDA-removebg-preview.png"))); // NOI18N
-
-        ganhoLabel.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
+        ganhoLabel.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         ganhoLabel.setForeground(new java.awt.Color(255, 255, 255));
+        ganhoLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ganhoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/POLIEDROMOEDA-removebg-preview.png"))); // NOI18N
         ganhoLabel.setText("+ (GANHO)");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(moedaIcone)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ganhoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(144, Short.MAX_VALUE)
+                .addComponent(ganhoLabel)
+                .addContainerGap(132, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(moedaIcone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(ganhoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE)
+                .addComponent(ganhoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout fimDeJogoPanelLayout = new javax.swing.GroupLayout(fimDeJogoPanel);
@@ -120,22 +115,21 @@ public class TelaFimJogo extends javax.swing.JFrame {
             fimDeJogoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fimDeJogoPanelLayout.createSequentialGroup()
                 .addContainerGap(42, Short.MAX_VALUE)
-                .addGroup(fimDeJogoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fimDeJogoPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(161, 161, 161))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fimDeJogoPanelLayout.createSequentialGroup()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(36, 36, 36))))
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36))
+            .addGroup(fimDeJogoPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         fimDeJogoPanelLayout.setVerticalGroup(
             fimDeJogoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fimDeJogoPanelLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
+                .addContainerGap(12, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -150,23 +144,25 @@ public class TelaFimJogo extends javax.swing.JFrame {
                 .addContainerGap(280, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(fimDeJogoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(poliedroIcone, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(poliedroIcone, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(fimDeJogoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(65, Short.MAX_VALUE)
+                .addContainerGap(97, Short.MAX_VALUE)
                 .addComponent(poliedroIcone)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addComponent(fimDeJogoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addComponent(jogarnovamenteBotao, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addComponent(sairBotao, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -186,65 +182,40 @@ public class TelaFimJogo extends javax.swing.JFrame {
 
     private void jogarnovamenteBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jogarnovamenteBotaoActionPerformed
         try {
-            TelaJogo.ajudaUniversitariaUsada = false;
-            TelaJogo.ajudaCortarUsada = false;
-            TelaJogo.ajudaPularUsada = false;
-            TelaJogo.ajudaTelefoneUsada = false;
-
-            int idAluno = telaJogo.getIdAluno();
+            reiniciarAjudas();
+            String nome = telaJogo.getNome();
             int reinicios = telaJogo.getContadorReinicios();
+            int pontosGanhos = PontuacaoDAO.calcularPontuacao(reinicios);
 
-            // Calcula os pontos ganhos com base nos reinícios
-            int pontosGanhos = ControleJogo.calcularPontuacao(reinicios);
-
-            AlunoDAO dao = new AlunoDAO();
-
-            // Garante a premiação existir com esse valor
+            UsuarioDAO dao = new UsuarioDAO();
             dao.garantirPremiacaoExiste(pontosGanhos, pontosGanhos);
-
-            // Soma esses pontos à pontuação total
-            dao.atualizarPontuacaoTotalSomando(idAluno, pontosGanhos);
-
-            // SINCRONIZA OS CAMPOS PONTUACAO COM PONTUACAOTOTAL 
+            dao.atualizarPontuacaoTotalSomando(nome, pontosGanhos);
             dao.migrarPontuacaoTotalParaPontuacao();
 
-            // Próxima tela
-            TelaModos telaModos = new TelaModos(idAluno);
+            TelaModos telaModos = new TelaModos(nome);
             telaModos.setVisible(true);
             this.dispose();
-
         } catch (Exception ex) {
             ex.printStackTrace();
             Logger.getLogger(TelaFimJogo.class.getName()).log(Level.SEVERE, null, ex);
         }
-    
-
     }//GEN-LAST:event_jogarnovamenteBotaoActionPerformed
 
     private void sairBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairBotaoActionPerformed
         try {
-            int idAluno = telaJogo.getIdAluno();
+            String nome = telaJogo.getNome();
             int reinicios = telaJogo.getContadorReinicios();
+            int pontosGanhos = PontuacaoDAO.calcularPontuacao(reinicios);
 
-            // Calcula os pontos ganhos com base nos reinícios
-            int pontosGanhos = ControleJogo.calcularPontuacao(reinicios);
-
-            AlunoDAO dao = new AlunoDAO();
-
-            // Garante que há uma premiação com esse valor
+            UsuarioDAO dao = new UsuarioDAO();
             dao.garantirPremiacaoExiste(pontosGanhos, pontosGanhos);
-
-            // Atualiza o campo PontuacaoTotal SOMANDO os pontos ganhos
-            dao.atualizarPontuacaoTotalSomando(idAluno, pontosGanhos);
-
-            //  SINCRONIZA OS CAMPOS PONTUACAO COM PONTUACAOTOTAL 
+            dao.atualizarPontuacaoTotalSomando(nome, pontosGanhos);
             dao.migrarPontuacaoTotalParaPontuacao();
 
             System.exit(0);
         } catch (Exception ex) {
             Logger.getLogger(TelaFimJogo.class.getName()).log(Level.SEVERE, null, ex);
         }
-
 
 
     }//GEN-LAST:event_sairBotaoActionPerformed
@@ -276,7 +247,6 @@ public class TelaFimJogo extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -286,7 +256,6 @@ public class TelaFimJogo extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JButton jogarnovamenteBotao;
-    private javax.swing.JLabel moedaIcone;
     private javax.swing.JLabel poliedroIcone;
     private javax.swing.JButton sairBotao;
     // End of variables declaration//GEN-END:variables

@@ -1,73 +1,43 @@
 package br.mycompany.poliedroamilhao.persistencia;
 
-import br.mycompany.poliedroamilhao.persistencia.ConnectionFactory;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
 public class DAORanking {
+
+    private static final String SELECT_BASE = "SELECT Nome, Pontuacao, Serie FROM Aluno WHERE Serie LIKE ? ORDER BY Pontuacao DESC";
+
     public List<Object[]> obterRankingCompleto6() throws Exception {
-        List<Object[]> ranking = new ArrayList<>();
-        String sql = "SELECT Nome, Pontuacao, Serie FROM Aluno WHERE Serie LIKE '%_e_to%' ORDER BY Pontuacao DESC ;" ; // Busca nome e pontuação
-
-        try (
-            var conexao = new ConnectionFactory().obterConexao();
-            var ps = conexao.prepareStatement(sql);
-            var rs = ps.executeQuery();
-        ) {
-            while (rs.next()) {
-                String nome = rs.getString("Nome");
-                int pontuacao = rs.getInt("Pontuacao");
-                ranking.add(new Object[]{nome, pontuacao}); // Adiciona como array (nome, pontuação)
-            }
-        }
-        return ranking;
+        return obterRankingPorSerie("%_e_to%");
     }
+
     public List<Object[]> obterRankingCompleto7() throws Exception {
+        return obterRankingPorSerie("%__timo%");
+    }
+
+    public List<Object[]> obterRankingCompleto8() throws Exception {
+        return obterRankingPorSerie("_ita%");
+    }
+
+    public List<Object[]> obterRankingCompleto9() throws Exception {
+        return obterRankingPorSerie("%_non_%");
+    }
+
+    private List<Object[]> obterRankingPorSerie(String filtroSerie) throws Exception {
         List<Object[]> ranking = new ArrayList<>();
-        String sql = "SELECT Nome, Pontuacao, Serie FROM Aluno WHERE Serie LIKE '%__timo%' ORDER BY Pontuacao DESC ;"; // Busca nome e pontuação
 
         try (
-            var conexao = new ConnectionFactory().obterConexao();
-            var ps = conexao.prepareStatement(sql);
-            var rs = ps.executeQuery();
-        ) {
-            while (rs.next()) {
-                String nome = rs.getString("Nome");
-                int pontuacao = rs.getInt("Pontuacao");
-                ranking.add(new Object[]{nome, pontuacao}); // Adiciona como array (nome, pontuação)
-            }
-        }
-        return ranking;
-    }public List<Object[]> obterRankingCompleto8() throws Exception {
-        List<Object[]> ranking = new ArrayList<>();
-        String sql = "SELECT Nome, Pontuacao, Serie FROM Aluno WHERE Serie LIKE '_ita%' ORDER BY Pontuacao DESC ;"; // Busca nome e pontuação
+                var conexao = new ConnectionFactory().obterConexao(); var ps = conexao.prepareStatement(SELECT_BASE);) {
+            ps.setString(1, filtroSerie);
 
-        try (
-            var conexao = new ConnectionFactory().obterConexao();
-            var ps = conexao.prepareStatement(sql);
-            var rs = ps.executeQuery();
-        ) {
-            while (rs.next()) {
-                String nome = rs.getString("Nome");
-                int pontuacao = rs.getInt("Pontuacao");
-                ranking.add(new Object[]{nome, pontuacao}); // Adiciona como array (nome, pontuação)
-            }
-        }
-        return ranking;
-    }public List<Object[]> obterRankingCompleto9() throws Exception {
-        List<Object[]> ranking = new ArrayList<>();
-        String sql = "SELECT Nome, Pontuacao, Serie FROM Aluno WHERE Serie LIKE '%_non_%' ORDER BY Pontuacao DESC ;"; // Busca nome e pontuação
-
-        try (
-            var conexao = new ConnectionFactory().obterConexao();
-            var ps = conexao.prepareStatement(sql);
-            var rs = ps.executeQuery();
-        ) {
-            while (rs.next()) {
-                String nome = rs.getString("Nome");
-                int pontuacao = rs.getInt("Pontuacao");
-                ranking.add(new Object[]{nome, pontuacao}); // Adiciona como array (nome, pontuação)
+            try (var rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    ranking.add(new Object[]{
+                        rs.getString("Nome"),
+                        rs.getInt("Pontuacao")
+                    });
+                }
             }
         }
         return ranking;

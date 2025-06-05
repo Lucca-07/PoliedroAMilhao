@@ -1,28 +1,29 @@
-
 package br.mycompany.poliedroamilhao.modelo;
 
-
 public class Materia {
+
     private int id;
     private String nome;
-    
-     public Materia() {
+
+    public Materia() {
     }
 
-  
-            
-    public Materia(int id){
+    public Materia(int id) {
         this.id = id;
-        
     }
-    
-public int getId(){return id;}
-public void setId(int id){this.id = id; }
-    
-@Override
-public String toString(){
-    return nome;
-}
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return nome;
+    }
 
     public String getNome() {
         return nome;
@@ -31,6 +32,4 @@ public String toString(){
     public void setNome(String nome) {
         this.nome = nome;
     }
- 
-    
 }

@@ -1,8 +1,8 @@
 
-package com.mycompany.TelaAluno.telas;
+package br.mycompany.poliedroamilhao.telas;
 
-import com.mycompany.TelaAluno.modelo.ControleJogo;
-import com.mycompany.TelaAluno.persistencia.AlunoDAO;
+import br.mycompany.poliedroamilhao.persistencia.PontuacaoDAO;
+import br.mycompany.poliedroamilhao.persistencia.UsuarioDAO;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -36,37 +36,36 @@ public class TelaVitoriaJogo extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
-        fundoPanel.setBackground(new java.awt.Color(153, 255, 255));
+        fundoPanel.setBackground(new java.awt.Color(163, 236, 255));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/LogoPoliedroAMIlhao-removebg-500png.png"))); // NOI18N
 
-        jogarnovamenteBotao.setBackground(new java.awt.Color(0, 204, 204));
-        jogarnovamenteBotao.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jogarnovamenteBotao.setForeground(new java.awt.Color(255, 255, 255));
+        jogarnovamenteBotao.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jogarnovamenteBotao.setText("Jogar Novamente");
-        jogarnovamenteBotao.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jogarnovamenteBotao.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
         jogarnovamenteBotao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jogarnovamenteBotaoActionPerformed(evt);
             }
         });
 
-        sairBotao.setBackground(new java.awt.Color(0, 204, 204));
-        sairBotao.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        sairBotao.setForeground(new java.awt.Color(255, 255, 255));
+        sairBotao.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         sairBotao.setText("Sair");
-        sairBotao.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        sairBotao.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
         sairBotao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sairBotaoActionPerformed(evt);
             }
         });
 
-        parabensPanel.setBackground(new java.awt.Color(0, 204, 204));
+        parabensPanel.setBackground(new java.awt.Color(173, 230, 244));
+        parabensPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
         parabensPanel.setForeground(new java.awt.Color(255, 255, 255));
 
-        parabensLabel.setFont(new java.awt.Font("Tw Cen MT", 1, 48)); // NOI18N
+        parabensLabel.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        parabensLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         parabensLabel.setText("PARABÉNS, VOCÊ COMPLETOU O POLIEDRO A MILHÃO!");
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/moedaPOLIEDRO-removebg-150.png"))); // NOI18N
@@ -78,31 +77,31 @@ public class TelaVitoriaJogo extends javax.swing.JFrame {
         parabensPanel.setLayout(parabensPanelLayout);
         parabensPanelLayout.setHorizontalGroup(
             parabensPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, parabensPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(parabensLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 1157, Short.MAX_VALUE)
-                .addContainerGap())
             .addGroup(parabensPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(parabensPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(parabensLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1157, Short.MAX_VALUE)
+                    .addGroup(parabensPanelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel3)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         parabensPanelLayout.setVerticalGroup(
             parabensPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(parabensPanelLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(17, 17, 17)
                 .addComponent(parabensLabel)
                 .addGroup(parabensPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(parabensPanelLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3)
-                        .addContainerGap(14, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, parabensPanelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2)
-                        .addGap(51, 51, 51))))
+                        .addComponent(jLabel3))
+                    .addGroup(parabensPanelLayout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(jLabel2)))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout fundoPanelLayout = new javax.swing.GroupLayout(fundoPanel);
@@ -113,16 +112,16 @@ public class TelaVitoriaJogo extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fundoPanelLayout.createSequentialGroup()
-                .addContainerGap(96, Short.MAX_VALUE)
-                .addComponent(parabensPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(95, Short.MAX_VALUE))
             .addGroup(fundoPanelLayout.createSequentialGroup()
+                .addContainerGap(93, Short.MAX_VALUE)
+                .addComponent(parabensPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(94, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fundoPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(fundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(sairBotao, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jogarnovamenteBotao, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(263, 263, 263))
         );
         fundoPanelLayout.setVerticalGroup(
             fundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -131,11 +130,11 @@ public class TelaVitoriaJogo extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
                 .addComponent(parabensPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, Short.MAX_VALUE)
-                .addComponent(jogarnovamenteBotao, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addComponent(jogarnovamenteBotao, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(sairBotao, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -155,19 +154,19 @@ public class TelaVitoriaJogo extends javax.swing.JFrame {
 
     private void sairBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairBotaoActionPerformed
         try {
-            int idAluno = telaJogo.getIdAluno();
+            String nome = telaJogo.getNome();
             int reinicios = telaJogo.getContadorReinicios();
 
             // Calcula os pontos ganhos com base nos reinícios
-            int pontosGanhos = ControleJogo.calcularPontuacao(reinicios);
+            int pontosGanhos = PontuacaoDAO.calcularPontuacao(reinicios);
 
-            AlunoDAO dao = new AlunoDAO();
+            UsuarioDAO dao = new UsuarioDAO();
 
             // Garante que há uma premiação com esse valor
             dao.garantirPremiacaoExiste(pontosGanhos, pontosGanhos);
 
             // Atualiza o campo PontuacaoTotal SOMANDO os pontos ganhos
-            dao.atualizarPontuacaoTotalSomando(idAluno, pontosGanhos);
+            dao.atualizarPontuacaoTotalSomando(nome, pontosGanhos);
 
             //  SINCRONIZA OS CAMPOS PONTUACAO COM PONTUACAOTOTAL 
             dao.migrarPontuacaoTotalParaPontuacao();
@@ -189,25 +188,25 @@ public class TelaVitoriaJogo extends javax.swing.JFrame {
             TelaJogo.ajudaPularUsada = false;
             TelaJogo.ajudaTelefoneUsada = false;
 
-            int idAluno = telaJogo.getIdAluno();
+            String nome = telaJogo.getNome();
             int reinicios = telaJogo.getContadorReinicios();
 
             // Calcula os pontos ganhos com base nos reinícios
-            int pontosGanhos = ControleJogo.calcularPontuacao(reinicios);
+            int pontosGanhos = PontuacaoDAO.calcularPontuacao(reinicios);
 
-            AlunoDAO dao = new AlunoDAO();
+            UsuarioDAO dao = new UsuarioDAO();
 
             // Garante a premiação existir com esse valor
             dao.garantirPremiacaoExiste(pontosGanhos, pontosGanhos);
 
             // Soma esses pontos à pontuação total
-            dao.atualizarPontuacaoTotalSomando(idAluno, pontosGanhos);
+            dao.atualizarPontuacaoTotalSomando(nome, pontosGanhos);
 
             // SINCRONIZA OS CAMPOS PONTUACAO COM PONTUACAOTOTAL 
             dao.migrarPontuacaoTotalParaPontuacao();
 
             // Próxima tela
-            TelaModos telaModos = new TelaModos(idAluno);
+            TelaModos telaModos = new TelaModos(nome);
             telaModos.setVisible(true);
             this.dispose();
 

@@ -15,12 +15,20 @@ public class Usuario {
     private String email;
     private String senha;
     private String serie;
+    private int pontuacao;
     private boolean check;
     private boolean admin;
     
     public Usuario(String e, String s){
         senha = s;
         email = e;
+    }
+    
+    public Usuario(int id_usuario, String nome, String serie, int pontuacao){
+        this.id_usuario = id_usuario;
+        this.nome = nome;
+        this.serie = serie;
+        this.pontuacao = pontuacao;
     }
     
     public Usuario(String n, String e, String s){
@@ -39,7 +47,23 @@ public class Usuario {
         this.check = check;
         this.admin = admin;
     }
+    
+    public Usuario(String n, boolean check, boolean admin) {
+        nome = n;
+        this.check = check;
+        this.admin = admin;
+    }
 
+    public int getPontuacao() {
+        return pontuacao;
+    }
+
+    public void setPontuacao(int pontuacao) {
+        this.pontuacao = pontuacao;
+    }
+
+    
+    
     public int getId_usuario() {
         return id_usuario;
     }
