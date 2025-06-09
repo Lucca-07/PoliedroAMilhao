@@ -15,17 +15,19 @@ public class TelaInicial extends javax.swing.JFrame {
         this.setExtendedState(MAXIMIZED_BOTH);
         nomeLabel.setText(nome);
         bemvindoLabel.setText("Seja bem vindo, " + nome + "!");
+        
+        moedasTotais();
     }
     
     private void moedasTotais() throws Exception {
-        
+
         UsuarioDAO dao = new UsuarioDAO();
 
         int idPremiacao = dao.buscarPontuacaoPorNome(nome);
 
         int moedas = dao.buscarPontuacaoPorId(idPremiacao);
 
-        moedasLabel.setText("Moedas: "+ moedas);
+        moedasLabel.setText("Moedas: " + moedas);
 
     }
 

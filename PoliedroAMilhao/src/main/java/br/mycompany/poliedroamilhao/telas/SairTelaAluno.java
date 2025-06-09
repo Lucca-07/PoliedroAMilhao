@@ -4,26 +4,40 @@
  */
 package br.mycompany.poliedroamilhao.telas;
 
+import br.mycompany.poliedroamilhao.persistencia.PontuacaoDAO;
+import br.mycompany.poliedroamilhao.persistencia.UsuarioDAO;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Lucca
  */
 public class SairTelaAluno extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(SairTelaAluno.class.getName());
 
     /**
      * Creates new form SairTelaAluno
      */
-    
     private static ConfiguracoesAluno config;
-    
+    private static TelaJogo telaJogo;
     public SairTelaAluno(ConfiguracoesAluno cf) {
         initComponents();
         config = cf;
     }
-    public SairTelaAluno() {
+
+    public SairTelaAluno(TelaJogo tj) {
         initComponents();
+        telaJogo = tj;
+    }
+
+    
+    private void reiniciarAjudas() {
+        TelaJogo.ajudaUniversitariaUsada = false;
+        TelaJogo.ajudaCortarUsada = false;
+        TelaJogo.ajudaPularUsada = false;
+        TelaJogo.ajudaTelefoneUsada = false;
     }
     
     /**
@@ -120,7 +134,25 @@ public class SairTelaAluno extends javax.swing.JFrame {
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
         // TODO add your handling code here:
-        System.exit(0);
+        try {
+            reiniciarAjudas();
+            String nome = telaJogo.getNome();
+            int reinicios = telaJogo.getContadorReinicios();
+            int pontosGanhos = PontuacaoDAO.calcularPontuacao(reinicios);
+
+            UsuarioDAO dao = new UsuarioDAO();
+            dao.garantirPremiacaoExiste(pontosGanhos, pontosGanhos);
+            dao.atualizarPontuacaoTotalSomando(nome, pontosGanhos);
+            dao.migrarPontuacaoTotalParaPontuacao();
+
+            TelaModos telaModos = new TelaModos(nome);
+            telaModos.setVisible(true);
+            telaJogo.dispose();
+            this.dispose();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            Logger.getLogger(TelaFimJogo.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
