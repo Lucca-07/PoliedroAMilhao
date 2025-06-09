@@ -112,11 +112,12 @@ public class TelaConfirmacaoCorreta extends javax.swing.JFrame {
         try {
             // TODO add your handling code here:
             telaJogo.proximaPergunta(nome);
+            this.dispose();
         } catch (Exception ex) {
             Logger.getLogger(TelaConfirmacaoCorreta.class.getName()).log(Level.SEVERE, null, ex);
         }
         telaJogo.pararTemporizador();
-        this.dispose();
+        
         
 
         

@@ -153,7 +153,7 @@ public class TelaJogo extends javax.swing.JFrame {
         return this.contadorReinicios;
     }
     public String getNome() {
-        return nome;
+        return this.nome;
     }
     
     public void atualizarPontuacao(int reinicios) {
@@ -185,7 +185,6 @@ public class TelaJogo extends javax.swing.JFrame {
         atualizarPontuacao(contadorReinicios);
         contadorReinicios++;
         PontuacaoDAO.idsUsadas.add(idPerguntaAtual);
-        this.dispose();
         if (contadorReinicios == 13) {
             TelaVitoriaJogo telaVitoriaJogo = new TelaVitoriaJogo(this);
             telaVitoriaJogo.setVisible(true);
@@ -193,6 +192,7 @@ public class TelaJogo extends javax.swing.JFrame {
             TelaJogo novaTela = new TelaJogo(contadorReinicios, obterConexao, nome, idMateria);
             novaTela.setVisible(true);
         }
+        this.dispose();
     }
 
     public void cortarTresAlternativasErradas() {
@@ -784,7 +784,8 @@ public class TelaJogo extends javax.swing.JFrame {
             Respostas correta = dao.AlternativaCorreta(idPerguntaAtual);
 
             if (respostaSelecionadaD.getCorreta() == true) {
-                new TelaConfirmacaoCorreta(this, nome).setVisible(true);
+                TelaConfirmacaoCorreta tcc = new TelaConfirmacaoCorreta(this, nome);
+                tcc.setVisible(true);
                 
             } else {
                 TelaConfirmacaoErrada confirmacao = new TelaConfirmacaoErrada(this);
@@ -880,7 +881,7 @@ public class TelaJogo extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
-        SairTelaAluno sta = new SairTelaAluno();
+        SairTelaAluno sta = new SairTelaAluno(this);
         sta.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 

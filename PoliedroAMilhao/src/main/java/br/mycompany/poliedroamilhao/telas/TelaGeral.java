@@ -8,11 +8,11 @@ import javax.swing.JOptionPane;
 public class TelaGeral extends javax.swing.JFrame {
     private static String nome;
     private static int idMateria;
-    private TelaModos telaModos;
-
-    public TelaGeral(String nome, int idMateria) {
+    private static TelaModos telaModos;
+    public TelaGeral(String nome, int idMateria, TelaModos tm) {
         this.nome = nome;
         this.idMateria = idMateria;
+        this.telaModos = tm;
         initComponents();
     }
 
@@ -141,10 +141,7 @@ public class TelaGeral extends javax.swing.JFrame {
 
             TelaJogo telaJogo = new TelaJogo(1, conexao, nome, idMateria);
             telaJogo.setVisible(true);
-
-            if (telaModos != null) {
-                telaModos.dispose();
-            }
+            telaModos.dispose();
             this.dispose();
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -182,7 +179,7 @@ public class TelaGeral extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaGeral(nome, idMateria).setVisible(true);
+                new TelaGeral(nome, idMateria, telaModos).setVisible(true);
             }
         });
     }

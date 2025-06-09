@@ -272,7 +272,7 @@ public class TelaModos extends javax.swing.JFrame {
 
     private void BotãoGeralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotãoGeralActionPerformed
         // TODO add your handling code here:
-        TelaGeral telaGeral = new TelaGeral(nome, 0);
+        TelaGeral telaGeral = new TelaGeral(nome, 0, this);
         telaGeral.setVisible(true);
     }//GEN-LAST:event_BotãoGeralActionPerformed
 

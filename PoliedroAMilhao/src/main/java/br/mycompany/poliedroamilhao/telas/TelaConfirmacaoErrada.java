@@ -9,14 +9,12 @@ import br.mycompany.poliedroamilhao.persistencia.PontuacaoDAO;
  */
 
 public class TelaConfirmacaoErrada extends javax.swing.JFrame {
-    private TelaJogo telaJogo;
+    private static TelaJogo telaJogo;
     
    
     public TelaConfirmacaoErrada(TelaJogo telaJogo) {
-        initComponents();
         this.telaJogo = telaJogo;
-        
-
+        initComponents();
     }
 
     /**
